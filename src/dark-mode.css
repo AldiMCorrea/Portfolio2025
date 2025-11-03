@@ -1,0 +1,39 @@
+body.dark-mode {
+  background-color: #8684846a;
+  color: #fff;
+}
+
+body.dark-mode .header {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .logo span {
+  color: #fff;
+}
+
+body.dark-mode nav ul li a {
+  color: #ccc;
+}
+
+body.dark-mode nav ul li a:hover {
+  color: #fff;
+}
+
+body.dark-mode .language-switcher,
+body.dark-mode .theme-switcher {
+  color: #ccc;
+}
+
+body.dark-mode .language-switcher:hover,
+body.dark-mode .theme-switcher:hover {
+  color: #fff;
+}
+
+body.dark-mode section {
+  background-color: #807e7e14;
+}
+
+body.dark-mode h2 {
+  color: #fff;
+}

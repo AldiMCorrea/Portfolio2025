@@ -1,0 +1,106 @@
+/* General Styles */
+html {
+  overflow: hidden; /* Hide main scrollbar */
+}
+
+body {
+  font-family: 'Questrial', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec, #c3daed, #aed3e9);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: gradientAnimation 15s ease infinite;
+  color: #333;
+  overflow: hidden; /* Hide main scrollbar */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: gradientAnimation 15s ease infinite;
+  color: #fff;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Set App height to full viewport height */
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  padding: 1rem;
+  overflow-y: auto; /* Allow scrolling within the main content */
+}
+
+/* Hide scrollbar for main element */
+main::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+section {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+body.dark-mode section {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+body.dark-mode h2 {
+  color: #fff;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  section {
+    padding: 1rem;
+  }
+}

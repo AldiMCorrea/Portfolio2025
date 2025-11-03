@@ -1,0 +1,125 @@
+{
+  "header": {
+    "about": "About Me",
+    "projects": "Projects",
+    "resume": "Resume",
+    "contact": "Contact Me",
+    "language": "Language"
+  },
+  "about": {
+    "title": "About Me",
+    "content": "I have extensive experience in the electronics sector, specializing in hardware and firmware development, being both effective and innovative in providing high-quality solutions for each project. I possess knowledge in embedded systems related to IoT, electronics, and web development, and I am passionate about Artificial Intelligence, neural networks, reverse engineering, circuit analysis, IoT (Internet of Things), and industrial automation. Self-taught and highly versatile when working on multiple tasks."
+  },
+  "education": {
+    "title": "Education",
+    "degree1": "Electronic Enginnering - UTN (National Technology University)",
+    "date1": "2019 - 2024",
+    "degree2": "Software Enginnering - Siglo XXI University",
+    "date2": "2024 - Present"
+  },
+  "workExperience": {
+    "title": "Work Experience",
+    "job1_title": "software and firmware developer - tecme sa",
+    "job1_date": "Tecme SA | 04/2023 - Present",
+    "job1_desc": [
+      "Developed and maintained mission-critical firmware (IEC 62304 compliant) in C/C++ for a medical pulmonary ventilator, managing high-reliability tasks on the QNX RTOS.",
+      "Implemented real-time control logic (sensor reading, actuator control) and the critical alarm system using C++ Finite State Machines (FSMs) for various ventilation modes.",
+      "Designed, implemented, and maintained low-level C drivers for the Toradex i.MX 6 Quad Core (ARM Cortex-A9) platform, interfacing with peripherals (I2C, SPI, ADC) and participating in the board bring-up process.",
+      "Integrated the Qt/QML-based HMI with the C++ control backend, establishing the communication API for real-time data visualization and alarm propagation.",
+      "Developed and maintained a robust unit testing suite (e.g., GoogleTest/CppUnit) for C++ modules, ensuring code quality, reliability, and facilitating regression-free development.",
+      "Automated the software internationalization (i18n) pipeline by developing Python scripts that consumed AI-based translation APIs for UI strings.",
+      "Developed code-generation (scaffolding) tools in C++ and Python to auto-generate system parameters and boilerplate code, ensuring consistency with the MVVM (Model-View-ViewModel) architecture.",
+      "Debbuging RS232"
+    ],
+    "job2_title": "firmware developer",
+    "job2_date": "RUF Functional Utility Robotics | May 2021 - Jun 2022",
+    "job2_subtitle": "Smart plug for remote security monitoring through cameras",
+    "job2_desc": [
+      "I established communication between companies and international technicians to streamline the development and research of the microcontroller, I designed a solid structure for programming and recording on each microcontroller (ESP12 ESP32 ESP8266 and RTL) using C and C++ language, Web Design, the SDK and RTOS of the company Espressif, obtaining successful results in time and error correction in testing.",
+      "I achieved efficiency creating technical business documentation in each process, in the project I managed GitHub, GitLab and Scrum methodology."
+    ],
+    "job3_title": "Research & Development Inter",
+    "job3_date": "UTN National Technological University | March 2021 - Dec 2023",
+    "job3_subtitle": "Research and Development - Project of current, voltage and power measurement of home electrical networks.",
+    "job3_desc": [
+      "Develop an electrical measurement equipment with remote communication and sending data in real time, using embedded systems tools such as ESP, power, current and voltage sensors. The product achieved optimization, efficiency and energy control."
+    ]
+  },
+  "skills": {
+    "title": "Skills & Competencies",
+    "skills": [
+      "Advanced C++ Programming and Design Patterns",
+      "Multi-threaded and concurrent programming",
+      "Performace optimization and profilling",
+      "Quantum Computing integration for C++",
+      "Cross-platform development (Windows, Linux)",
+      "Agile and Scrum Methodologies"
+    ],
+    "certifications_title": "COURSE & CERTIFICATIONS",
+    "certifications": [
+      "QNX Real-Time Operating System - Blackberry QNX",
+      "Object Oriented Programming in C++ - Udemy",
+      "Implantables Electronics Devices and Medical Applications - EAMTA - Argentina School of Micro-NanoElectronics Technology and Applications",
+      "Mastering Kali Linux for Ethical Hackers - Udemy",
+      "Lenguaje C Avanzado - Noble Work Foundation"
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "formTitle": "Send me a message",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "sendButton": "Send Message"
+  },
+  "projects": {
+    "title": "Projects",
+
+    "project2": {
+      "title": "IoT Smart Plug",
+      "description": "Designed and developed the firmware for a smart plug with remote security monitoring capabilities. This project included working with ESP32 and ESP8266 microcontrollers, and implementing communication protocols for remote control and data acquisition.",
+      "link": "View on GitHub"
+    },
+    "project3": {
+      "title": "Remote Power Monitoring System",
+      "description": "Developed a system for remote measurement of current, voltage, and power in home electrical networks. This project involved using embedded systems tools, power sensors, and real-time data transmission for energy optimization.",
+      "link": "View on GitHub"
+    },
+    "project4": {
+      "title": "IoT Data Acquisition Platform",
+      "description": "Designed and built a scalable IoT platform for collecting and visualizing data from various sensors. This project included developing a web-based dashboard for real-time data monitoring and analysis.",
+      "link": "View on GitHub"
+    }
+  },
+  "resume": {
+    "title": "Resume",
+    "intro": "Here you can find my professional experience and educational background.",
+    "downloadButton": "Download Resume"
+  },
+  "technologies": {
+    "title": "Technologies",
+    "list": [
+      "QNX",
+      "C",
+      "C++",
+      "Python",
+      "Embedded Systems",
+      "IoT",
+      "Medical Devices",
+      "Firmware Development",
+      "Hardware Development",
+      "RTOS",
+      "Git",
+      "Scrum"
+    ]
+  },
+  "hero": {
+    "title": "Embedded System Developer",
+    "subtitle": "Hi I’m Aldana Correa",
+    "description": "I'm a software and firmware developer with a passion for creating innovative solutions. With a strong background.",
+    "downloadResume": "Download Resume",
+    "contactMe": "Contact Me",
+    "askMeAnything": "Ask me anything",
+    "askMePlaceholder": "Ask me anything about my work..."
+  }
+}

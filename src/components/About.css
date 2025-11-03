@@ -1,0 +1,23 @@
+#about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.about-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.circuit-animation {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 300px;
+  max-width: 400px;
+  margin: 0 auto;
+}

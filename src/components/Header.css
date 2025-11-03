@@ -1,0 +1,193 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  position: relative; /* Ensure z-index works */
+  z-index: 1000; /* High z-index for the header */
+}
+
+body.dark-mode .header {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+body.dark-mode .logo span {
+  color: #fff;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #007bff;
+}
+
+body.dark-mode nav ul li a {
+  color: #ccc;
+}
+
+body.dark-mode nav ul li a:hover {
+  color: #fff;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right > * {
+  margin-left: 1rem;
+}
+
+.header-right a {
+  font-size: 1.5rem; /* Increase icon size */
+  color: #555; /* Default color for icons */
+  transition: color 0.3s ease;
+}
+
+.header-right a:hover {
+  color: #007bff; /* Hover color for icons */
+}
+
+body.dark-mode .header-right a {
+  color: #fff; /* Dark mode color for icons */
+}
+
+body.dark-mode .header-right a:hover {
+  color: #007bff; /* Dark mode hover color for icons */
+}
+
+.theme-switcher {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  color: #555;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.theme-switcher:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  transform: translateY(-2px);
+}
+
+body.dark-mode .theme-switcher {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  color: #fff;
+}
+
+body.dark-mode .theme-switcher:hover {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+}
+
+.language-selector-container {
+  position: relative; /* Needed for absolute positioning of dropdown */
+  display: flex;
+  align-items: center;
+  z-index: 100; /* Ensure dropdown is above other content */
+}
+
+.flags-select button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+  color: #555 !important;
+  padding: 0.5rem !important;
+  border-radius: 5px !important;
+  height: auto !important;
+  transition: all 0.3s ease !important;
+}
+
+.flags-select button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
+  transform: translateY(-2px) !important;
+}
+
+body.dark-mode .flags-select button {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)) !important;
+  border: 1px solid rgba(0, 0, 0, 0.18) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+  color: #fff !important;
+}
+
+body.dark-mode .flags-select button:hover {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)) !important;
+}
+
+.flags-select span {
+  font-size: 1 rem !important;
+}
+
+/* Styles for the react-flags-select dropdown */
+.flags-select .menu {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border-radius: 4px;
+  z-index: 1001; /* Higher than the container */
+}
+
+body.dark-mode .flags-select .menu {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.989), rgba(0, 0, 0, 0));
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.flags-select .menu-item {
+  color: #333;
+}
+
+body.dark-mode .flags-select .menu-item {
+  color: #fff;
+}
+
+.flags-select .menu-item:hover {
+  background-color: rgba(41, 13, 13, 0);
+}
+
+body.dark-mode .flags-select .menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}

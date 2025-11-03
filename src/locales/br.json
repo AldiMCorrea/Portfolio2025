@@ -1,0 +1,125 @@
+{
+  "header": {
+    "about": "Sobre Mim",
+    "projects": "Projetos",
+    "resume": "Currículo",
+    "contact": "Contate-Me",
+    "language": "Idioma"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "content": "Tenho vasta experiência no setor de eletrônicos, com especialização em desenvolvimento de hardware e firmware, sendo eficaz e inovador no fornecimento de soluções de alta qualidade para cada projeto. Possuo conhecimento em sistemas embarcados relacionados a IoT, eletrônica e desenvolvimento web, e sou apaixonado por Inteligência Artificial, redes neurais, engenharia reversa, análise de circuitos, IoT (Internet das Coisas) e automação industrial. Autodidata e muito versátil ao trabalhar em múltiplas tarefas."
+  },
+  "education": {
+    "title": "Educação",
+    "degree1": "Engenharia Eletrônica - UTN (Universidade Tecnológica Nacional)",
+    "date1": "2019 - 2024",
+    "degree2": "Engenharia de Software - Universidade Siglo XXI",
+    "date2": "2024 - Presente"
+  },
+  "workExperience": {
+    "title": "Experiência de Trabalho",
+    "job1_title": "desenvolvedor de software e firmware - tecme sa",
+    "job1_date": "Tecme SA | 04/2023 - Presente",
+    "job1_desc": [
+      "Desenvolvi e mantive firmware de missão crítica (compatível com IEC 62304) em C/C++ para um ventilador pulmonar médico, gerenciando tarefas de alta confiabilidade no RTOS QNX.",
+      "Implementei a lógica de controle em tempo real (leitura de sensores, controle de atuadores) e o sistema de alarme crítico usando Máquinas de Estados Finitos (FSM) em C++ para vários modos de ventilação.",
+      "Projetei, implementei e mantive drivers de baixo nível em C para a plataforma Toradex i.MX 6 Quad Core (ARM Cortex-A9), fazendo a interface com periféricos (I2C, SPI, ADC) e participando do processo de inicialização da placa.",
+      "Integrei a HMI baseada em Qt/QML com o backend de controle em C++, estabelecendo a API de comunicação para visualização de dados em tempo real e propagação de alarmes.",
+      "Desenvolvi e mantive um robusto conjunto de testes unitários (por exemplo, GoogleTest/CppUnit) para módulos C++, garantindo a qualidade do código, a confiabilidade e facilitando o desenvolvimento livre de regressões.",
+      "Automatizei o pipeline de internacionalização (i18n) do software desenvolvendo scripts em Python que consumiam APIs de tradução baseadas em IA para as strings da interface do usuário.",
+      "Desenvolvi ferramentas de geração de código (scaffolding) em C++ e Python para autogerar parâmetros do sistema e código boilerplate, garantindo a consistência com a arquitetura MVVM (Modelo-Visão-VisãoModelo).",
+      "Depuração de RS232"
+    ],
+    "job2_title": "desenvolvedor de firmware",
+    "job2_date": "RUF Robótica Utilitária Funcional | Maio 2021 - Junho 2022",
+    "job2_subtitle": "Plugue inteligente para monitoramento remoto de segurança através de câmeras",
+    "job2_desc": [
+      "Estabeleci comunicação entre empresas e técnicos internacionais para agilizar o desenvolvimento e a pesquisa do microcontrolador, projetei uma estrutura sólida para programação e gravação em cada microcontrolador (ESP12 ESP32 ESP8266 e RTL) usando a linguagem C e C++, Web Design, o SDK e o RTOS da empresa Espressif, obtendo resultados bem-sucedidos em tempo e correção de erros nos testes.",
+      "Alcancei eficiência na criação de documentação técnica de negócios em cada processo, no projeto gerenciei o GitHub, GitLab e a metodologia Scrum."
+    ],
+    "job3_title": "Estagiário de Pesquisa e Desenvolvimento",
+    "job3_date": "UTN Universidade Tecnológica Nacional | Março 2021 - Dezembro 2023",
+    "job3_subtitle": "Pesquisa e Desenvolvimento - Projeto de medição de corrente, tensão e potência de redes elétricas domésticas.",
+    "job3_desc": [
+      "Desenvolver um equipamento de medição elétrica com comunicação remota e envio de dados em tempo real, utilizando ferramentas de sistemas embarcados como ESP, sensores de potência, corrente e tensão. O produto alcançou otimização, eficiência e controle de energia."
+    ]
+  },
+  "skills": {
+    "title": "Habilidades e Competências",
+    "skills": [
+      "Programação Avançada em C++ e Padrões de Projeto",
+      "Programação concorrente e multithread",
+      "Otimização e perfil de desempenho",
+      "Integração de Computação Quântica para C++",
+      "Desenvolvimento multiplataforma (Windows, Linux)",
+      "Metodologias Ágeis e Scrum"
+    ],
+    "certifications_title": "CURSOS E CERTIFICAÇÕES",
+    "certifications": [
+      "Sistema Operacional em Tempo Real QNX - Blackberry QNX",
+      "Programação Orientada a Objetos em C++ - Udemy",
+      "Dispositivos Eletrônicos Implantáveis e Aplicações Médicas - EAMTA - Escola Argentina de Tecnologia de Micro-NanoEletrônica e Aplicações",
+      "Dominando o Kali Linux para Hackers Éticos - Udemy",
+      "Linguagem C Avançada - Fundação Noble Work"
+    ]
+  },
+  "contact": {
+    "title": "Contato",
+    "formTitle": "Envie-me uma mensagem",
+    "nameLabel": "Nome",
+    "emailLabel": "E-mail",
+    "messageLabel": "Mensagem",
+    "sendButton": "Enviar Mensagem"
+  },
+  "projects": {
+    "title": "Projetos",
+
+    "project2": {
+      "title": "Plugue Inteligente IoT",
+      "description": "Projetei e desenvolvi o firmware para um plugue inteligente com recursos de monitoramento remoto de segurança. Este projeto incluiu trabalhar com microcontroladores ESP32 e ESP8266 e implementar protocolos de comunicação para controle remoto e aquisição de dados.",
+      "link": "Ver no GitHub"
+    },
+    "project3": {
+      "title": "Sistema Remoto de Monitoramento de Energia",
+      "description": "Desenvolvi um sistema para medição remota de corrente, tensão e potência em redes elétricas domésticas. Este projeto envolveu o uso de ferramentas de sistemas embarcados, sensores de potência e transmissão de dados em tempo real para otimização de energia.",
+      "link": "Ver no GitHub"
+    },
+    "project4": {
+      "title": "Plataforma de Aquisição de Dados IoT",
+      "description": "Projetei e construí uma plataforma IoT escalável para coletar e visualizar dados de vários sensores. Este projeto incluiu o desenvolvimento de um painel baseado na web para monitoramento e análise de dados em tempo real.",
+      "link": "Ver no GitHub"
+    }
+  },
+  "resume": {
+    "title": "Currículo",
+    "intro": "Aqui você pode encontrar minha experiência profissional e formação acadêmica.",
+    "downloadButton": "Baixar Currículo"
+  },
+  "technologies": {
+    "title": "Tecnologias",
+    "list": [
+      "QNX",
+      "C",
+      "C++",
+      "Python",
+      "Sistemas Embarcados",
+      "IoT",
+      "Dispositivos Médicos",
+      "Desenvolvimento de Firmware",
+      "Desenvolvimento de Hardware",
+      "RTOS",
+      "Git",
+      "Scrum"
+    ]
+  },
+  "hero": {
+    "title": "Desenvolvedor de Sistemas Embarcados",
+    "subtitle": "Olá, sou Aldana Correa",
+    "description": "Sou desenvolvedora de software e firmware com paixão por criar soluções inovadoras. Com uma sólida experiência.",
+    "downloadResume": "Baixar Currículo",
+    "contactMe": "Contate-me",
+    "askMeAnything": "Pergunte-me qualquer coisa",
+    "askMePlaceholder": "Pergunte-me qualquer coisa sobre meu trabalho..."
+  }
+}
