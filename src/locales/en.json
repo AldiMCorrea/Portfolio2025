@@ -89,6 +89,21 @@
       "title": "IoT Data Acquisition Platform",
       "description": "Designed and built a scalable IoT platform for collecting and visualizing data from various sensors. This project included developing a web-based dashboard for real-time data monitoring and analysis.",
       "link": "View on GitHub"
+    },
+    "project5": {
+      "title": "AI-Powered Bird Feeder",
+      "description": "Transformed a bird feeder into a smart device that identifies bird species in real-time using a camera and AI on an ESP32-S3. It logs visits, displays statistics on a web dashboard, and sends notifications.",
+      "link": "View on GitHub"
+    },
+    "project6": {
+      "title": "Interactive Weather Station",
+      "description": "Developed an ESP32-S3 weather station with a color touchscreen. It displays weather from APIs and local air quality data (PM2.5, CO2, VOCs) with a fluid and attractive UI.",
+      "link": "View on GitHub"
+    },
+    "project7": {
+      "title": "Smart Agriculture with Precision Irrigation",
+      "description": "Implemented an IoT agriculture system using a wireless sensor network (ESP-NOW) to monitor and automate precision irrigation. It sends data to the cloud for remote monitoring and zone control.",
+      "link": "View on GitHub"
     }
   },
   "resume": {

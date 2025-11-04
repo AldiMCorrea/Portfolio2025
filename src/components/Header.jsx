@@ -22,7 +22,6 @@ const Header = ({ toggleTheme, isDarkMode }) => {
           <li><a href="#about">{t('header.about')}</a></li>
           <li><a href="#projects">{t('header.projects')}</a></li>
           <li><a href="#technologies">{t('header.technologies')}</a></li>
-          <li><a href="#resume">{t('header.resume')}</a></li>
           <li><a href="#contact">{t('header.contact')}</a></li>
         </ul>
       </nav>

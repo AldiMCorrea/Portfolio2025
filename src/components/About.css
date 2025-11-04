@@ -1,23 +1,69 @@
 #about {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Align to the left */
   padding: 2rem;
   gap: 2rem;
+  background-image: url('../assets/aboutme-image/circuit.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border-radius: 20px;
+  padding: 0.75rem;
+  max-width: 600px; /* New, smaller max-width for the entire glass box */
+  width: 100%; /* Ensure it takes up available space up to max-width */
 }
 
 .about-content {
-  flex: 1;
-  max-width: 600px;
+  flex: 1; /* Allow it to grow/shrink */
+  max-width: 300px; /* Control the max width of the text content */
+  text-align: center; /* Center the text */
 }
 
 .chip-animation {
-  flex: 1;
+  flex: 1; /* Allow it to grow/shrink */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 300px;
-  max-width: 400px;
+  min-height: 150px;
+  max-width: 300px; /* Control the max width of the animation */
   margin: 0 auto;
+}
+
+.about-content h2,
+.about-content p {
+  color: #fff; /* White text for light mode */
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0; /* Start invisible */
+}
+
+.about-content p {
+  animation-delay: 0.5s; /* Delay paragraph animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.dark-mode .about-content h2,
+body.dark-mode .about-content p {
+  color: #fff; /* Ensure text remains white in dark mode */
 }

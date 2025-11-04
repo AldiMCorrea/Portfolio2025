@@ -89,6 +89,21 @@
       "title": "Plataforma de Adquisición de Datos IoT",
       "description": "Diseñé y construí una plataforma IoT escalable para recopilar y visualizar datos de varios sensores. Este proyecto incluyó el desarrollo de un panel de control basado en la web para el monitoreo y análisis de datos en tiempo real.",
       "link": "Ver en GitHub"
+    },
+    "project5": {
+      "title": "Comedero Inteligente para Aves con IA",
+      "description": "Transformé un comedero de aves en un dispositivo inteligente que identifica especies en tiempo real usando una cámara y IA en un ESP32-S3. Registra visitas, muestra estadísticas en un dashboard web y envía notificaciones.",
+      "link": "Ver en GitHub"
+    },
+    "project6": {
+      "title": "Estación Meteorológica Interactiva",
+      "description": "Desarrollé una estación meteorológica con ESP32-S3 y pantalla táctil a color. Muestra clima de APIs y datos de calidad del aire (PM2.5, CO2, COVs) de sensores locales, con una UI fluida y atractiva.",
+      "link": "Ver en GitHub"
+    },
+    "project7": {
+      "title": "Agricultura Inteligente con Riego de Precisión",
+      "description": "Implementé un sistema IoT para agricultura que usa una red de sensores inalámbricos (ESP-NOW) para monitorear y automatizar el riego de precisión. Envía datos a la nube para monitoreo remoto y control por zonas.",
+      "link": "Ver en GitHub"
     }
   },
   "resume": {
