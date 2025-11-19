@@ -18,26 +18,29 @@ const Contact = () => {
           </div>
           <div className="contact-item">
             <BsTelephoneFill className="contact-icon" />
-            <p>(54) 3517892061</p>
+            <p>(+549) 3517892061</p>
           </div>
           <div className="contact-item">
             <FaMapMarkerAlt className="contact-icon" />
-            <p>Argentina</p>
+            <p>Córdoba, Argentina.</p>
           </div>
           <div className="contact-item">
             <a href="https://linkedin.com/in/aldanamelanicorrea" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="contact-icon" />
             </a>
+            <a href="https://linkedin.com/in/aldanamelanicorrea" target="_blank" rel="noopener noreferrer">linkedin.com/in/aldanamelanicorrea</a>
           </div>
           <div className="contact-item">
             <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">
               <FaGithub className="contact-icon" />
             </a>
+            <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">github.com/AldiMCorrea</a>
           </div>
           <div className="contact-item">
             <a href="https://aldanamcorrea.com" target="_blank" rel="noopener noreferrer">
               <FaGlobe className="contact-icon" />
             </a>
+            <a href="https://aldanamcorrea.com" target="_blank" rel="noopener noreferrer">aldanamcorrea.com</a>
           </div>
         </div>
         <div className="contact-form">
