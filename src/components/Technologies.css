@@ -42,11 +42,14 @@ body.dark-mode .category-section h3 {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  aspect-ratio: 1 / 1; /* Make the card square */
+  text-decoration: none; /* Ensure text is not underlined if it becomes a link */
 }
 
 .technology-card:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.47);
+  transform: translateY(-8px) scale(1.08); /* More pronounced lift and scale */
+  box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.6); /* Stronger shadow */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); /* Subtle background change */
 }
 
 body.dark-mode .technology-card {
