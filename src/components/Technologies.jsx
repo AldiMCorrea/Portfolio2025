@@ -85,7 +85,7 @@ const Technologies = () => {
           <h3>{categories[key].title}</h3>
           <Slider {...settings}>
             {categories[key].list.map((tech, index) => (
-              <div key={index} className="technology-card">
+              <div key={tech} className="technology-card">
                 {iconMap[tech] && <img src={iconMap[tech]} alt={tech} className="tech-icon" />}
                 <span>{tech}</span>
               </div>
