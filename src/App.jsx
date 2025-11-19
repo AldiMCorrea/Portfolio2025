@@ -4,9 +4,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Contact from './components/Contact';
-import Projects from './components/Projects';
-import Technologies from './components/Technologies';
-import { useState } from 'react';
+import TypingEffect from './components/TypingEffect';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -24,7 +22,10 @@ function App() {
         <About />
         <Projects />
         <Technologies />
+        <WorkExperience />
+        <Education />
         <Contact />
+        <TypingEffect text="\"The best way to predict the future is to invent it.\" - Alan Kay" />
       </main>
     </div>
   );

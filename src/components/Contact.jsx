@@ -25,15 +25,21 @@ const Contact = () => {
             <p>Argentina</p>
           </div>
           <div className="contact-item">
-            <FaLinkedin className="contact-icon" />
+            <a href="https://linkedin.com/in/aldanamelanicorrea" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin className="contact-icon" />
+            </a>
             <a href="https://linkedin.com/in/aldanamelanicorrea" target="_blank" rel="noopener noreferrer">linkedin.com/in/aldanamelanicorrea</a>
           </div>
           <div className="contact-item">
-            <FaGithub className="contact-icon" />
+            <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">
+              <FaGithub className="contact-icon" />
+            </a>
             <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">github.com/AldiMCorrea</a>
           </div>
           <div className="contact-item">
-            <FaGlobe className="contact-icon" />
+            <a href="https://aldanamcorrea.com" target="_blank" rel="noopener noreferrer">
+              <FaGlobe className="contact-icon" />
+            </a>
             <a href="https://aldanamcorrea.com" target="_blank" rel="noopener noreferrer">aldanamcorrea.com</a>
           </div>
         </div>

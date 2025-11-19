@@ -67,12 +67,13 @@ body.dark-mode .contact-info p {
 }
 
 .contact-info a {
-  color: #007bff;
+  color: #0056b3; /* Darker blue */
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-  text-decoration: underline;
+  color: #007bff; /* Lighter blue on hover */
 }
 
 .contact-form h3 {
