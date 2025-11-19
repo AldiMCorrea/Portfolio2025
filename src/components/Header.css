@@ -196,9 +196,9 @@ body.dark-mode .flags-select .menu-item {
 }
 
 .flags-select .menu-item:hover {
-  background-color: rgba(41, 13, 13, 0);
+  background-color: rgba(0, 123, 255, 0.2);
 }
 
 body.dark-mode .flags-select .menu-item:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(0, 123, 255, 0.3);
 }
