@@ -8,7 +8,7 @@
 }
 
 .category-section h3 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   margin-bottom: 1.5rem;
   color: #333;
   border-bottom: 2px solid #007bff;
@@ -22,8 +22,9 @@ body.dark-mode .category-section h3 {
 }
 
 .technologies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust minmax for smaller cards */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin-top: 2rem;
 }
