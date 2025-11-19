@@ -174,7 +174,7 @@ body.dark-mode .flags-select button:hover {
   z-index: 1001; /* Higher than the container */
 }
 
-body.dark-mode .flags-select .menu {
+body.dark-mode .flags-select .optionsWrapper {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.989), rgba(0, 0, 0, 0));
   border: 1px solid rgba(0, 0, 0, 0.18);
 }
@@ -187,16 +187,16 @@ body.dark-mode .flags-select .menu {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-body.dark-mode .flags-select .menu-item {
+body.dark-mode .flags-select .option {
   color: #fff;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   border: 1px solid rgba(0, 0, 0, 0.18);
 }
 
-.flags-select .menu-item:hover {
+.flags-select .option:hover {
   background-color: rgba(0, 123, 255, 0.2);
 }
 
-body.dark-mode .flags-select .menu-item:hover {
+body.dark-mode .flags-select .option:hover {
   background-color: rgba(0, 123, 255, 0.3);
 }
