@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import './TypingEffect.css';
 
-const TypingEffect = ({ text, speed = 150 }) => {
+const TypingEffect = ({ phrases, speed = 150, delay = 2000 }) => {
+  const [phraseIndex, setPhraseIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let i = 0;
-    const intervalId = setInterval(() => {
-      setDisplayedText((prev) => prev + text.charAt(i));
-      i++;
-      if (i > text.length) {
-        clearInterval(intervalId);
-        setTimeout(() => {
-          setDisplayedText('');
-          i = 0; // Reset index
-        }, 2000); // Wait 2 seconds before restarting
+    const handleTyping = () => {
+      const currentPhrase = phrases[phraseIndex];
+      if (isDeleting) {
+        setDisplayedText(currentPhrase.substring(0, displayedText.length - 1));
+      } else {
+        setDisplayedText(currentPhrase.substring(0, displayedText.length + 1));
       }
-    }, speed);
 
-    return () => clearInterval(intervalId);
-  }, [text, speed]);
+      if (!isDeleting && displayedText === currentPhrase) {
+        setTimeout(() => setIsDeleting(true), delay);
+      } else if (isDeleting && displayedText === '') {
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+      }
+    };
+
+    const typingTimeout = setTimeout(handleTyping, isDeleting ? speed / 2 : speed);
+    return () => clearTimeout(typingTimeout);
+  }, [displayedText, isDeleting, phraseIndex, phrases, speed, delay]);
 
   return (
     <div className="typing-effect-container">

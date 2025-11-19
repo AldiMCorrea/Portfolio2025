@@ -27,10 +27,14 @@ function App() {
         <About />
         <Projects />
         <Technologies />
-        <WorkExperience />
-        <Education />
+        {/* <WorkExperience /> */}
+        {/* <Education /> */}
         <Contact />
-          <TypingEffect text={`"The best way to predict the future is to invent it." - Alan Kay`} />
+          <TypingEffect phrases={[
+            `"The best way to predict the future is to invent it." - Alan Kay`,
+            `"The only way to do great work is to love what you do." - Steve Jobs`,
+            `"The future belongs to those who believe in the beauty of their dreams." - Eleanor Roosevelt`
+          ]} />
       </main>
     </div>
   );
