@@ -28,19 +28,16 @@ const Contact = () => {
             <a href="https://linkedin.com/in/aldanamelanicorrea" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="contact-icon" />
             </a>
-            <a href="https://linkedin.com/in/aldanamelanicorrea" target="_blank" rel="noopener noreferrer">linkedin.com/in/aldanamelanicorrea</a>
           </div>
           <div className="contact-item">
             <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">
               <FaGithub className="contact-icon" />
             </a>
-            <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">github.com/AldiMCorrea</a>
           </div>
           <div className="contact-item">
             <a href="https://aldanamcorrea.com" target="_blank" rel="noopener noreferrer">
               <FaGlobe className="contact-icon" />
             </a>
-            <a href="https://aldanamcorrea.com" target="_blank" rel="noopener noreferrer">aldanamcorrea.com</a>
           </div>
         </div>
         <div className="contact-form">

@@ -13,6 +13,7 @@ const TypingEffect = ({ text, speed = 150 }) => {
         clearInterval(intervalId);
         setTimeout(() => {
           setDisplayedText('');
+          i = 0; // Reset index
         }, 2000); // Wait 2 seconds before restarting
       }
     }, speed);
