@@ -25,7 +25,7 @@ function App() {
         <WorkExperience />
         <Education />
         <Contact />
-          <TypingEffect text="\"The best way to predict the future is to invent it.\" - Alan Kay" />
+          <TypingEffect text={`"The best way to predict the future is to invent it." - Alan Kay`} />
       </main>
     </div>
   );
