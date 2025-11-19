@@ -24,12 +24,12 @@
 }
 
 .about-content {
-  flex: 2;
+  flex: 1;
   text-align: left; /* Center the text */
 }
 
 .chip-animation {
-  flex: 1;
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: center;
