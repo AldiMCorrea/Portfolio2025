@@ -1,8 +1,8 @@
 #about {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align to the left */
-  padding: 2rem;
+  justify-content: center; /* Center the content */
+  padding: 4rem 2rem;
   gap: 2rem;
   background-image: url('../assets/aboutme-image/circuit.png');
   background-size: cover;
@@ -19,37 +19,54 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border-radius: 20px;
-  padding: 0.75rem;
-  max-width: 600px; /* New, smaller max-width for the entire glass box */
-  width: 100%; /* Ensure it takes up available space up to max-width */
+  padding: 2rem;
+  max-width: 900px; /* Increased max-width */
+  width: 100%;
 }
 
 .about-content {
-  flex: 1; /* Allow it to grow/shrink */
-  max-width: 300px; /* Control the max width of the text content */
-  text-align: center; /* Center the text */
+  flex: 2; /* Give more space to the text */
+  text-align: left; /* Align text to the left */
 }
 
 .chip-animation {
-  flex: 1; /* Allow it to grow/shrink */
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  min-height: 150px;
-  max-width: 300px; /* Control the max width of the animation */
-  margin: 0 auto;
 }
 
-.about-content h2,
-.about-content p {
-  color: #fff; /* White text for light mode */
+.about-content h2 {
+  font-size: 2.5rem; /* Larger font size for the title */
+  margin-bottom: 1.5rem;
+  color: #fff;
   animation: fadeIn 1s ease-out forwards;
-  opacity: 0; /* Start invisible */
+  opacity: 0;
 }
 
 .about-content p {
-  animation-delay: 0.5s; /* Delay paragraph animation */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
+  animation: fadeIn 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  animation: fadeIn 1s ease-out 1s forwards;
+  opacity: 0;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
 }
 
 @keyframes fadeIn {
@@ -64,6 +81,7 @@
 }
 
 body.dark-mode .about-content h2,
-body.dark-mode .about-content p {
-  color: #fff; /* Ensure text remains white in dark mode */
+body.dark-mode .about-content p,
+body.dark-mode .cta-button {
+  color: #fff;
 }

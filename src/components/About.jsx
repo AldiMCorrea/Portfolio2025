@@ -13,6 +13,7 @@ const About = () => {
         <div className="about-content">
           <h2>{t('about.title')}</h2>
           <p>{t('about.content')}</p>
+          <a href="#contact" className="cta-button">{t('hero.contactMe')}</a>
         </div>
         <div className="chip-animation">
           <Lottie
