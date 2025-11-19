@@ -23,7 +23,13 @@ body.dark-mode .typing-effect-text {
   50% { border-color: #333; }
 }
 
-body.dark-mode @keyframes blink-caret {
+@keyframes blink-caret-dark {
   from, to { border-color: transparent }
-  50% { border-color: #fffff; }
+  50% { border-color: #fff; }
+}
+
+body.dark-mode .typing-effect-text {
+  color: #fff;
+  border-right-color: #fff;
+  animation: blink-caret-dark 0.75s step-end infinite;
 }
