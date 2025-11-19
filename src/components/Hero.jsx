@@ -21,7 +21,7 @@ const Hero = () => {
         <p>{t('hero.description')}</p>
         <div className="hero-buttons">
           <button>{t('hero.downloadResume')}</button>
-          <button>{t('hero.contactMe')}</button>
+          <a href="#contact" className="hero-button">{t('hero.contactMe')}</a>
         </div>
         <div className="ask-me-container">
           <input

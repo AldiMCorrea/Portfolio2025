@@ -37,7 +37,8 @@
   margin-bottom: 1.5rem;
 }
 
-.hero-buttons button {
+.hero-buttons button,
+.hero-buttons .hero-button {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -49,6 +50,7 @@
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.3s ease;
+  text-decoration: none; /* Ensure it looks like a button, not a default link */
 }
 
 .hero-buttons button:hover {
