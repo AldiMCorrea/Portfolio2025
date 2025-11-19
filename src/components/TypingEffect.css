@@ -25,5 +25,5 @@ body.dark-mode .typing-effect-text {
 
 body.dark-mode @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: #fff; }
+  50% { border-color: #fffff; }
 }
