@@ -36,6 +36,22 @@ body.dark-mode .contact-form {
   color: #333;
 }
 
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+body.dark-mode .contact-icon {
+  color: #fff;
+}
+
 body.dark-mode .contact-info p {
   color: #fff;
 }

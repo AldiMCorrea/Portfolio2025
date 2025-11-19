@@ -1,6 +1,7 @@
 import React from 'react';
 import './Contact.css';
 import { useTranslation } from 'react-i18next';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -10,12 +11,30 @@ const Contact = () => {
       <h2>{t('contact.title')}</h2>
       <div className="contact-content">
         <div className="contact-info">
-          <p><strong>Email:</strong> aldanacorrea99@gmail.com</p>
-          <p><strong>Phone:</strong> (54) 3517892061</p>
-          <p><strong>Location:</strong> Argentina</p>
-          <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/aldanamelanicorrea" target="_blank" rel="noopener noreferrer">linkedin.com/in/aldanamelanicorrea</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">github.com/AldiMCorrea</a></p>
-          <p><strong>Website:</strong> <a href="https://aldanamcorrea.com" target="_blank" rel="noopener noreferrer">aldanamcorrea.com</a></p>
+          <div className="contact-item">
+            <FaEnvelope className="contact-icon" />
+            <p>aldanacorrea99@gmail.com</p>
+          </div>
+          <div className="contact-item">
+            <FaPhone className="contact-icon" />
+            <p>(54) 3517892061</p>
+          </div>
+          <div className="contact-item">
+            <FaMapMarkerAlt className="contact-icon" />
+            <p>Argentina</p>
+          </div>
+          <div className="contact-item">
+            <FaLinkedin className="contact-icon" />
+            <a href="https://linkedin.com/in/aldanamelanicorrea" target="_blank" rel="noopener noreferrer">linkedin.com/in/aldanamelanicorrea</a>
+          </div>
+          <div className="contact-item">
+            <FaGithub className="contact-icon" />
+            <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">github.com/AldiMCorrea</a>
+          </div>
+          <div className="contact-item">
+            <FaGlobe className="contact-icon" />
+            <a href="https://aldanamcorrea.com" target="_blank" rel="noopener noreferrer">aldanamcorrea.com</a>
+          </div>
         </div>
         <div className="contact-form">
           <h3>{t('contact.formTitle')}</h3>
