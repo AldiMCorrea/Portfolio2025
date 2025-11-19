@@ -1,7 +1,8 @@
 import React from 'react';
 import './Contact.css';
 import { useTranslation } from 'react-i18next';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
+import { BsTelephoneFill } from 'react-icons/bs';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ const Contact = () => {
             <p>aldanacorrea99@gmail.com</p>
           </div>
           <div className="contact-item">
-            <FaPhone className="contact-icon" />
+            <BsTelephoneFill className="contact-icon" />
             <p>(54) 3517892061</p>
           </div>
           <div className="contact-item">

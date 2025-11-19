@@ -45,7 +45,7 @@ body.dark-mode .contact-form {
 .contact-icon {
   margin-right: 1rem;
   font-size: 1.5rem;
-  color: #007bff;
+  color: #333; /* Changed to black for light mode */
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
