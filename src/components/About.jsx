@@ -15,14 +15,6 @@ const About = () => {
           <p>{t('about.content')}</p>
           <a href="#contact" className="cta-button">{t('hero.contactMe')}</a>
         </div>
-        <div className="chip-animation">
-          <Lottie
-            loop
-            animationData={animationData}
-            play
-            style={{ width: 300, height: 300 }}
-          />
-        </div>
       </div>
     </section>
   );
