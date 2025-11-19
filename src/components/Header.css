@@ -122,9 +122,21 @@ body.dark-mode .theme-switcher:hover {
 
 .language-selector-container {
   position: relative; /* Needed for absolute positioning of dropdown */
-  display: flex;
   align-items: center;
   z-index: 100; /* Ensure dropdown is above other content */
+}
+
+
+.language-selector-container>div>ul {  /* Lenguage selector background style */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45) !important;
+  padding: 0.5rem !important;
+  border-radius: 5px !important;
+  height: auto !important;
+  transition: all 0.3s ease !important;
 }
 
 .flags-select {
@@ -195,6 +207,18 @@ body.dark-mode .flags-select .option {
 
 .flags-select .option:hover {
   background-color: rgba(0, 123, 255, 0.2);
+}
+
+.flags-select .option.selected {
+  background-color: rgba(0, 123, 255, 0.4);
+}
+
+body.dark-mode .flags-select .option:hover {
+  background-color: rgba(0, 123, 255, 0.3);
+}
+
+body.dark-mode .flags-select .option.selected {
+  background-color: rgba(0, 123, 255, 0.5);
 }
 
 body.dark-mode .flags-select .option:hover {
