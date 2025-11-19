@@ -24,6 +24,15 @@
 .card li {
   margin-bottom: 0.5rem;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
 }
 
 body.dark-mode .card {
