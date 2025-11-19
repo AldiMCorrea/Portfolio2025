@@ -3,21 +3,38 @@
   text-align: center;
 }
 
+.category-section {
+  margin-bottom: 3rem;
+}
+
+.category-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+body.dark-mode .category-section h3 {
+  color: #fff;
+  border-bottom-color: #00ffff;
+}
+
 .technologies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
 }
 
-.technology-item {
+.technology-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1.5rem;
   font-weight: bold;
   color: #333;
   display: flex;
@@ -25,29 +42,28 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  aspect-ratio: 1 / 1; /* Make the card square */
+  text-decoration: none; /* Ensure text is not underlined if it becomes a link */
 }
 
-.technology-item:hover {
-  transform: translateY(-5px) rotateZ(2deg);
-  box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.47);
+.technology-card:hover {
+  transform: translateY(-8px) scale(1.08); /* More pronounced lift and scale */
+  box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.6); /* Stronger shadow */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); /* Subtle background change */
 }
 
-body.dark-mode .technology-item {
+body.dark-mode .technology-card {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   border: 1px solid rgba(0, 0, 0, 0.18);
   color: #fff;
 }
 
-body.dark-mode .technology-item:hover {
+body.dark-mode .technology-card:hover {
   box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.57);
 }
 
 .tech-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #007bff;
-}
-
-body.dark-mode .tech-icon {
-  color: #00ffff;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
 }
