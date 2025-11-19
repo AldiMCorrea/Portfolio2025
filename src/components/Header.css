@@ -164,8 +164,7 @@ body.dark-mode .flags-select button:hover {
   font-size: 1 rem !important;
 }
 
-/* Styles for the react-flags-select dropdown */
-.flags-select .menu {
+.flags-select .optionsWrapper {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -180,8 +179,7 @@ body.dark-mode .flags-select .menu {
   border: 1px solid rgba(0, 0, 0, 0.18);
 }
 
-.flags-select .menu-item {
-  color: #333;
+.flags-select .option {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
