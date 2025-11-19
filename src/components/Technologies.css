@@ -21,10 +21,12 @@ body.dark-mode .category-section h3 {
   border-bottom-color: #00ffff;
 }
 
-.technologies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
+.slick-slider {
+  margin: 0 -10px; /* Counteract the padding on the cards */
+}
+
+.slick-slide > div {
+  padding: 0 10px; /* Add spacing between cards */
 }
 
 .technology-card {
@@ -37,13 +39,14 @@ body.dark-mode .category-section h3 {
   padding: 1.5rem;
   font-weight: bold;
   color: #333;
-  display: flex;
+  display: flex !important; /* Important to override slick styles */
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   aspect-ratio: 1 / 1; /* Make the card square */
   text-decoration: none; /* Ensure text is not underlined if it becomes a link */
+  height: 100%; /* Ensure all cards have the same height */
 }
 
 .technology-card:hover {

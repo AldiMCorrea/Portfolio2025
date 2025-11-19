@@ -1,6 +1,9 @@
 import React from 'react';
 import './Technologies.css';
 import { useTranslation } from 'react-i18next';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 // Import specific technology logos
 import qnxLogo from '../assets/icons/technologies/qnxrtos.svg';
@@ -43,20 +46,51 @@ const Technologies = () => {
   const { t } = useTranslation();
   const categories = t('technologies.categories', { returnObjects: true });
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <section id="technologies">
       <h2>{t('technologies.title')}</h2>
       {Object.keys(categories).map((key) => (
         <div key={key} className="category-section">
           <h3>{categories[key].title}</h3>
-          <div className="technologies-grid">
+          <Slider {...settings}>
             {categories[key].list.map((tech, index) => (
               <div key={index} className="technology-card">
                 {iconMap[tech] && <img src={iconMap[tech]} alt={tech} className="tech-icon" />}
                 <span>{tech}</span>
               </div>
             ))}
-          </div>
+          </Slider>
         </div>
       ))}
     </section>
