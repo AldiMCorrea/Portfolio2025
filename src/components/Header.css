@@ -127,6 +127,10 @@ body.dark-mode .theme-switcher:hover {
   z-index: 100; /* Ensure dropdown is above other content */
 }
 
+.flags-select {
+  background-color: transparent !important;
+}
+
 .flags-select button {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)) !important;
   backdrop-filter: blur(10px) !important;
