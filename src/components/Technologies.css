@@ -23,8 +23,9 @@ body.dark-mode .category-section h3 {
 
 .technologies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust minmax for smaller cards */
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .technology-card {
@@ -34,7 +35,7 @@ body.dark-mode .category-section h3 {
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 1rem; /* Adjust padding for smaller cards */
   font-weight: bold;
   color: #333;
   display: flex;
@@ -42,8 +43,8 @@ body.dark-mode .category-section h3 {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  width: 200px; /* Set fixed width */
-  height: 200px; /* Set fixed height */
+  width: 120px; /* Set fixed width */
+  height: 120px; /* Set fixed height */
   text-decoration: none; /* Ensure text is not underlined if it becomes a link */
 }
 
