@@ -1,7 +1,7 @@
 #about {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the content */
+  justify-content: flex-start; /* Align to the left */
   padding: 4rem 2rem;
   gap: 2rem;
   background-image: url('../assets/aboutme-image/circuit.png');
@@ -20,13 +20,13 @@
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border-radius: 20px;
   padding: 2rem;
-  max-width: 900px; /* Increased max-width */
+  max-width: 900px; /* Keep the increased max-width for the container */
   width: 100%;
 }
 
 .about-content {
-  flex: 2; /* Give more space to the text */
-  text-align: left; /* Align text to the left */
+  flex: 1; /* Allow it to grow/shrink */
+  text-align: center; /* Center the text */
 }
 
 .chip-animation {
