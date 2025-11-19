@@ -114,20 +114,24 @@
   },
   "technologies": {
     "title": "Tecnologías",
-    "list": [
-      "QNX",
-      "C",
-      "C++",
-      "Python",
-      "Sistemas Embebidos",
-      "IoT",
-      "Dispositivos Médicos",
-      "Desarrollo de Firmware",
-      "Desarrollo de Hardware",
-      "RTOS",
-      "Git",
-      "Scrum"
-    ]
+    "categories": {
+      "languages": {
+        "title": "Lenguajes de Programación",
+        "list": ["C", "C++", "Python", "JavaScript"]
+      },
+      "frameworks": {
+        "title": "Frameworks y Librerías",
+        "list": ["Qt", "React", "Node.js", "GTest"]
+      },
+      "tools": {
+        "title": "Herramientas y Plataformas",
+        "list": ["Git", "SVN", "Docker", "QNX", "Linux"]
+      },
+      "methodologies": {
+        "title": "Metodologías",
+        "list": ["Agile", "Scrum", "CI/CD"]
+      }
+    }
   },
   "hero": {
     "title": "Desarrollador de Sistemas Embebidos",

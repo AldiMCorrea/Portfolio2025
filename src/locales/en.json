@@ -114,20 +114,24 @@
   },
   "technologies": {
     "title": "Technologies",
-    "list": [
-      "QNX",
-      "C",
-      "C++",
-      "Python",
-      "Embedded Systems",
-      "IoT",
-      "Medical Devices",
-      "Firmware Development",
-      "Hardware Development",
-      "RTOS",
-      "Git",
-      "Scrum"
-    ]
+    "categories": {
+      "languages": {
+        "title": "Programming Languages",
+        "list": ["C", "C++", "Python", "JavaScript"]
+      },
+      "frameworks": {
+        "title": "Frameworks & Libraries",
+        "list": ["Qt", "React", "Node.js", "GTest"]
+      },
+      "tools": {
+        "title": "Tools & Platforms",
+        "list": ["Git", "SVN", "Docker", "QNX", "Linux"]
+      },
+      "methodologies": {
+        "title": "Methodologies",
+        "list": ["Agile", "Scrum", "CI/CD"]
+      }
+    }
   },
   "hero": {
     "title": "Embedded System Developer",

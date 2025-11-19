@@ -99,20 +99,24 @@
   },
   "technologies": {
     "title": "Tecnologias",
-    "list": [
-      "QNX",
-      "C",
-      "C++",
-      "Python",
-      "Sistemas Embarcados",
-      "IoT",
-      "Dispositivos Médicos",
-      "Desenvolvimento de Firmware",
-      "Desenvolvimento de Hardware",
-      "RTOS",
-      "Git",
-      "Scrum"
-    ]
+    "categories": {
+      "languages": {
+        "title": "Linguagens de Programação",
+        "list": ["C", "C++", "Python", "JavaScript"]
+      },
+      "frameworks": {
+        "title": "Frameworks e Bibliotecas",
+        "list": ["Qt", "React", "Node.js", "GTest"]
+      },
+      "tools": {
+        "title": "Ferramentas e Plataformas",
+        "list": ["Git", "SVN", "Docker", "QNX", "Linux"]
+      },
+      "methodologies": {
+        "title": "Metodologias",
+        "list": ["Agile", "Scrum", "CI/CD"]
+      }
+    }
   },
   "hero": {
     "title": "Desenvolvedor de Sistemas Embarcados",
