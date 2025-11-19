@@ -1,7 +1,6 @@
 import React from 'react';
 import './Technologies.css';
 import { useTranslation } from 'react-i18next';
-import Card from './Card';
 
 // Import specific technology logos
 import qnxLogo from '../assets/icons/technologies/qnxrtos.svg';
@@ -13,12 +12,12 @@ import gitLogo from '../assets/icons/technologies/Git.svg';
 import svnLogo from '../assets/icons/technologies/svn.svg';
 import qtLogo from '../assets/icons/technologies/qtcreator.svg';
 import reactLogo from '../assets/icons/react.svg'; // Assuming react.svg is available
-import nodejsLogo from '../assets/icons/technologies/logos/nodejs.svg'; // Assuming nodejs.svg is available
-import dockerLogo from '../assets/icons/technologies/logos/docker.svg'; // Assuming docker.svg is available
-import linuxLogo from '../assets/icons/technologies/logos/linux.svg'; // Assuming linux.svg is available
-import agileLogo from '../assets/icons/technologies/logos/agile.svg'; // Assuming agile.svg is available
-import scrumLogo from '../assets/icons/technologies/logos/scrum.svg'; // Assuming scrum.svg is available
-import ciCdLogo from '../assets/icons/technologies/logos/cicd.svg'; // Assuming cicd.svg is available
+import nodejsLogo from '../assets/icons/technologies/logos/nodejs.svg';
+import dockerLogo from '../assets/icons/technologies/logos/docker.svg';
+import linuxLogo from '../assets/icons/technologies/logos/linux.svg';
+import agileLogo from '../assets/icons/technologies/logos/agile.svg';
+import scrumLogo from '../assets/icons/technologies/logos/scrum.svg';
+import ciCdLogo from '../assets/icons/technologies/logos/cicd.svg';
 
 const iconMap = {
   'QNX': qnxLogo,
@@ -47,11 +46,19 @@ const Technologies = () => {
   return (
     <section id="technologies">
       <h2>{t('technologies.title')}</h2>
-      <div className="technologies-grid">
-        {Object.keys(categories).map((key) => (
-          <Card key={key} title={categories[key].title} items={categories[key].list} iconMap={iconMap} />
-        ))}
-      </div>
+      {Object.keys(categories).map((key) => (
+        <div key={key} className="category-section">
+          <h3>{categories[key].title}</h3>
+          <div className="technologies-grid">
+            {categories[key].list.map((tech, index) => (
+              <div key={index} className="technology-card">
+                {iconMap[tech] && <img src={iconMap[tech]} alt={tech} className="tech-icon" />}
+                <span>{tech}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
   );
 };
