@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Hero.css';
 import { useTranslation } from 'react-i18next';
 import { FaPaperPlane } from 'react-icons/fa';
+import profilePicture from '../assets/icons/me.png';
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -57,7 +58,7 @@ const Hero = () => {
       </div>
       <div className="hero-image">
         <div className="profile-picture-container">
-          <img src="src/assets/icons/me.png" alt="Aldana Correa" />
+          <img src={profilePicture} alt="Aldana Correa" />
         </div>
       </div>
     </section>
