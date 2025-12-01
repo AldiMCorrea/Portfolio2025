@@ -71,7 +71,10 @@
     "nameLabel": "Name",
     "emailLabel": "Email",
     "messageLabel": "Message",
-    "sendButton": "Send Message"
+    "sendButton": "Send Message",
+    "sendingButton": "Sending...",
+    "sentMessage": "Message sent successfully!",
+    "errorMessage": "An error occurred. Please try again."
   },
   "projects": {
     "title": "Projects",

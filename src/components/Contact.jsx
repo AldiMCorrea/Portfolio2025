@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
 import { useTranslation } from 'react-i18next';
 import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
@@ -6,6 +6,36 @@ import { BsTelephoneFill } from 'react-icons/bs';
 
 const Contact = () => {
   const { t } = useTranslation();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setStatus('sent');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('error');
+    }
+  };
 
   return (
     <section id="contact">
@@ -45,20 +75,24 @@ const Contact = () => {
         </div>
         <div className="contact-form">
           <h3>{t('contact.formTitle')}</h3>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">{t('contact.nameLabel')}</label>
-              <input type="text" id="name" name="name" />
+              <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
             </div>
             <div className="form-group">
               <label htmlFor="email">{t('contact.emailLabel')}</label>
-              <input type="email" id="email" name="email" />
+              <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
             </div>
             <div className="form-group">
               <label htmlFor="message">{t('contact.messageLabel')}</label>
-              <textarea id="message" name="message"></textarea>
+              <textarea id="message" name="message" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
             </div>
-            <button type="submit" className="submit-button">{t('contact.sendButton')}</button>
+            <button type="submit" className="submit-button" disabled={status === 'sending'}>
+              {status === 'sending' ? t('contact.sendingButton') : t('contact.sendButton')}
+            </button>
+            {status === 'sent' && <p className="success-message">{t('contact.sentMessage')}</p>}
+            {status === 'error' && <p className="error-message">{t('contact.errorMessage')}</p>}
           </form>
         </div>
       </div>

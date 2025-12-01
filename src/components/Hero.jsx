@@ -6,11 +6,24 @@ import { FaPaperPlane } from 'react-icons/fa';
 const Hero = () => {
   const { t } = useTranslation();
   const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
 
-  const handleAskMeAnything = () => {
-    // Future AI integration logic here
-    console.log("User asked: ", question);
-    setQuestion(''); // Clear input after asking
+  const handleAskMeAnything = async () => {
+    if (!question.trim()) return;
+    try {
+      const response = await fetch('http://localhost:3001/api/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question }),
+      });
+      const data = await response.json();
+      setAnswer(data.answer);
+    } catch (error) {
+      console.error('Error asking question:', error);
+      setAnswer('Sorry, something went wrong.');
+    }
   };
 
   return (
@@ -29,12 +42,18 @@ const Hero = () => {
             placeholder={t('hero.askMePlaceholder')}
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleAskMeAnything()}
             className="ask-me-input"
           />
           <button className="ask-me-button" onClick={handleAskMeAnything}>
             {t('hero.askMeAnything')} <FaPaperPlane />
           </button>
         </div>
+        {answer && (
+          <div className="answer-container">
+            <p>{answer}</p>
+          </div>
+        )}
       </div>
       <div className="hero-image">
         <div className="profile-picture-container">
