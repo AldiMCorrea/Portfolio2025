@@ -70,7 +70,7 @@ const Contact = () => {
             <a href="https://www.aldicorrea.com" target="_blank" rel="noopener noreferrer">
               <FaGlobe className="contact-icon" />
             </a>
-            <a href="https://aldicorrea.com" target="_blank" rel="noopener noreferrer">aldicorrea.com</a>
+            <a href="https://www.aldicorrea.com" target="_blank" rel="noopener noreferrer">www.aldicorrea.com</a>
           </div>
         </div>
         <div className="contact-form">
