@@ -8,11 +8,14 @@ const Hero = () => {
   const { t } = useTranslation();
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleAskMeAnything = async () => {
-    if (!question.trim()) return;
+    if (!question.trim() || isLoading) return;
+    setIsLoading(true);
+    setAnswer('');
     try {
-      const response = await fetch('http://localhost:3001/api/ask', {
+      const response = await fetch(import.meta.env.VITE_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -23,7 +26,9 @@ const Hero = () => {
       setAnswer(data.answer);
     } catch (error) {
       console.error('Error asking question:', error);
-      setAnswer('Sorry, something went wrong.');
+      setAnswer(t('hero.errorMessage'));
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -34,7 +39,7 @@ const Hero = () => {
         <h2>{t('hero.subtitle')}</h2>
         <p>{t('hero.description')}</p>
         <div className="hero-buttons">
-          <a href="/src/mainresume/resume.pdf" download className="hero-button">{t('hero.downloadResume')}</a>
+          <a href="/mainresume/resume.pdf" download className="hero-button">{t('hero.downloadResume')}</a>
           <a href="#contact" className="hero-button">{t('hero.contactMe')}</a>
         </div>
         <div className="ask-me-container">
@@ -45,14 +50,15 @@ const Hero = () => {
             onChange={(e) => setQuestion(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleAskMeAnything()}
             className="ask-me-input"
+            disabled={isLoading}
           />
-          <button className="ask-me-button" onClick={handleAskMeAnything}>
-            {t('hero.askMeAnything')} <FaPaperPlane />
+          <button className="ask-me-button" onClick={handleAskMeAnything} disabled={isLoading}>
+            {isLoading ? t('hero.loading') : t('hero.askMeAnything')} <FaPaperPlane />
           </button>
         </div>
-        {answer && (
+        {(answer || isLoading) && (
           <div className="answer-container">
-            <p>{answer}</p>
+            {isLoading ? <p>{t('hero.loading')}</p> : <p>{answer}</p>}
           </div>
         )}
       </div>

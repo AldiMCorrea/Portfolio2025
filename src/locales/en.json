@@ -143,6 +143,8 @@
     "downloadResume": "Download Resume",
     "contactMe": "Contact Me",
     "askMeAnything": "Ask me anything",
-    "askMePlaceholder": "Ask me anything about my work..."
+    "askMePlaceholder": "Ask me anything about my work...",
+    "errorMessage": "Sorry, something went wrong. Please try again.",
+    "loading": "Loading..."
   }
 }
