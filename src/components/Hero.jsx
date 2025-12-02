@@ -34,7 +34,7 @@ const Hero = () => {
         <h2>{t('hero.subtitle')}</h2>
         <p>{t('hero.description')}</p>
         <div className="hero-buttons">
-          <button>{t('hero.downloadResume')}</button>
+          <a href="/src/mainresume/resume.pdf" download className="hero-button">{t('hero.downloadResume')}</a>
           <a href="#contact" className="hero-button">{t('hero.contactMe')}</a>
         </div>
         <div className="ask-me-container">

@@ -67,7 +67,7 @@ const Contact = () => {
             <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">github.com/AldiMCorrea</a>
           </div>
           <div className="contact-item">
-            <a href="https://aldicorrea.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.aldicorrea.com" target="_blank" rel="noopener noreferrer">
               <FaGlobe className="contact-icon" />
             </a>
             <a href="https://aldicorrea.com" target="_blank" rel="noopener noreferrer">aldicorrea.com</a>

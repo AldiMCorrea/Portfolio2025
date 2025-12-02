@@ -12,7 +12,7 @@ const Resume = () => {
     <section id="resume">
       <h2>{t('resume.title')}</h2>
       <p>{t('resume.intro')}</p>
-      <a href="/path/to/your/resume.pdf" download className="download-button">
+      <a href="/src/mainresume/resume.pdf" download className="download-button">
         {t('resume.downloadButton')}
       </a>
       <WorkExperience />
