@@ -73,10 +73,19 @@ body.dark-mode .hamburger span {
   background-color: #fff;
 }
 
-/* Show hamburger on mobile and tablet */
+/* Show hamburger on mobile and tablet, posicionado a la derecha */
 @media (max-width: 1023px) {
+  .logo {
+    order: 1;
+  }
+
+  .header-right {
+    order: 2;
+  }
+
   .hamburger {
     display: flex;
+    order: 3;
   }
 }
 
@@ -120,25 +129,25 @@ body.dark-mode .nav-menu ul li a:hover {
     right: -100%;
     height: 100vh;
     width: min(85%, 350px);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-left: 1px solid var(--glass-border-light);
-    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: -8px 0 40px 0 rgba(0, 0, 0, 0.15);
     transition: right 0.3s ease;
     z-index: 1001;
-    padding: 5rem 2rem 2rem;
+    padding: 5rem 1.5rem 2rem;
     overflow-y: auto;
   }
 
   body.dark-mode .nav-menu {
-    background: rgba(0, 0, 0, 0.95);
-    border-left: 1px solid var(--glass-border-dark);
+    background: linear-gradient(160deg, rgba(20, 20, 40, 0.2), rgba(15, 15, 30, 0.12));
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .nav-menu ul {
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-sm);
   }
 
   .nav-menu ul li {
@@ -148,14 +157,59 @@ body.dark-mode .nav-menu ul li a:hover {
 
   .nav-menu ul li a {
     font-size: var(--font-size-lg);
-    display: block;
-    padding: var(--spacing-md);
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    gap: var(--spacing-sm);
+  }
+
+  .nav-menu ul li a::before {
+    content: '';
+    width: 3px;
+    height: 18px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #007bff, #00c6ff);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    opacity: 0.6;
   }
 
   .nav-menu ul li a:hover {
-    background: rgba(0, 123, 255, 0.1);
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.12), rgba(0, 198, 255, 0.06));
+    border-color: rgba(0, 123, 255, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 123, 255, 0.12);
+    transform: translateX(6px);
+    color: #007bff;
+  }
+
+  .nav-menu ul li a:hover::before {
+    height: 24px;
+    opacity: 1;
+  }
+
+  body.dark-mode .nav-menu ul li a {
+    color: #e0e0e0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  body.dark-mode .nav-menu ul li a:hover {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(0, 198, 255, 0.08));
+    border-color: rgba(0, 123, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 123, 255, 0.15);
+    color: #fff;
   }
 
   /* Show menu when checkbox is checked */
@@ -184,7 +238,7 @@ body.dark-mode .nav-menu ul li a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
     z-index: -1;
     animation: fadeIn 0.3s ease;
   }
