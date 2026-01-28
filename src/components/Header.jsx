@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Header.css';
-import { FaMoon, FaSun, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
+import { FaMoon, FaSun, FaGithubSquare, FaLinkedin, FaGlobe } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import logo from '../assets/icons/logo.png'; // Import your logo
-import ReactFlagsSelect from 'react-flags-select';
+import logo from '../assets/icons/logo.png';
+
+const languages = [
+  { code: 'en', label: 'English' },
+  { code: 'es', label: 'Español' },
+  { code: 'pt', label: 'Português' }
+];
 
 const Header = ({ toggleTheme, isDarkMode }) => {
   const { t, i18n } = useTranslation();
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const langRef = useRef(null);
 
-  const onSelect = (code) => {
-    i18n.changeLanguage(code.toLowerCase());
+  const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
+
+  const onSelectLang = (code) => {
+    i18n.changeLanguage(code);
+    setIsLangOpen(false);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const closeMenu = () => {
     document.getElementById('menu-toggle').checked = false;
@@ -33,14 +54,29 @@ const Header = ({ toggleTheme, isDarkMode }) => {
         </label>
 
         <div className="header-right">
-          <div className="language-selector-container">
-            <ReactFlagsSelect
-              countries={["US", "ES", "BR"]}
-              customLabels={{ "US": "English", "ES": "Español", "BR": "Português (BR)" }}
-              selected={i18n.language.toUpperCase()}
-              onSelect={onSelect}
-              className="flags-select"
-            />
+          <div className="language-selector" ref={langRef}>
+            <button
+              className="language-btn"
+              onClick={() => setIsLangOpen(!isLangOpen)}
+              aria-label="Select language"
+            >
+              <FaGlobe />
+              <span>{currentLang.code.toUpperCase()}</span>
+            </button>
+            {isLangOpen && (
+              <ul className="language-dropdown">
+                {languages.map((lang) => (
+                  <li key={lang.code}>
+                    <button
+                      className={`language-option ${lang.code === i18n.language ? 'active' : ''}`}
+                      onClick={() => onSelectLang(lang.code)}
+                    >
+                      {lang.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <button className="theme-switcher" onClick={toggleTheme}>
             {isDarkMode ? <FaSun /> : <FaMoon />}
