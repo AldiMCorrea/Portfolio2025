@@ -1,54 +1,76 @@
 #resume {
-  padding: 2rem;
-  text-align: left; /* Align text to the left */
+  text-align: left;
 }
 
 #resume h2 {
-  text-align: center; /* Keep the title centered */
+  text-align: center;
 }
 
 .resume-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .resume-content {
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .resume-content {
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+  }
 }
 
 .resume-section {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px;
   max-width: 500px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-mobile));
+  -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
+  border: 1px solid var(--glass-border-light);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border-radius: 10px;
-  padding: 2rem;
-  text-align: left; /* Align text to the left */
+  padding: var(--spacing-lg);
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .resume-section {
+    padding: var(--spacing-xl);
+  }
 }
 
 body.dark-mode .resume-section {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
 }
 
 .download-button {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-mobile));
+  -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
+  border: 1px solid var(--glass-border-light);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   color: #333;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   text-decoration: none;
   transition: all 0.3s ease;
+  min-height: 44px;
 }
 
 .download-button:hover {
@@ -57,8 +79,8 @@ body.dark-mode .resume-section {
 }
 
 body.dark-mode .download-button {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   color: #fff;
 }

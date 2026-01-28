@@ -2,55 +2,77 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
-  gap: 2rem;
+  padding: var(--spacing-md);
+  gap: var(--spacing-lg);
   flex-wrap: wrap-reverse;
 }
 
+@media (min-width: 768px) {
+  #hero {
+    padding: var(--spacing-xl);
+    gap: var(--spacing-2xl);
+  }
+}
+
 .hero-content {
-  max-width: 600px;
+  max-width: 100%;
+  width: 100%;
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .hero-content {
+    max-width: 600px;
+  }
+}
+
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-sm);
 }
 
 .hero-content h2 {
-  font-size: 1.5rem;
+  font-size: var(--font-size-xl);
   color: #555;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
+}
+
+body.dark-mode .hero-content h2 {
+  color: #ccc;
 }
 
 .hero-content p {
-  font-size: 1.1rem;
+  font-size: var(--font-size-lg);
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-xl);
 }
 
 .hero-buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
 }
 
 .hero-buttons button,
 .hero-buttons .hero-button {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-mobile));
+  -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
+  border: 1px solid var(--glass-border-light);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  color: #333; /* Darker text for light mode */
-  padding: 0.8rem 1.5rem;
+  color: #333;
+  padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   transition: all 0.3s ease;
-  text-decoration: none; /* Ensure it looks like a button, not a default link */
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-buttons button:hover {
@@ -60,10 +82,10 @@
 
 body.dark-mode .hero-buttons button,
 body.dark-mode .hero-buttons .hero-button {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  color: #fff; /* White text for dark mode */
+  color: #fff;
 }
 
 body.dark-mode .hero-buttons button:hover {
@@ -74,42 +96,47 @@ body.dark-mode .hero-buttons button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  flex-wrap: wrap;
 }
 
 .ask-me-input {
-  flex-grow: 1;
-  max-width: 300px;
-  padding: 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  flex: 1 1 250px;
+  min-width: 200px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--glass-border-light);
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.05);
   color: #333;
   box-sizing: border-box;
+  font-size: var(--font-size-base);
+  min-height: 44px;
 }
 
 body.dark-mode .ask-me-input {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--glass-border-dark);
 }
 
 .ask-me-button {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  gap: var(--spacing-xs);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-mobile));
+  -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
+  border: 1px solid var(--glass-border-light);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   color: #333;
-  padding: 0.8rem 1.5rem;
+  padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   transition: all 0.3s ease;
+  min-height: 44px;
+  white-space: nowrap;
 }
 
 .ask-me-button:hover {
@@ -118,8 +145,8 @@ body.dark-mode .ask-me-input {
 }
 
 body.dark-mode .ask-me-button {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   color: #fff;
 }
@@ -128,27 +155,60 @@ body.dark-mode .ask-me-button:hover {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
 }
 
+/* Stack vertically on very small screens */
+@media (max-width: 480px) {
+  .hero-buttons {
+    width: 100%;
+  }
+
+  .hero-buttons button,
+  .hero-buttons .hero-button {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .ask-me-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ask-me-input {
+    width: 100%;
+  }
+
+  .ask-me-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .profile-picture-container {
   position: relative;
-  width: 300px; /* Image width */
-  height: 300px; /* Image height */
+  width: clamp(180px, 50vw, 250px);
+  height: clamp(180px, 50vw, 250px);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Liquid glass background for the container */
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 0 15px 5px var(--shadow-color, rgba(66, 70, 73, 0.5)); /* Initial shadow */
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-mobile));
+  -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
+  border: 1px solid var(--glass-border-light);
+  box-shadow: 0 0 15px 5px var(--shadow-color, rgba(66, 70, 73, 0.5));
   animation: glow 5s infinite alternate;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+@media (min-width: 768px) {
+  .profile-picture-container {
+    width: clamp(220px, 35vw, 300px);
+    height: clamp(220px, 35vw, 300px);
+  }
+}
+
 body.dark-mode .profile-picture-container {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
 }
 
 .profile-picture-container:hover {
@@ -170,6 +230,7 @@ body.dark-mode .profile-picture-container {
   100% { box-shadow: 0 0 15px 5px rgba(0, 94, 255, 0.481); }
 }
 
+/* Tablet and up: Horizontal layout with left-aligned text */
 @media (min-width: 768px) {
   #hero {
     flex-wrap: nowrap;
@@ -178,12 +239,29 @@ body.dark-mode .profile-picture-container {
 
   .hero-content {
     text-align: left;
+    max-width: 600px;
+  }
+
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+
+  .ask-me-container {
+    justify-content: flex-start;
+  }
+}
+
+/* Desktop: Maximum spacing */
+@media (min-width: 1024px) {
+  #hero {
+    padding: var(--spacing-2xl);
+    gap: var(--spacing-2xl);
   }
 }
 
 .answer-container {
-  margin-top: 1.5rem;
-  padding: 1rem;
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
   border-radius: 5px;
   background-color: #f0f0f0;
 }

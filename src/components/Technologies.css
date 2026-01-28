@@ -1,19 +1,37 @@
 #technologies {
-  padding: 2rem;
   text-align: center;
 }
 
 .category-section {
-  margin-bottom: 3rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .category-section {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .category-section {
+    margin-bottom: var(--spacing-2xl);
+  }
 }
 
 .category-section h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-md);
   color: #333;
   border-bottom: 2px solid #007bff;
   display: inline-block;
-  padding-bottom: 0.5rem;
+  padding-bottom: var(--spacing-xs);
+}
+
+@media (min-width: 768px) {
+  .category-section h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+  }
 }
 
 body.dark-mode .category-section h3 {
@@ -22,21 +40,43 @@ body.dark-mode .category-section h3 {
 }
 
 .technologies-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+/* Progressive sizing for larger screens */
+@media (min-width: 480px) {
+  .technologies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 768px) {
+  .technologies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .technologies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-xl);
+  }
 }
 
 .technology-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-mobile));
+  -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
+  border: 1px solid var(--glass-border-light);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border-radius: 10px;
-  padding: 1rem; /* Adjust padding for smaller cards */
+  padding: var(--spacing-xs);
   font-weight: bold;
   color: #333;
   display: flex;
@@ -44,20 +84,33 @@ body.dark-mode .category-section h3 {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  width: 120px; /* Set fixed width */
-  height: 120px; /* Set fixed height */
-  text-decoration: none; /* Ensure text is not underlined if it becomes a link */
+  aspect-ratio: 1;
+  text-decoration: none;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+}
+
+@media (min-width: 480px) {
+  .technology-card {
+    padding: var(--spacing-sm);
+  }
+}
+
+@media (min-width: 768px) {
+  .technology-card {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
 }
 
 .technology-card:hover {
-  transform: translateY(-8px) scale(1.08); /* More pronounced lift and scale */
-  box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.6); /* Stronger shadow */
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); /* Subtle background change */
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
 }
 
 body.dark-mode .technology-card {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
   color: #fff;
 }
 
@@ -66,7 +119,19 @@ body.dark-mode .technology-card:hover {
 }
 
 .tech-icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1rem;
+  width: clamp(28px, 8vw, 48px);
+  height: clamp(28px, 8vw, 48px);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Logos más grandes en la sección Methodologies */
+.methodologies .tech-icon {
+  width: clamp(48px, 12vw, 100px);
+  height: clamp(48px, 12vw, 100px);
+}
+
+@media (min-width: 480px) {
+  .tech-icon {
+    margin-bottom: var(--spacing-sm);
+  }
 }

@@ -1,18 +1,19 @@
 .card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-mobile));
+  -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
+  border: 1px solid var(--glass-border-light);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: var(--spacing-lg);
   text-align: center;
 }
 
 .card h3 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
   color: #fff;
+  font-size: var(--font-size-lg);
 }
 
 .card ul {
@@ -22,20 +23,21 @@
 }
 
 .card li {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: var(--font-size-base);
 }
 
 .card-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5rem;
+  width: clamp(20px, 4vw, 24px);
+  height: clamp(20px, 4vw, 24px);
+  margin-right: var(--spacing-xs);
 }
 
 body.dark-mode .card {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
 }

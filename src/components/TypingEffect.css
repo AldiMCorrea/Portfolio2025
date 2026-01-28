@@ -1,16 +1,41 @@
 .typing-effect-container {
   text-align: center;
-  padding: 2rem;
+  padding: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
 }
 
 .typing-effect-text {
-  font-size: 1.5rem;
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
   font-family: 'Courier New', Courier, monospace;
   color: #333;
   border-right: 2px solid #333;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 90%;
+  line-height: 1.6;
   animation: blink-caret 0.75s step-end infinite;
+  display: inline-block;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .typing-effect-container {
+    padding: var(--spacing-xl);
+    min-height: 120px;
+  }
+
+  .typing-effect-text {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .typing-effect-text {
+    max-width: 900px;
+  }
 }
 
 body.dark-mode .typing-effect-text {

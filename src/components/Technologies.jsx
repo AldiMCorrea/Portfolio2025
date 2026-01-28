@@ -11,20 +11,22 @@ import iotLogo from '../assets/icons/technologies/iot.svg';
 import gitLogo from '../assets/icons/technologies/Git.svg';
 import svnLogo from '../assets/icons/technologies/svn.svg';
 import qtLogo from '../assets/icons/technologies/qtcreator.svg';
-import reactLogo from '../assets/icons/react.svg'; // Assuming react.svg is available
-import nodejsLogo from '../assets/icons/technologies/logos/nodejs.svg';
-import dockerLogo from '../assets/icons/technologies/logos/docker.svg';
-import linuxLogo from '../assets/icons/technologies/logos/linux.svg';
-import agileLogo from '../assets/icons/technologies/logos/agile.svg';
-import scrumLogo from '../assets/icons/technologies/logos/scrum.svg';
-import ciCdLogo from '../assets/icons/technologies/logos/cicd.svg';
+import reactLogo from '../assets/icons/react.svg';
+import nodejsLogo from '../assets/icons/technologies/nodeJS.png';
+import dockerLogo from '../assets/icons/technologies/Docker.png';
+import linuxLogo from '../assets/icons/technologies/Linux.png';
+import agileLogo from '../assets/icons/technologies/Agile.png';
+import scrumLogo from '../assets/icons/technologies/Scrum.png';
+import ciCdLogo from '../assets/icons/technologies/CDCI.png';
+import jsLogo from '../assets/icons/technologies/JS.png';
+import gtestLogo from '../assets/icons/technologies/GTest.png';
 
 const iconMap = {
   'QNX': qnxLogo,
   'C': cLogo,
   'C++': cppLogo,
   'Python': pythonLogo,
-  'JavaScript': pythonLogo, // Using Python logo as a placeholder for JS
+  'JavaScript': jsLogo,
   'IoT': iotLogo,
   'Git': gitLogo,
   'SVN': svnLogo,
@@ -36,7 +38,7 @@ const iconMap = {
   'Agile': agileLogo,
   'Scrum': scrumLogo,
   'CI/CD': ciCdLogo,
-  'GTest': cppLogo, // Using C++ logo as a placeholder for GTest
+  'GTest': gtestLogo,
 };
 
 const Technologies = () => {
@@ -47,7 +49,7 @@ const Technologies = () => {
     <section id="technologies">
       <h2>{t('technologies.title')}</h2>
       {Object.keys(categories).map((key) => (
-        <div key={key} className="category-section">
+        <div key={key} className={`category-section ${key}`}>
           <h3>{categories[key].title}</h3>
           <div className="technologies-grid">
             {categories[key].list.map((tech, index) => (
