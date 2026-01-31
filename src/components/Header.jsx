@@ -7,7 +7,7 @@ import logo from '../assets/icons/logo.png';
 const languages = [
   { code: 'en', label: 'English' },
   { code: 'es', label: 'Español' },
-  { code: 'pt', label: 'Português' }
+  { code: 'br', label: 'Português' }
 ];
 
 const Header = ({ toggleTheme, isDarkMode }) => {

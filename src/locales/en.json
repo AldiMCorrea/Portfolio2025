@@ -138,13 +138,14 @@
   },
   "hero": {
     "title": "Embedded System Developer",
-    "subtitle": "Hi I’m Aldana Correa",
+    "subtitle": "Hi I'm Aldana Correa",
     "description": "I'm a software and firmware developer with a passion for creating innovative solutions. With a strong background.",
     "downloadResume": "Download Resume",
     "contactMe": "Contact Me",
     "askMeAnything": "Ask me anything",
     "askMePlaceholder": "Ask me anything about my work...",
+    "successMessage": "Thanks for your question! I'll get back to you soon.",
     "errorMessage": "Sorry, something went wrong. Please try again.",
-    "loading": "Loading..."
+    "loading": "Sending..."
   }
 }

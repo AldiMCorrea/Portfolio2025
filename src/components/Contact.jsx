@@ -3,6 +3,7 @@ import './Contact.css';
 import { useTranslation } from 'react-i18next';
 import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
 import { BsTelephoneFill } from 'react-icons/bs';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -15,22 +16,21 @@ const Contact = () => {
     e.preventDefault();
     setStatus('sending');
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACT,
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+          to_name: 'Aldana',
         },
-        body: JSON.stringify({ name, email, message }),
-      });
-
-      if (response.ok) {
-        setStatus('sent');
-        setName('');
-        setEmail('');
-        setMessage('');
-      } else {
-        setStatus('error');
-      }
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      setStatus('sent');
+      setName('');
+      setEmail('');
+      setMessage('');
     } catch (error) {
       console.error('Error submitting form:', error);
       setStatus('error');

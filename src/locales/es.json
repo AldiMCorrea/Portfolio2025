@@ -144,7 +144,8 @@
     "contactMe": "Contáctame",
     "askMeAnything": "Pregúntame lo que quieras",
     "askMePlaceholder": "Pregúntame cualquier cosa sobre mi trabajo...",
+    "successMessage": "¡Gracias por tu pregunta! Te responderé pronto.",
     "errorMessage": "Lo siento, algo salió mal. Por favor, inténtalo de nuevo.",
-    "loading": "Cargando..."
+    "loading": "Enviando..."
   }
 }

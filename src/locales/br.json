@@ -129,7 +129,8 @@
     "contactMe": "Contate-me",
     "askMeAnything": "Pergunte-me qualquer coisa",
     "askMePlaceholder": "Pergunte-me qualquer coisa sobre meu trabalho...",
+    "successMessage": "Obrigado pela sua pergunta! Responderei em breve.",
     "errorMessage": "Desculpe, algo deu errado. Por favor, tente novamente.",
-    "loading": "Carregando..."
+    "loading": "Enviando..."
   }
 }
