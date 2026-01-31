@@ -3,7 +3,8 @@ import './Hero.css';
 import { useTranslation } from 'react-i18next';
 import { FaPaperPlane } from 'react-icons/fa';
 import profilePicture from '../assets/icons/me.png';
-import emailjs from '@emailjs/browser';
+
+const WEB3FORMS_KEY = '5b7fdae3-2e93-49e8-8451-55ee0d3d3c0a';
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -16,17 +17,22 @@ const Hero = () => {
     setIsLoading(true);
     setStatus('');
     try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ASK,
-        {
-          question: question,
-          to_name: 'Aldana',
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-      setStatus('sent');
-      setQuestion('');
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'New Question - Ask Me Anything',
+          message: question,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setStatus('sent');
+        setQuestion('');
+      } else {
+        setStatus('error');
+      }
     } catch (error) {
       console.error('Error sending question:', error);
       setStatus('error');
