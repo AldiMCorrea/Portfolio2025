@@ -9,7 +9,7 @@
   },
   "about": {
     "title": "Sobre Mim",
-    "content": "Sou uma desenvolvedora de software e firmware apaixonada, com um talento especial para transformar problemas complexos em soluções elegantes e fáceis de usar. Minha jornada no mundo da tecnologia começou com um fascínio por como as coisas funcionam e me levou a uma carreira onde posso construir produtos inovadores e impactantes. Adoro desafios e estou sempre ansiosa para aprender coisas novas. Quando não estou programando, você pode me encontrar explorando os últimos avanços em IA, mexendo com dispositivos de IoT ou desfrutando de um bom livro."
+    "content": "Desenvolvedora de Firmware especializada em dispositivos médicos e sistemas em tempo real. Desenvolvo software de missão crítica seguindo padrões IEC 62304, trabalhando com C/C++, QNX RTOS e Qt/QML. Focada em construir soluções confiáveis onde precisão e segurança são essenciais."
   },
   "education": {
     "title": "Educação",

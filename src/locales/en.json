@@ -9,7 +9,7 @@
   },
   "about": {
     "title": "About Me",
-    "content": "I'm a passionate software and firmware developer with a knack for turning complex problems into elegant, user-friendly solutions. My journey into the world of technology began with a fascination for how things work, and it has led me to a career where I can build innovative and impactful products. I thrive on challenges and am always eager to learn new things. When I'm not coding, you can find me exploring the latest advancements in AI, tinkering with IoT devices, or enjoying a good book."
+    "content": "Firmware Developer specialized in medical devices and real-time systems. I develop mission-critical software following IEC 62304 standards, working with C/C++, QNX RTOS, and Qt/QML. Focused on building reliable solutions where precision and safety are essential."
   },
   "education": {
     "title": "Education",
