@@ -7,38 +7,40 @@ import qnxLogo from '../assets/icons/technologies/qnxrtos.svg';
 import cLogo from '../assets/icons/technologies/c.svg';
 import cppLogo from '../assets/icons/technologies/cpp.svg';
 import pythonLogo from '../assets/icons/technologies/python.svg';
-import iotLogo from '../assets/icons/technologies/iot.svg';
-import gitLogo from '../assets/icons/technologies/Git.svg';
-import svnLogo from '../assets/icons/technologies/svn.svg';
+import jsLogo from '../assets/icons/technologies/JS.png';
 import qtLogo from '../assets/icons/technologies/qtcreator.svg';
+import stlLogo from '../assets/icons/technologies/stl.svg';
+import boostLogo from '../assets/icons/technologies/boost.svg';
+import gtestLogo from '../assets/icons/technologies/GTest.png';
 import reactLogo from '../assets/icons/react.svg';
-import nodejsLogo from '../assets/icons/technologies/nodeJS.png';
+import cmakeLogo from '../assets/icons/technologies/cmake.svg';
+import gitLogo from '../assets/icons/technologies/Git.svg';
+import gdbLogo from '../assets/icons/technologies/gdb.svg';
 import dockerLogo from '../assets/icons/technologies/Docker.png';
 import linuxLogo from '../assets/icons/technologies/Linux.png';
 import agileLogo from '../assets/icons/technologies/Agile.png';
 import scrumLogo from '../assets/icons/technologies/Scrum.png';
 import ciCdLogo from '../assets/icons/technologies/CDCI.png';
-import jsLogo from '../assets/icons/technologies/JS.png';
-import gtestLogo from '../assets/icons/technologies/GTest.png';
 
 const iconMap = {
-  'QNX': qnxLogo,
-  'C': cLogo,
   'C++': cppLogo,
+  'C': cLogo,
   'Python': pythonLogo,
   'JavaScript': jsLogo,
-  'IoT': iotLogo,
-  'Git': gitLogo,
-  'SVN': svnLogo,
-  'Qt': qtLogo,
+  'Qt/QML': qtLogo,
+  'STL': stlLogo,
+  'Boost': boostLogo,
+  'GoogleTest': gtestLogo,
   'React': reactLogo,
-  'Node.js': nodejsLogo,
+  'CMake': cmakeLogo,
+  'Git': gitLogo,
+  'GDB': gdbLogo,
   'Docker': dockerLogo,
+  'QNX': qnxLogo,
   'Linux': linuxLogo,
   'Agile': agileLogo,
   'Scrum': scrumLogo,
   'CI/CD': ciCdLogo,
-  'GTest': gtestLogo,
 };
 
 const Technologies = () => {
