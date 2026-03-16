@@ -21,7 +21,7 @@ const Projects = () => {
         <div className="project-info">
           <h3>{t('projects.project2.title')}</h3>
           <p>{t('projects.project2.description')}</p>
-          <a href="https://github.com/AldiMCorrea" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/AldiMCorrea/IOT-SmartPlug/" target="_blank" rel="noopener noreferrer">
             <FaGithub />
             {t('projects.project2.link')}
           </a>

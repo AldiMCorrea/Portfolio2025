@@ -9,7 +9,7 @@
   },
   "about": {
     "title": "Sobre Mim",
-    "content": "Desenvolvedora de Firmware especializada em dispositivos médicos e sistemas em tempo real. Desenvolvo software de missão crítica seguindo padrões IEC 62304, trabalhando com C/C++, QNX RTOS e Qt/QML. Focada em construir soluções confiáveis onde precisão e segurança são essenciais."
+    "content": "Desenvolvedora de Software C++ com experiência em sistemas médicos de segurança crítica e aplicações em tempo real. Proficiente em C++ moderno (C++11/14/17), padrões de projeto, multithreading e otimização de desempenho. Desenvolvo software de alta confiabilidade em plataformas ARM usando QNX RTOS, Linux embarcado e Qt/QML, seguindo padrões IEC 62304. Apaixonada por escrever código C++ limpo, eficiente e manutenível."
   },
   "education": {
     "title": "Educação",
@@ -49,11 +49,13 @@
   "skills": {
     "title": "Habilidades e Competências",
     "skills": [
-      "Programação Avançada em C++ e Padrões de Projeto",
-      "Programação concorrente e multithread",
-      "Otimização e perfil de desempenho",
-      "Integração de Computação Quântica para C++",
-      "Desenvolvimento multiplataforma (Windows, Linux)",
+      "C++ Moderno (C++11/14/17) e STL",
+      "Padrões de Projeto e Princípios SOLID",
+      "Programação Concorrente e Multithread",
+      "Gerenciamento de Memória, RAII e Smart Pointers",
+      "Otimização e Perfilamento de Desempenho",
+      "Desenvolvimento Multiplataforma (Windows, Linux, QNX)",
+      "Testes Unitários (GoogleTest, CppUnit)",
       "Metodologias Ágeis e Scrum"
     ],
     "certifications_title": "CURSOS E CERTIFICAÇÕES",
@@ -105,15 +107,15 @@
     "categories": {
       "languages": {
         "title": "Linguagens de Programação",
-        "list": ["C", "C++", "Python", "JavaScript"]
+        "list": ["C++", "C", "Python", "JavaScript"]
       },
       "frameworks": {
         "title": "Frameworks e Bibliotecas",
-        "list": ["Qt", "React", "Node.js", "GTest"]
+        "list": ["Qt/QML", "STL", "Boost", "GoogleTest", "React"]
       },
       "tools": {
         "title": "Ferramentas e Plataformas",
-        "list": ["Git", "SVN", "Docker", "QNX", "Linux"]
+        "list": ["CMake", "Git", "GDB", "Docker", "QNX", "Linux"]
       },
       "methodologies": {
         "title": "Metodologias",
@@ -122,9 +124,9 @@
     }
   },
   "hero": {
-    "title": "Desenvolvedor de Sistemas Embarcados",
+    "title": "Desenvolvedora de Software C++",
     "subtitle": "Olá, sou Aldana Correa",
-    "description": "Sou desenvolvedora de software e firmware com paixão por criar soluções inovadoras. Com uma sólida experiência.",
+    "description": "Desenvolvedora C++ com mais de 5 anos de experiência construindo sistemas críticos em tempo real. Especializada em C++ moderno, padrões de projeto e software de alto desempenho para plataformas embarcadas e médicas.",
     "downloadResume": "Baixar Currículo",
     "contactMe": "Contate-me",
     "askMeAnything": "Pergunte-me qualquer coisa",

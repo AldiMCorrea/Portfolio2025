@@ -1,0 +1,132 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Section formatting with horizontal rule
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue!70!black,
+    pdfborder={0 0 0}
+}
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item #1}
+\newcommand{\jobentry}[3]{%
+    \noindent\textbf{#1} \hfill \textit{#2}\\
+    \textit{#3}
+}
+
+\begin{document}
+
+% ===== HEADER =====
+\begin{center}
+    {\LARGE\textbf{Aldana Melani Correa}}\\[4pt]
+    {\large\textbf{C++ Software Developer}}\\[6pt]
+    \href{mailto:aldanacorrea99@gmail.com}{aldanacorrea99@gmail.com} --- (+549) 351 789 2061 --- Argentina\\[2pt]
+    \href{https://linkedin.com/in/aldanamelanicorrea}{linkedin.com/in/aldanamelanicorrea} ---
+    \href{https://github.com/AldiMCorrea}{github.com/AldiMCorrea} ---
+    \href{https://www.aldicorrea.com}{www.aldicorrea.com}
+\end{center}
+
+% ===== PROFESSIONAL PROFILE =====
+\section{Professional Profile}
+C++ Software Developer with 5+ years of experience in safety-critical medical systems and real-time applications. Proficient in modern C++ (C++11/14/17), design patterns, multithreading, and performance optimization. Strong track record building high-reliability software on ARM platforms using QNX RTOS and embedded Linux. Experienced in full development lifecycle from low-level driver development to Qt/QML-based user interfaces and system-level debugging.
+
+% ===== WORK EXPERIENCE =====
+\section{Work Experience}
+
+\jobentry{Software and Firmware Developer}{Apr 2023 -- Present}{TECME S.A. -- Argentina}
+\begin{itemize}[leftmargin=*, nosep, topsep=4pt]
+    \resumeItem{Developed and maintained mission-critical firmware (IEC 62304 compliant) in C/C++ for a medical pulmonary ventilator, managing high-reliability tasks on QNX RTOS.}
+    \resumeItem{Implemented real-time control logic (sensor reading, actuator control) and critical alarm systems using C++ Finite State Machines (FSMs) for various ventilation modes.}
+    \resumeItem{Designed, implemented, and maintained low-level C drivers for the Toradex i.MX6 Quad Core (ARM Cortex-A9) platform, interfacing with peripherals (I2C, SPI, ADC) and participating in board bring-up.}
+    \resumeItem{Integrated Qt/QML-based HMI with C++ control backend, establishing communication API for real-time data visualization and alarm propagation.}
+    \resumeItem{Developed and maintained robust unit testing suite (GoogleTest/CppUnit) for C++ modules, ensuring code quality, reliability, and regression-free development.}
+    \resumeItem{Automated software internationalization (i18n) pipeline by developing Python scripts consuming AI-based translation APIs for UI strings.}
+    \resumeItem{Developed code-generation (scaffolding) tools in C++ and Python to auto-generate system parameters and boilerplate code, ensuring consistency with MVVM architecture.}
+    \resumeItem{Performed system-level debugging, including UART/RS-232 communication analysis.}
+\end{itemize}
+
+\vspace{6pt}
+
+\jobentry{Firmware Developer}{May 2021 -- Jun 2022}{RUF -- Functional Utility Robotics -- Argentina}
+\begin{itemize}[leftmargin=*, nosep, topsep=4pt]
+    \resumeItem{Developed firmware for smart plugs designed for remote security monitoring via cameras.}
+    \resumeItem{Established communication between companies and international technicians to streamline microcontroller development and research.}
+    \resumeItem{Designed solid programming and flashing structure for multiple microcontrollers (ESP12, ESP32, ESP8266, RTL) using C/C++, Espressif SDK, and RTOS.}
+    \resumeItem{Created technical business documentation for each process; managed version control with GitHub/GitLab using Scrum methodology.}
+\end{itemize}
+
+\vspace{6pt}
+
+\jobentry{Research \& Development Intern}{Mar 2021 -- Dec 2023}{UTN -- National Technological University -- Argentina}
+\begin{itemize}[leftmargin=*, nosep, topsep=4pt]
+    \resumeItem{Developed electrical measurement equipment with remote communication and real-time data transmission for residential power networks.}
+    \resumeItem{Used embedded systems tools (ESP microcontrollers) with power, current, and voltage sensors.}
+    \resumeItem{Achieved optimization, efficiency, and energy control monitoring for the final product.}
+\end{itemize}
+
+% ===== EDUCATION =====
+\section{Education}
+
+\noindent\textbf{Electronic Engineering} \hfill 2019 -- 2024\\
+\textit{National Technological University (UTN) -- C\'{o}rdoba, Argentina}\\
+In progress
+
+\vspace{6pt}
+
+\noindent\textbf{Software Engineering} \hfill 2024 -- Present\\
+\textit{Universidad Siglo XXI -- Argentina}\\
+In progress
+
+% ===== SKILLS & COMPETENCIES =====
+\section{Skills \& Competencies}
+
+\noindent\textbf{Programming:}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+    \item Modern C++ (C++11/14/17) and STL
+    \item Design Patterns and SOLID Principles
+    \item Multi-threaded and Concurrent Programming
+    \item Memory Management, RAII and Smart Pointers
+    \item Performance Optimization and Profiling
+    \item Cross-platform Development (Windows, Linux, QNX)
+\end{itemize}
+
+\vspace{4pt}
+
+\noindent\textbf{Professional:}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+    \item Agile and Scrum Methodologies
+    \item Code Review and Mentoring
+    \item Problem-solving and Analytical Thinking
+    \item Effective Communication and Collaboration
+\end{itemize}
+
+% ===== CERTIFICATIONS =====
+\section{Certifications}
+
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+    \item \textbf{QNX Real-Time Operating System} -- BlackBerry QNX
+    \item \textbf{Object-Oriented Programming in C++} -- Udemy
+    \item \textbf{Implantable Electronic Devices and Medical Applications} -- EAMTA (Argentina School of Micro-NanoElectronics, Technology and Applications)
+    \item \textbf{Kali Linux for Ethical Hacking} -- Udemy
+    \item \textbf{Advanced C Programming} -- Noble Work Foundation
+\end{itemize}
+
+\end{document}

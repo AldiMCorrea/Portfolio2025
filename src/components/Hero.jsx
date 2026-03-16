@@ -7,10 +7,11 @@ import profilePicture from '../assets/icons/me.png';
 const WEB3FORMS_KEY = '5b7fdae3-2e93-49e8-8451-55ee0d3d3c0a';
 
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [question, setQuestion] = useState('');
   const [status, setStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const resumePath = i18n.language === 'en' ? '/mainresume/mainresume.pdf' : '/mainresume/mainresume_es.pdf';
 
   const handleAskMeAnything = async () => {
     if (!question.trim() || isLoading) return;
@@ -48,7 +49,7 @@ const Hero = () => {
         <h2>{t('hero.subtitle')}</h2>
         <p>{t('hero.description')}</p>
         <div className="hero-buttons">
-          <a href="/mainresume/mainresume.pdf" download className="hero-button">{t('hero.downloadResume')}</a>
+          <a href={resumePath} download className="hero-button">{t('hero.downloadResume')}</a>
           <a href="#contact" className="hero-button">{t('hero.contactMe')}</a>
         </div>
         <div className="ask-me-container">

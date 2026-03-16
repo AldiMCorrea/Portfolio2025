@@ -1,0 +1,132 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Section formatting with horizontal rule
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue!70!black,
+    pdfborder={0 0 0}
+}
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item #1}
+\newcommand{\jobentry}[3]{%
+    \noindent\textbf{#1} \hfill \textit{#2}\\
+    \textit{#3}
+}
+
+\begin{document}
+
+% ===== HEADER =====
+\begin{center}
+    {\LARGE\textbf{Aldana Melani Correa}}\\[4pt]
+    {\large\textbf{Desarrolladora de Software C++}}\\[6pt]
+    \href{mailto:aldanacorrea99@gmail.com}{aldanacorrea99@gmail.com} --- (+549) 351 789 2061 --- Argentina\\[2pt]
+    \href{https://linkedin.com/in/aldanamelanicorrea}{linkedin.com/in/aldanamelanicorrea} ---
+    \href{https://github.com/AldiMCorrea}{github.com/AldiMCorrea} ---
+    \href{https://www.aldicorrea.com}{www.aldicorrea.com}
+\end{center}
+
+% ===== PERFIL PROFESIONAL =====
+\section{Perfil Profesional}
+Desarrolladora de Software C++ con m\'{a}s de 5 a\~{n}os de experiencia en sistemas m\'{e}dicos de seguridad cr\'{i}tica y aplicaciones en tiempo real. Competente en C++ moderno (C++11/14/17), patrones de dise\~{n}o, multithreading y optimizaci\'{o}n de rendimiento. S\'{o}lida trayectoria construyendo software de alta fiabilidad en plataformas ARM usando QNX RTOS y Linux embebido. Experiencia en el ciclo completo de desarrollo, desde drivers de bajo nivel hasta interfaces de usuario Qt/QML y depuraci\'{o}n a nivel de sistema.
+
+% ===== EXPERIENCIA LABORAL =====
+\section{Experiencia Laboral}
+
+\jobentry{Desarrolladora de Software y Firmware}{Abr 2023 -- Presente}{TECME S.A. -- Argentina}
+\begin{itemize}[leftmargin=*, nosep, topsep=4pt]
+    \resumeItem{Desarroll\'{e} y mantuve firmware de misi\'{o}n cr\'{i}tica (compatible con IEC 62304) en C/C++ para un ventilador pulmonar m\'{e}dico, gestionando tareas de alta fiabilidad en QNX RTOS.}
+    \resumeItem{Implement\'{e} l\'{o}gica de control en tiempo real (lectura de sensores, control de actuadores) y sistemas de alarma cr\'{i}ticos usando M\'{a}quinas de Estados Finitos (FSM) en C++ para diversos modos de ventilaci\'{o}n.}
+    \resumeItem{Dise\~{n}\'{e}, implement\'{e} y mantuve drivers de bajo nivel en C para la plataforma Toradex i.MX6 Quad Core (ARM Cortex-A9), interfazando con perif\'{e}ricos (I2C, SPI, ADC) y participando en el board bring-up.}
+    \resumeItem{Integr\'{e} la HMI basada en Qt/QML con el backend de control en C++, estableciendo la API de comunicaci\'{o}n para visualizaci\'{o}n de datos en tiempo real y propagaci\'{o}n de alarmas.}
+    \resumeItem{Desarroll\'{e} y mantuve una suite robusta de pruebas unitarias (GoogleTest/CppUnit) para m\'{o}dulos C++, asegurando calidad del c\'{o}digo, fiabilidad y desarrollo libre de regresiones.}
+    \resumeItem{Automatic\'{e} el pipeline de internacionalizaci\'{o}n (i18n) del software desarrollando scripts en Python que consum\'{i}an APIs de traducci\'{o}n basadas en IA para cadenas de UI.}
+    \resumeItem{Desarroll\'{e} herramientas de generaci\'{o}n de c\'{o}digo (scaffolding) en C++ y Python para autogenerar par\'{a}metros del sistema y c\'{o}digo repetitivo, asegurando consistencia con la arquitectura MVVM.}
+    \resumeItem{Realic\'{e} depuraci\'{o}n a nivel de sistema, incluyendo an\'{a}lisis de comunicaci\'{o}n UART/RS-232.}
+\end{itemize}
+
+\vspace{6pt}
+
+\jobentry{Desarrolladora de Firmware}{May 2021 -- Jun 2022}{RUF -- Rob\'{o}tica Utilitaria Funcional -- Argentina}
+\begin{itemize}[leftmargin=*, nosep, topsep=4pt]
+    \resumeItem{Desarroll\'{e} firmware para enchufes inteligentes dise\~{n}ados para monitoreo remoto de seguridad mediante c\'{a}maras.}
+    \resumeItem{Establec\'{i} comunicaci\'{o}n entre empresas y t\'{e}cnicos internacionales para agilizar el desarrollo e investigaci\'{o}n de microcontroladores.}
+    \resumeItem{Dise\~{n}\'{e} una estructura s\'{o}lida de programaci\'{o}n y grabaci\'{o}n para m\'{u}ltiples microcontroladores (ESP12, ESP32, ESP8266, RTL) usando C/C++, Espressif SDK y RTOS.}
+    \resumeItem{Cre\'{e} documentaci\'{o}n t\'{e}cnica de negocio para cada proceso; gestion\'{e} control de versiones con GitHub/GitLab usando metodolog\'{i}a Scrum.}
+\end{itemize}
+
+\vspace{6pt}
+
+\jobentry{Pasante de Investigaci\'{o}n y Desarrollo}{Mar 2021 -- Dic 2023}{UTN -- Universidad Tecnol\'{o}gica Nacional -- Argentina}
+\begin{itemize}[leftmargin=*, nosep, topsep=4pt]
+    \resumeItem{Desarroll\'{e} equipamiento de medici\'{o}n el\'{e}ctrica con comunicaci\'{o}n remota y transmisi\'{o}n de datos en tiempo real para redes el\'{e}ctricas residenciales.}
+    \resumeItem{Utilic\'{e} herramientas de sistemas embebidos (microcontroladores ESP) con sensores de potencia, corriente y tensi\'{o}n.}
+    \resumeItem{Logr\'{e} optimizaci\'{o}n, eficiencia y monitoreo de control energ\'{e}tico para el producto final.}
+\end{itemize}
+
+% ===== EDUCACION =====
+\section{Educaci\'{o}n}
+
+\noindent\textbf{Ingenier\'{i}a Electr\'{o}nica} \hfill 2019 -- 2024\\
+\textit{Universidad Tecnol\'{o}gica Nacional (UTN) -- C\'{o}rdoba, Argentina}\\
+En curso
+
+\vspace{6pt}
+
+\noindent\textbf{Ingenier\'{i}a de Software} \hfill 2024 -- Presente\\
+\textit{Universidad Siglo XXI -- Argentina}\\
+En curso
+
+% ===== HABILIDADES Y COMPETENCIAS =====
+\section{Habilidades y Competencias}
+
+\noindent\textbf{Programaci\'{o}n:}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+    \item C++ Moderno (C++11/14/17) y STL
+    \item Patrones de Dise\~{n}o y Principios SOLID
+    \item Programaci\'{o}n Concurrente y Multihilo
+    \item Gesti\'{o}n de Memoria, RAII y Smart Pointers
+    \item Optimizaci\'{o}n y Perfilado de Rendimiento
+    \item Desarrollo Multiplataforma (Windows, Linux, QNX)
+\end{itemize}
+
+\vspace{4pt}
+
+\noindent\textbf{Profesional:}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+    \item Metodolog\'{i}as \'{A}giles y Scrum
+    \item Code Review y Mentor\'{i}a
+    \item Resoluci\'{o}n de Problemas y Pensamiento Anal\'{i}tico
+    \item Comunicaci\'{o}n Efectiva y Colaboraci\'{o}n
+\end{itemize}
+
+% ===== CERTIFICACIONES =====
+\section{Certificaciones}
+
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+    \item \textbf{Sistema Operativo en Tiempo Real QNX} -- BlackBerry QNX
+    \item \textbf{Programaci\'{o}n Orientada a Objetos en C++} -- Udemy
+    \item \textbf{Dispositivos Electr\'{o}nicos Implantables y Aplicaciones M\'{e}dicas} -- EAMTA (Escuela Argentina de Tecnolog\'{i}a de Micro-NanoElectr\'{o}nica y Aplicaciones)
+    \item \textbf{Kali Linux para Hacking \'{E}tico} -- Udemy
+    \item \textbf{Lenguaje C Avanzado} -- Noble Work Foundation
+\end{itemize}
+
+\end{document}

@@ -9,7 +9,7 @@
   },
   "about": {
     "title": "About Me",
-    "content": "Firmware Developer specialized in medical devices and real-time systems. I develop mission-critical software following IEC 62304 standards, working with C/C++, QNX RTOS, and Qt/QML. Focused on building reliable solutions where precision and safety are essential."
+    "content": "C++ Software Developer with experience in safety-critical medical systems and real-time applications. Proficient in modern C++ (C++11/14/17), design patterns, multithreading, and performance optimization. I build high-reliability software on ARM platforms using QNX RTOS, embedded Linux, and Qt/QML, following IEC 62304 standards. Passionate about writing clean, efficient, and maintainable C++ code."
   },
   "education": {
     "title": "Education",
@@ -49,11 +49,13 @@
   "skills": {
     "title": "Skills & Competencies",
     "skills": [
-      "Advanced C++ Programming and Design Patterns",
-      "Multi-threaded and concurrent programming",
-      "Performace optimization and profilling",
-      "Quantum Computing integration for C++",
-      "Cross-platform development (Windows, Linux)",
+      "Modern C++ (C++11/14/17) and STL",
+      "Design Patterns and SOLID Principles",
+      "Multi-threaded and Concurrent Programming",
+      "Memory Management, RAII and Smart Pointers",
+      "Performance Optimization and Profiling",
+      "Cross-platform Development (Windows, Linux, QNX)",
+      "Unit Testing (GoogleTest, CppUnit)",
       "Agile and Scrum Methodologies"
     ],
     "certifications_title": "COURSE & CERTIFICATIONS",
@@ -120,15 +122,15 @@
     "categories": {
       "languages": {
         "title": "Programming Languages",
-        "list": ["C", "C++", "Python", "JavaScript"]
+        "list": ["C++", "C", "Python", "JavaScript"]
       },
       "frameworks": {
         "title": "Frameworks & Libraries",
-        "list": ["Qt", "React", "Node.js", "GTest"]
+        "list": ["Qt/QML", "STL", "Boost", "GoogleTest", "React"]
       },
       "tools": {
         "title": "Tools & Platforms",
-        "list": ["Git", "SVN", "Docker", "QNX", "Linux"]
+        "list": ["CMake", "Git", "GDB", "Docker", "QNX", "Linux"]
       },
       "methodologies": {
         "title": "Methodologies",
@@ -137,9 +139,9 @@
     }
   },
   "hero": {
-    "title": "Embedded System Developer",
+    "title": "C++ Software Developer",
     "subtitle": "Hi I'm Aldana Correa",
-    "description": "I'm a software and firmware developer with a passion for creating innovative solutions. With a strong background.",
+    "description": "C++ developer with 5+ years of experience building safety-critical real-time systems. Specialized in modern C++, design patterns, and high-performance software for embedded and medical platforms.",
     "downloadResume": "Download Resume",
     "contactMe": "Contact Me",
     "askMeAnything": "Ask me anything",
