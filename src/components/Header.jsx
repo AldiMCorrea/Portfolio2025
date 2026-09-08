@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Header.css';
 import { FaMoon, FaSun, FaGithubSquare, FaLinkedin, FaGlobe } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import logo from '../assets/icons/logo.png';
 
 const languages = [
   { code: 'en', label: 'English' },
@@ -43,8 +44,7 @@ const Header = ({ toggleTheme, isDarkMode }) => {
 
       <header className="header">
         <a href="#hero" className="logo" aria-label="Aldana Correa - home">
-          <span className="logo-mark">AC</span>
-          <span className="logo-text">aldicorrea<span className="logo-dot">.</span>dev</span>
+          <img src={logo} alt="Aldana Correa" className="logo-img" />
         </a>
 
         <label htmlFor="menu-toggle" className="hamburger" aria-label="Toggle navigation menu">

@@ -1,15 +1,59 @@
 #about {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  overflow: hidden;
+  background-image: url('../assets/aboutme-image/circuit.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+/* Desktop: fixed background for a subtle parallax feel */
+@media (min-width: 1024px) {
+  #about {
+    background-attachment: fixed;
+  }
+}
+
+/* Dark scrim so the text stays legible over the image in both themes */
+#about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(10, 8, 6, 0.82) 0%, rgba(10, 8, 6, 0.55) 55%, rgba(10, 8, 6, 0.3) 100%);
 }
 
 .about-container {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  padding: var(--spacing-md);
   width: 100%;
-  max-width: 100%;
+  max-width: 95%;
+}
+
+@media (min-width: 480px) {
+  .about-container {
+    padding: var(--spacing-lg);
+    max-width: 90%;
+  }
 }
 
 @media (min-width: 768px) {
+  .about-container {
+    padding: var(--spacing-xl);
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
   .about-container {
     max-width: 700px;
   }
@@ -22,13 +66,13 @@
 .about-content h2 {
   font-size: var(--font-size-3xl);
   margin-bottom: var(--spacing-lg);
-  color: var(--text-primary);
+  color: #f5f2ee;
 }
 
 .about-content p {
   font-size: var(--font-size-lg);
   line-height: 1.7;
-  color: var(--text-secondary);
+  color: rgba(245, 242, 238, 0.85);
   margin-bottom: var(--spacing-md);
 }
 
