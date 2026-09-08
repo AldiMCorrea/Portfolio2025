@@ -9,7 +9,7 @@
   },
   "about": {
     "title": "Sobre Mí",
-    "content": "Desarrolladora de Software C++ con experiencia en sistemas médicos de seguridad crítica y aplicaciones en tiempo real. Competente en C++ moderno (C++11/14/17), patrones de diseño, multithreading y optimización de rendimiento. Desarrollo software de alta fiabilidad en plataformas ARM usando QNX RTOS, Linux embebido y Qt/QML, siguiendo estándares IEC 62304. Apasionada por escribir código C++ limpio, eficiente y mantenible."
+    "content": "Desarrolladora de Firmware con más de 5 años construyendo software embebido de misión crítica para dispositivos médicos regulados. Escribo drivers de bajo nivel en C/C++, lógica de control en tiempo real y participo del bring-up de placas sobre plataformas ARM (Cortex-A/M) con QNX RTOS y Linux embebido, siguiendo estándares IEC 62304. Me muevo cómoda en toda la pila — desde periféricos I2C/SPI/UART hasta la HMI en Qt/QML — y también en microcontroladores ESP32/ESP8266 para productos IoT. Me importa el firmware que no falla: C++ limpio, testing riguroso y debugging disciplinado."
   },
   "education": {
     "title": "Educación",
@@ -20,13 +20,14 @@
   },
   "workExperience": {
     "title": "Experiencia Laboral",
+    "current": "Actual",
     "job1_title": "desarrollador de software y firmware - tecme sa",
     "job1_date": "Tecme SA | 04/2023 - Presente",
     "job1_desc": [
       "Desarrollé y mantuve firmware de misión crítica (compatible con IEC 62304) en C/C++ para un ventilador pulmonar médico, gestionando tareas de alta fiabilidad en el RTOS QNX.",
       "Implementé la lógica de control en tiempo real (lectura de sensores, control de actuadores) y el sistema de alarma crítico utilizando Máquinas de Estados Finitos (FSM) de C++ para varios modos de ventilación.",
       "Diseñé, implementé y mantuve controladores de bajo nivel en C para la plataforma Toradex i.MX 6 Quad Core (ARM Cortex-A9), interactuando con periféricos (I2C, SPI, ADC) y participando en el proceso de arranque de la placa.",
-      "Integré la HMI basada en Qt/QML con el backend de control de C++, estableciendo la API de comunicación para la visualización de datos en tiempo real и la propagación de alarmas.",
+      "Integré la HMI basada en Qt/QML con el backend de control de C++, estableciendo la API de comunicación para la visualización de datos en tiempo real y la propagación de alarmas.",
       "Desarrollé y mantuve una sólida suite de pruebas unitarias (por ejemplo, GoogleTest/CppUnit) para módulos de C++, asegurando la calidad del código, la fiabilidad y facilitando el desarrollo sin regresiones.",
       "Automaticé el pipeline de internacionalización (i18n) del software mediante el desarrollo de scripts de Python que consumían API de traducción basadas en IA para las cadenas de la interfaz de usuario.",
       "Desarrollé herramientas de generación de código (scaffolding) en C++ y Python para autogenerar parámetros del sistema y código repetitivo, asegurando la coherencia con la arquitectura MVVM (Modelo-Vista-Modelo de Vista).",
@@ -49,11 +50,14 @@
   "skills": {
     "title": "Habilidades y Competencias",
     "skills": [
+      "C/C++ embebido para plataformas ARM Cortex-A/M",
+      "RTOS (QNX) y firmware bare-metal",
+      "Desarrollo de drivers de bajo nivel (I2C, SPI, UART/RS-232, ADC) y bring-up de placas",
+      "Sistemas de control en tiempo real y Máquinas de Estados Finitos",
       "C++ Moderno (C++11/14/17) y STL",
       "Patrones de Diseño y Principios SOLID",
       "Programación Concurrente y Multihilo",
       "Gestión de Memoria, RAII y Smart Pointers",
-      "Optimización y Perfilado de Rendimiento",
       "Desarrollo Multiplataforma (Windows, Linux, QNX)",
       "Testing Unitario (GoogleTest, CppUnit)",
       "Metodologías Ágiles y Scrum"
@@ -139,9 +143,10 @@
     }
   },
   "hero": {
-    "title": "Desarrolladora de Software C++",
+    "eyebrow": "Disponible para roles de firmware",
+    "title": "Desarrolladora de Firmware",
     "subtitle": "Hola, soy Aldana Correa",
-    "description": "Desarrolladora C++ con más de 5 años de experiencia construyendo sistemas críticos en tiempo real. Especializada en C++ moderno, patrones de diseño y software de alto rendimiento para plataformas embebidas y médicas.",
+    "description": "Desarrolladora de firmware con más de 5 años construyendo sistemas embebidos críticos y en tiempo real — desde drivers en C de bajo nivel y tareas de RTOS en dispositivos médicos, hasta firmware ESP32/ESP8266 para productos IoT. Convierto hardware en software confiable.",
     "downloadResume": "Descargar Currículum",
     "contactMe": "Contáctame",
     "askMeAnything": "Pregúntame lo que quieras",

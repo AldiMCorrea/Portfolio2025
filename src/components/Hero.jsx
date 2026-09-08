@@ -45,6 +45,7 @@ const Hero = () => {
   return (
     <section id="hero">
       <div className="hero-content">
+        <span className="hero-eyebrow">{t('hero.eyebrow')}</span>
         <h1>{t('hero.title')}</h1>
         <h2>{t('hero.subtitle')}</h2>
         <p>{t('hero.description')}</p>

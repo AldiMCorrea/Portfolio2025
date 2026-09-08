@@ -1,1 +1,36 @@
-/* Education section inherits padding from section styles */
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .education-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.edu-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .edu-card {
+    padding: var(--spacing-lg);
+  }
+}
+
+.edu-card h4 {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+}
+
+.edu-card p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}

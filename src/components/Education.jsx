@@ -6,17 +6,19 @@ const Education = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="education">
-      <h2>{t('education.title')}</h2>
-      <div>
-        <h3>{t('education.degree1')}</h3>
-        <p>{t('education.date1')}</p>
+    <div className="education" id="education">
+      <h3 className="resume-subtitle">{t('education.title')}</h3>
+      <div className="education-grid">
+        <div className="edu-card">
+          <h4>{t('education.degree1')}</h4>
+          <p>{t('education.date1')}</p>
+        </div>
+        <div className="edu-card">
+          <h4>{t('education.degree2')}</h4>
+          <p>{t('education.date2')}</p>
+        </div>
       </div>
-      <div>
-        <h3>{t('education.degree2')}</h3>
-        <p>{t('education.date2')}</p>
-      </div>
-    </section>
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@
   },
   "about": {
     "title": "About Me",
-    "content": "C++ Software Developer with experience in safety-critical medical systems and real-time applications. Proficient in modern C++ (C++11/14/17), design patterns, multithreading, and performance optimization. I build high-reliability software on ARM platforms using QNX RTOS, embedded Linux, and Qt/QML, following IEC 62304 standards. Passionate about writing clean, efficient, and maintainable C++ code."
+    "content": "Firmware Developer with 5+ years building mission-critical embedded software for safety-regulated medical devices. I write low-level C/C++ drivers, real-time control logic, and board bring-up on ARM platforms (Cortex-A/M) running QNX RTOS and embedded Linux, following IEC 62304 standards. Comfortable across the whole stack — from I2C/SPI/UART peripherals to the Qt/QML HMI on top — and just as at home on ESP32/ESP8266 microcontrollers for IoT products. I care about firmware that doesn't fail: clean C++, thorough unit testing, and disciplined debugging."
   },
   "education": {
     "title": "Education",
@@ -20,6 +20,7 @@
   },
   "workExperience": {
     "title": "Work Experience",
+    "current": "Current",
     "job1_title": "software and firmware developer - tecme sa",
     "job1_date": "Tecme SA | 04/2023 - Present",
     "job1_desc": [
@@ -49,11 +50,14 @@
   "skills": {
     "title": "Skills & Competencies",
     "skills": [
+      "Embedded C/C++ for ARM Cortex-A/M platforms",
+      "RTOS (QNX) and bare-metal firmware",
+      "Low-level driver development (I2C, SPI, UART/RS-232, ADC) & board bring-up",
+      "Real-time control systems and Finite State Machines",
       "Modern C++ (C++11/14/17) and STL",
       "Design Patterns and SOLID Principles",
       "Multi-threaded and Concurrent Programming",
       "Memory Management, RAII and Smart Pointers",
-      "Performance Optimization and Profiling",
       "Cross-platform Development (Windows, Linux, QNX)",
       "Unit Testing (GoogleTest, CppUnit)",
       "Agile and Scrum Methodologies"
@@ -139,9 +143,10 @@
     }
   },
   "hero": {
-    "title": "C++ Software Developer",
-    "subtitle": "Hi I'm Aldana Correa",
-    "description": "C++ developer with 5+ years of experience building safety-critical real-time systems. Specialized in modern C++, design patterns, and high-performance software for embedded and medical platforms.",
+    "eyebrow": "Open to firmware roles",
+    "title": "Firmware Developer",
+    "subtitle": "Hi, I'm Aldana Correa",
+    "description": "Firmware developer with 5+ years building safety-critical, real-time embedded systems — from low-level C drivers and RTOS tasks on medical devices to ESP32/ESP8266 firmware for IoT products. I turn hardware into reliable software.",
     "downloadResume": "Download Resume",
     "contactMe": "Contact Me",
     "askMeAnything": "Ask me anything",

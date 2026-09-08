@@ -1,10 +1,10 @@
 .card {
-  background: var(--glass-bg-light);
+  background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur-mobile));
   -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
-  border: 1px solid var(--glass-border-light);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 14px;
   padding: var(--spacing-lg);
   text-align: center;
 }
@@ -12,7 +12,7 @@
 .card h3 {
   margin-top: 0;
   margin-bottom: var(--spacing-md);
-  color: #fff;
+  color: var(--text-primary);
   font-size: var(--font-size-lg);
 }
 
@@ -24,7 +24,7 @@
 
 .card li {
   margin-bottom: var(--spacing-xs);
-  color: #fff;
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,9 +35,4 @@
   width: clamp(20px, 4vw, 24px);
   height: clamp(20px, 4vw, 24px);
   margin-right: var(--spacing-xs);
-}
-
-body.dark-mode .card {
-  background: var(--glass-bg-dark);
-  border: 1px solid var(--glass-border-dark);
 }

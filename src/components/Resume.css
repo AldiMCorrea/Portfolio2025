@@ -2,89 +2,57 @@
   text-align: left;
 }
 
-#resume h2 {
-  text-align: center;
-}
-
-.resume-content {
+.resume-header {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
 }
 
-@media (min-width: 768px) {
-  .resume-content {
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
-  }
+.resume-header h2 {
+  margin-bottom: var(--spacing-xs);
 }
 
-@media (min-width: 1024px) {
-  .resume-content {
-    gap: var(--spacing-xl);
-    margin-top: var(--spacing-xl);
-  }
-}
-
-.resume-section {
-  flex: 1;
-  min-width: 280px;
-  max-width: 500px;
-  background: var(--glass-bg-light);
-  backdrop-filter: blur(var(--glass-blur-mobile));
-  -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
-  border: 1px solid var(--glass-border-light);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  border-radius: 10px;
-  padding: var(--spacing-lg);
-  text-align: left;
-}
-
-@media (min-width: 768px) {
-  .resume-section {
-    padding: var(--spacing-xl);
-  }
-}
-
-body.dark-mode .resume-section {
-  background: var(--glass-bg-dark);
-  border: 1px solid var(--glass-border-dark);
+.resume-intro {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  max-width: 46ch;
 }
 
 .download-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: var(--spacing-lg);
+  flex-shrink: 0;
   padding: var(--spacing-sm) var(--spacing-lg);
-  background: var(--glass-bg-light);
-  backdrop-filter: blur(var(--glass-blur-mobile));
-  -webkit-backdrop-filter: blur(var(--glass-blur-mobile));
-  border: 1px solid var(--glass-border-light);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  color: #333;
-  border-radius: 5px;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--on-accent);
+  border-radius: 10px;
   cursor: pointer;
   font-size: var(--font-size-base);
+  font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
   min-height: 44px;
 }
 
 .download-button:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
   transform: translateY(-2px);
+  color: var(--on-accent);
 }
 
-body.dark-mode .download-button {
-  background: var(--glass-bg-dark);
-  border: 1px solid var(--glass-border-dark);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  color: #fff;
+.resume-block {
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--divider);
 }
 
-body.dark-mode .download-button:hover {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+.resume-block:first-of-type {
+  padding-top: 0;
+  border-top: none;
 }

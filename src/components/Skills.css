@@ -1,1 +1,49 @@
-/* Skills section inherits padding from section styles */
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  background: var(--accent-soft);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  padding: 0.45em 0.9em;
+  border-radius: 999px;
+}
+
+.certifications-title {
+  margin-top: var(--spacing-xl);
+}
+
+.certifications-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.certifications-list li {
+  position: relative;
+  padding-left: 1.3em;
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+.certifications-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}

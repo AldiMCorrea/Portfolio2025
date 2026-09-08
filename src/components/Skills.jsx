@@ -6,20 +6,21 @@ const Skills = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="skills">
-      <h2>{t('skills.title')}</h2>
-      <ul>
+    <div className="skills" id="skills">
+      <h3 className="resume-subtitle">{t('skills.title')}</h3>
+      <div className="skills-tags">
         {t('skills.skills', { returnObjects: true }).map((skill, index) => (
-          <li key={index}>{skill}</li>
+          <span className="skill-tag" key={index}>{skill}</span>
         ))}
-      </ul>
-      <h2>{t('skills.certifications_title')}</h2>
-      <ul>
+      </div>
+
+      <h3 className="resume-subtitle certifications-title">{t('skills.certifications_title')}</h3>
+      <ul className="certifications-list">
         {t('skills.certifications', { returnObjects: true }).map((certification, index) => (
           <li key={index}>{certification}</li>
         ))}
       </ul>
-    </section>
+    </div>
   );
 };
 

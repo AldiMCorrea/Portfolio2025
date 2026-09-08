@@ -1,9 +1,9 @@
 import React from 'react';
 import './Resume.css';
 import { useTranslation } from 'react-i18next';
-import Education from './Education';
 import WorkExperience from './WorkExperience';
 import Skills from './Skills';
+import Education from './Education';
 
 const Resume = () => {
   const { t, i18n } = useTranslation();
@@ -11,14 +11,25 @@ const Resume = () => {
 
   return (
     <section id="resume">
-      <h2>{t('resume.title')}</h2>
-      <p>{t('resume.intro')}</p>
-      <a href={resumePath} download className="download-button">
-        {t('resume.downloadButton')}
-      </a>
-      <WorkExperience />
-      <Education />
-      <Skills />
+      <div className="resume-header">
+        <div>
+          <h2>{t('resume.title')}</h2>
+          <p className="resume-intro">{t('resume.intro')}</p>
+        </div>
+        <a href={resumePath} download className="download-button">
+          {t('resume.downloadButton')}
+        </a>
+      </div>
+
+      <div className="resume-block">
+        <WorkExperience />
+      </div>
+      <div className="resume-block">
+        <Skills />
+      </div>
+      <div className="resume-block">
+        <Education />
+      </div>
     </section>
   );
 };

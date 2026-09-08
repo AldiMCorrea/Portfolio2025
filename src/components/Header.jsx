@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Header.css';
 import { FaMoon, FaSun, FaGithubSquare, FaLinkedin, FaGlobe } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import logo from '../assets/icons/logo.png';
 
 const languages = [
   { code: 'en', label: 'English' },
@@ -43,9 +42,10 @@ const Header = ({ toggleTheme, isDarkMode }) => {
       <input type="checkbox" id="menu-toggle" className="menu-toggle" />
 
       <header className="header">
-        <div className="logo">
-          <img src={logo} alt="Amelanicorrea Logo" className="logo-img" />
-        </div>
+        <a href="#hero" className="logo" aria-label="Aldana Correa - home">
+          <span className="logo-mark">AC</span>
+          <span className="logo-text">aldicorrea<span className="logo-dot">.</span>dev</span>
+        </a>
 
         <label htmlFor="menu-toggle" className="hamburger" aria-label="Toggle navigation menu">
           <span></span>
@@ -94,8 +94,9 @@ const Header = ({ toggleTheme, isDarkMode }) => {
       <nav className="nav-menu">
         <ul>
           <li><a href="#about" onClick={closeMenu}>{t('header.about')}</a></li>
-          <li><a href="#projects" onClick={closeMenu}>{t('header.projects')}</a></li>
           <li><a href="#technologies" onClick={closeMenu}>{t('header.technologies')}</a></li>
+          <li><a href="#resume" onClick={closeMenu}>{t('header.resume')}</a></li>
+          <li><a href="#projects" onClick={closeMenu}>{t('header.projects')}</a></li>
           <li><a href="#contact" onClick={closeMenu}>{t('header.contact')}</a></li>
         </ul>
       </nav>

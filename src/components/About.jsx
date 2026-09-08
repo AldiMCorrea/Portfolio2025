@@ -1,8 +1,6 @@
 import React from 'react';
 import './About.css';
 import { useTranslation } from 'react-i18next';
-import Lottie from 'react-lottie-player';
-import animationData from '../assets/animations/chip-animation.json';
 
 const About = () => {
   const { t } = useTranslation();
