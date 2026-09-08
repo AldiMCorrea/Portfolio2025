@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -9,17 +9,27 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import TypingEffect from './components/TypingEffect';
 
+const getInitialTheme = () => {
+  if (typeof window === 'undefined') return 'light';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  // Stamp the explicit choice on <html> so it always wins over the OS/browser
+  // preference, in both directions (light chosen while OS is dark, and vice versa).
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle('dark-mode');
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   return (
     <div className="App">
-      <Header toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+      <Header toggleTheme={toggleTheme} isDarkMode={theme === 'dark'} />
       <main>
         <Hero />
         <About />

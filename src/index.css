@@ -79,8 +79,9 @@
   }
 }
 
-/* ---- Explicit theme toggle (body.dark-mode) wins in both directions ---- */
-body.dark-mode {
+/* ---- Explicit theme toggle (data-theme on <html>) wins in both directions,
+   regardless of system preference ---- */
+:root[data-theme="dark"] {
   --bg: #000000;
   --bg-soft: #0e0e0e;
   --text-primary: #f2f0ee;
@@ -99,6 +100,27 @@ body.dark-mode {
   --glass-shadow-hover: 0 14px 44px rgba(0, 0, 0, 0.55);
 
   --divider: rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f2ee;
+  --bg-soft: #faf7f4;
+  --text-primary: #1a1a1a;
+  --text-secondary: #63605c;
+  --text-tertiary: #8b8781;
+
+  --accent: #9c8b7c;
+  --accent-strong: #7d6e61;
+  --accent-soft: rgba(156, 139, 124, 0.14);
+  --on-accent: #faf7f4;
+
+  --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.32));
+  --glass-bg-strong: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(156, 139, 124, 0.22);
+  --glass-shadow: 0 8px 30px rgba(26, 22, 18, 0.08);
+  --glass-shadow-hover: 0 14px 40px rgba(26, 22, 18, 0.12);
+
+  --divider: rgba(26, 22, 18, 0.1);
 }
 
 * {
