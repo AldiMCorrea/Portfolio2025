@@ -114,6 +114,11 @@
       "title": "Smart Agriculture with Precision Irrigation",
       "description": "Implemented an IoT agriculture system using a wireless sensor network (ESP-NOW) to monitor and automate precision irrigation. It sends data to the cloud for remote monitoring and zone control.",
       "link": "View on GitHub"
+    },
+    "project8": {
+      "title": "OTA Firmware Update System",
+      "description": "Built a complete over-the-air update system for ESP32: a Python update server with a live fleet dashboard, and an ESP-IDF client that downloads, cryptographically verifies (ECDSA P-256 signature over SHA-256), and installs firmware into A/B partitions with automatic rollback when a post-boot self-test fails. Includes interrupted-download resume via HTTP Range and a semver update policy.",
+      "link": "View on GitHub"
     }
   },
   "resume": {

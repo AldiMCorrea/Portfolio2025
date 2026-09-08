@@ -114,6 +114,11 @@
       "title": "Agricultura Inteligente con Riego de Precisión",
       "description": "Implementé un sistema IoT para agricultura que usa una red de sensores inalámbricos (ESP-NOW) para monitorear y automatizar el riego de precisión. Envía datos a la nube para monitoreo remoto y control por zonas.",
       "link": "Ver en GitHub"
+    },
+    "project8": {
+      "title": "Sistema de Actualización de Firmware OTA",
+      "description": "Desarrollé un sistema completo de actualización over-the-air para ESP32: un servidor en Python con dashboard en vivo de la flota, y un cliente ESP-IDF que descarga, verifica criptográficamente (firma ECDSA P-256 sobre SHA-256) e instala el firmware en particiones A/B con rollback automático cuando falla el auto-test posterior al arranque. Incluye reanudación de descargas interrumpidas con HTTP Range y política de actualización por semver.",
+      "link": "Ver en GitHub"
     }
   },
   "resume": {

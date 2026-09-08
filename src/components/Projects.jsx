@@ -2,6 +2,7 @@ import React from 'react';
 import './Projects.css';
 import { useTranslation } from 'react-i18next';
 import { FaGithub } from 'react-icons/fa';
+import OtaUpdateImage from '../assets/projects-images/OTA-UpdateSystem.png';
 import SmartPlugImage from '../assets/projects-images/IOT-SmartPlug.png';
 import PowerMonitorImage from '../assets/projects-images/Remote-PowerMonitoringSystem.png';
 import IotPlatformImage from '../assets/projects-images/IoT-DataAcquisitionPlatform.png';
@@ -16,6 +17,17 @@ const Projects = () => {
     <section id="projects">
       <h2>{t('projects.title')}</h2>
 
+      <div className="project">
+        <img src={OtaUpdateImage} alt="OTA Firmware Update System Project" />
+        <div className="project-info">
+          <h3>{t('projects.project8.title')}</h3>
+          <p>{t('projects.project8.description')}</p>
+          <a href="https://github.com/AldiMCorrea/OTA-Update-System" target="_blank" rel="noopener noreferrer">
+            <FaGithub />
+            {t('projects.project8.link')}
+          </a>
+        </div>
+      </div>
       <div className="project">
         <img src={SmartPlugImage} alt="Smart Plug Project" />
         <div className="project-info">
