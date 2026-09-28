@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { FaMoon, FaSun, FaInstagram } from 'react-icons/fa';
 import './AerialExperience.css';
 import logoBlack from './aerial-logo-black.png';
 import logoWhite from './aerial-logo-white.png';
 import { LANG_STORAGE_KEY } from './i18n';
+
+const INSTAGRAM_HANDLE = 'aerialexperience_';
+const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 
 const WHATSAPP_NUMBER = '5493517892061';
 const whatsappUrl = (message) =>
@@ -284,6 +287,25 @@ function AerialExperience() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="ae-section ae-instagram" id="instagram">
+          <p className="ae-eyebrow">Instagram</p>
+          <h2>{t('instagram.title')}</h2>
+          <a className="ae-ig-card" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+            <span className="ae-ig-avatar">
+              <img src={theme === 'dark' ? logoWhite : logoBlack} alt="" />
+            </span>
+            <span className="ae-ig-info">
+              <span className="ae-ig-handle">@{INSTAGRAM_HANDLE}</span>
+              <span className="ae-ig-name">Aerial Experience</span>
+              <span className="ae-ig-bio">{t('instagram.bio')}</span>
+            </span>
+            <span className="ae-ig-follow">
+              <FaInstagram aria-hidden="true" />
+              {t('instagram.follow')}
+            </span>
+          </a>
         </section>
 
         <section className="ae-section ae-contact" id="contacto">
