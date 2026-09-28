@@ -1,42 +1,118 @@
 import React from 'react';
 import './AerialExperience.css';
-import logo from './aerial-logo.svg';
+import logo from './aerial-logo-black.png';
 
 const WHATSAPP_NUMBER = '5493517892061';
 const WHATSAPP_MESSAGE = '¡Hola Aldi! Quiero inscribirme a las clases de Aerial Dance 🤍';
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
-// Hanging silk ribbons: x position (%), width, sway duration and delay.
-const SILKS = [
-  { x: 6, w: 70, dur: 9, delay: 0 },
-  { x: 18, w: 46, dur: 11, delay: -3 },
-  { x: 74, w: 58, dur: 10, delay: -5 },
-  { x: 88, w: 80, dur: 12, delay: -1 },
-];
+// ---- Drapery background -------------------------------------------------
+// Side curtain in a 400x1000 box: full width at the top, gathered by a
+// tie-back at (TIE_X, TIE_Y), then flaring out towards the floor.
+const TIE_X = 150;
+const TIE_Y = 590;
+const FOLDS = 9;
 
-function Silk({ x, w, dur, delay, id }) {
+const curtainOutline =
+  `M0 0 H400 C370 230 220 470 ${TIE_X} ${TIE_Y} ` +
+  `C200 700 300 860 340 1000 H0 Z`;
+
+// Fold lines follow the curtain shape: converge at the tie-back, fan out below.
+const curtainFolds = Array.from({ length: FOLDS }, (_, i) => {
+  const t = (i + 1) / (FOLDS + 1);
+  const top = 400 * t;
+  const tie = TIE_X * t;
+  const floor = 340 * t;
+  return `M${top} 0 C${top - 10} 260 ${tie + 20} 470 ${tie} ${TIE_Y} C${tie + 15} 720 ${floor - 5} 860 ${floor} 1000`;
+});
+
+function Curtain({ side }) {
+  const id = `curtain-${side}`;
   return (
-    <svg
-      className="ae-silk"
-      style={{ left: `${x}%`, width: w, animationDuration: `${dur}s`, animationDelay: `${delay}s` }}
-      viewBox="0 0 80 1000"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-    >
+    <svg className={`ae-curtain ae-curtain-${side}`} viewBox="0 0 400 1000" preserveAspectRatio="none" aria-hidden="true">
       <defs>
-        <linearGradient id={`fold-${id}`} x1="0" x2="1">
-          <stop offset="0%" stopColor="#e9e4de" />
-          <stop offset="30%" stopColor="#ffffff" />
-          <stop offset="55%" stopColor="#f1ede8" />
-          <stop offset="80%" stopColor="#ffffff" />
-          <stop offset="100%" stopColor="#e2dcd5" />
+        {/* Repeating vertical folds: light crest, soft shadow valley. */}
+        <linearGradient id={`${id}-folds`} x1="0" x2="0.11" y1="0" y2="0" spreadMethod="repeat">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="45%" stopColor="#f3efea" />
+          <stop offset="70%" stopColor="#e4ddd5" />
+          <stop offset="100%" stopColor="#ffffff" />
+        </linearGradient>
+        {/* Shade towards the inner edge and the floor, for depth. */}
+        <linearGradient id={`${id}-shade`} x1="0" x2="1" y1="0" y2="0.3">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
+          <stop offset="75%" stopColor="#d8cfc5" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#c9bdb0" stopOpacity="0.45" />
         </linearGradient>
       </defs>
-      <path
-        d="M20 0 L60 0 C66 220 72 420 62 620 C54 800 70 900 78 1000 L10 1000 C18 900 30 800 22 620 C12 420 14 220 20 0 Z"
-        fill={`url(#fold-${id})`}
-      />
+      <path d={curtainOutline} fill={`url(#${id}-folds)`} />
+      <path d={curtainOutline} fill={`url(#${id}-shade)`} />
+      <g className="ae-fold-lines">
+        {curtainFolds.map((d, i) => <path key={i} d={d} />)}
+      </g>
+      {/* Tie-back ribbon */}
+      <path className="ae-tieback" d={`M-10 ${TIE_Y - 18} C60 ${TIE_Y - 30} 120 ${TIE_Y - 22} ${TIE_X + 14} ${TIE_Y - 4} L${TIE_X + 14} ${TIE_Y + 10} C120 ${TIE_Y - 4} 60 ${TIE_Y - 12} -10 ${TIE_Y} Z`} />
     </svg>
+  );
+}
+
+// Swagged valance across the top: a row of sagging fabric scallops.
+function Valance() {
+  const swags = [0, 1, 2, 3];
+  const w = 1000 / swags.length;
+  return (
+    <svg className="ae-valance" viewBox="0 0 1000 160" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="valance-fill" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="55%" stopColor="#f4f0eb" />
+          <stop offset="85%" stopColor="#e6dfd7" />
+          <stop offset="100%" stopColor="#fbfaf8" />
+        </linearGradient>
+      </defs>
+      <rect width="1000" height="14" fill="#efe9e2" />
+      {swags.map((i) => {
+        const x0 = i * w - 20;
+        const x1 = (i + 1) * w + 20;
+        const mid = (x0 + x1) / 2;
+        return (
+          <g key={i}>
+            <path d={`M${x0} 0 H${x1} C${x1 - 30} 70 ${mid + 80} 130 ${mid} 132 C${mid - 80} 130 ${x0 + 30} 70 ${x0} 0 Z`} fill="url(#valance-fill)" />
+            <path className="ae-valance-fold" d={`M${x0 + 40} 10 Q${mid} 110 ${x1 - 40} 10`} />
+            <path className="ae-valance-fold" d={`M${x0 + 70} 8 Q${mid} 80 ${x1 - 70} 8`} />
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+// A wide translucent silk sweeping diagonally across the whole viewport.
+function Sweep() {
+  return (
+    <svg className="ae-sweep" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="sweep-fill" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
+          <stop offset="40%" stopColor="#f1ebe4" stopOpacity="0.7" />
+          <stop offset="60%" stopColor="#ffffff" stopOpacity="0.85" />
+          <stop offset="100%" stopColor="#e8e0d7" stopOpacity="0.6" />
+        </linearGradient>
+      </defs>
+      <path d="M1000 60 C780 180 620 420 480 560 C340 700 180 800 0 880 L0 1000 C220 900 400 800 540 660 C700 500 820 300 1000 210 Z" fill="url(#sweep-fill)" />
+      <path className="ae-sweep-fold" d="M1000 130 C800 250 640 460 510 610 C370 760 200 850 0 940" />
+    </svg>
+  );
+}
+
+function Drapery() {
+  return (
+    <div className="ae-drapes" aria-hidden="true">
+      <Sweep />
+      <Curtain side="left" />
+      <Curtain side="right" />
+      <Valance />
+    </div>
   );
 }
 
@@ -95,14 +171,11 @@ const DISCIPLINES = [
 function AerialExperience() {
   return (
     <div className="ae">
-      <div className="ae-silks" aria-hidden="true">
-        {SILKS.map((s, i) => <Silk key={i} id={i} {...s} />)}
-      </div>
+      <Drapery />
 
       <header className="ae-hero">
-        <img className="ae-logo" src={logo} alt="Aerial Experience" />
         <h1 className="ae-title">
-          Aerial <em>Experience</em>
+          <img className="ae-logo" src={logo} alt="Aerial Experience" />
         </h1>
         <p className="ae-tagline">Clases de aerial dance · Volá, fluí, sentí</p>
         <a className="ae-btn" href={whatsappUrl} target="_blank" rel="noopener noreferrer">

@@ -32,35 +32,98 @@ body {
     linear-gradient(180deg, #f4f1ed 0%, var(--ae-bg) 40%, #f6f3ef 100%);
 }
 
-/* ---- Hanging silks ---- */
-.ae-silks {
+/* ---- Drapery background ---- */
+.ae-drapes {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
-.ae-silk {
+.ae-curtain {
   position: absolute;
-  top: -2vh;
-  height: 104vh;
+  top: 0;
+  width: clamp(150px, 30vw, 480px);
+  height: 100vh;
   transform-origin: top center;
-  animation: ae-sway ease-in-out infinite alternate;
-  filter: drop-shadow(0 10px 24px rgba(60, 45, 30, 0.1));
-  opacity: 0.95;
+  animation: ae-breathe 11s ease-in-out infinite alternate;
+  filter: drop-shadow(0 18px 40px rgba(60, 45, 30, 0.16));
 }
 
-@keyframes ae-sway {
-  from { transform: rotate(-1.4deg) skewX(-1deg); }
-  to   { transform: rotate(1.4deg) skewX(1deg); }
+.ae-curtain-left { left: 0; }
+
+.ae-curtain-right {
+  right: 0;
+  scale: -1 1; /* mirror; kept separate from the animated transform */
+  animation-delay: -5s;
+}
+
+.ae-fold-lines path {
+  fill: none;
+  stroke: #cfc5ba;
+  stroke-opacity: 0.55;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.ae-tieback {
+  fill: var(--ae-accent);
+  opacity: 0.85;
+}
+
+.ae-valance {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(70px, 14vh, 150px);
+  filter: drop-shadow(0 10px 20px rgba(60, 45, 30, 0.12));
+}
+
+.ae-valance-fold {
+  fill: none;
+  stroke: #d6ccc1;
+  stroke-opacity: 0.6;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.ae-sweep {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: ae-wave 14s ease-in-out infinite alternate;
+  filter: drop-shadow(0 20px 40px rgba(60, 45, 30, 0.1));
+}
+
+.ae-sweep-fold {
+  fill: none;
+  stroke: #d8cec3;
+  stroke-opacity: 0.5;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+@keyframes ae-breathe {
+  from { transform: skewX(-0.8deg); }
+  to   { transform: skewX(0.8deg); }
+}
+
+@keyframes ae-wave {
+  from { transform: translateY(-1.5%) rotate(-0.6deg); }
+  to   { transform: translateY(1.5%) rotate(0.6deg); }
 }
 
 @media (max-width: 700px) {
-  .ae-silk { opacity: 0.5; }
+  .ae-curtain { width: 26vw; }
+  .ae-sweep { opacity: 0.6; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ae-silk { animation: none; }
+  .ae-curtain,
+  .ae-sweep { animation: none; }
 }
 
 /* ---- Layout ---- */
@@ -81,30 +144,21 @@ body {
   padding: 4rem 1.25rem;
 }
 
+/* The logo is the page title: a black wordmark on a transparent background. */
+.ae-title {
+  margin: 0;
+  line-height: 0;
+}
+
 .ae-logo {
-  width: clamp(96px, 18vw, 150px);
+  width: min(560px, 82vw);
   height: auto;
-  margin-bottom: 1.5rem;
   animation: ae-float 6s ease-in-out infinite alternate;
 }
 
 @keyframes ae-float {
   from { transform: translateY(-4px); }
   to   { transform: translateY(6px); }
-}
-
-.ae-title {
-  font-family: var(--ae-serif);
-  font-weight: 300;
-  font-size: clamp(3rem, 2rem + 6vw, 6.5rem);
-  letter-spacing: 0.02em;
-  line-height: 1;
-  margin: 0;
-}
-
-.ae-title em {
-  font-style: italic;
-  color: var(--ae-accent-strong);
 }
 
 .ae-tagline {
