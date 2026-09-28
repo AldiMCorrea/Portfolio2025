@@ -116,6 +116,16 @@ const DISCIPLINES = [
   },
 ];
 
+// Short clips served from public/aerialexperience/videos/.
+const VIDEOS = [
+  { src: 'videos/straps.mp4', label: 'Aerial Straps' },
+  { src: 'videos/trapeze.mp4', label: 'Dance Trapeze' },
+  { src: 'videos/trapeze2.mp4', label: 'Dance Trapeze' },
+];
+
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 function Controls({ theme, onToggleTheme }) {
   const { t, i18n } = useTranslation();
 
@@ -155,6 +165,7 @@ function AerialExperience() {
   const { t, i18n } = useTranslation();
   const [theme, setTheme] = useState(getInitialTheme);
   const wppLink = whatsappUrl(t('contact.whatsappMessage'));
+  const [reducedMotion] = useState(prefersReducedMotion);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -208,6 +219,28 @@ function AerialExperience() {
                 <h3>{d.title}</h3>
                 <p>{t(`disciplines.${d.key}`)}</p>
               </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="ae-section" id="videos">
+          <p className="ae-eyebrow">{t('videos.eyebrow')}</p>
+          <h2>{t('videos.title')}</h2>
+          <div className="ae-videos">
+            {VIDEOS.map((v) => (
+              <figure className="ae-video" key={v.src}>
+                <video
+                  src={v.src}
+                  aria-label={v.label}
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  autoPlay={!reducedMotion}
+                  controls={reducedMotion}
+                />
+                <figcaption>{v.label}</figcaption>
+              </figure>
             ))}
           </div>
         </section>
