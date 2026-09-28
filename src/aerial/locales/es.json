@@ -143,6 +143,16 @@
     },
     "consent": "Declaro que la información es verdadera y que estoy en condiciones físicas de realizar la actividad.",
     "submit": "Enviar por WhatsApp",
-    "note": "Se abre WhatsApp con tu inscripción lista para enviar."
+    "note": "Se abre WhatsApp con tu inscripción lista para enviar.",
+    "email": {
+      "label": "Mail"
+    },
+    "phone": {
+      "label": "Teléfono"
+    },
+    "comments": {
+      "label": "Comentarios",
+      "placeholder": "Lo que quieras contarme: objetivos, dudas, disponibilidad…"
+    }
   }
 }

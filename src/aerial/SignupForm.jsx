@@ -11,6 +11,8 @@ const SOURCES = ['instagram', 'friend', 'docta', 'other'];
 const EMPTY = {
   name: '',
   age: '',
+  email: '',
+  phone: '',
   level: '',
   disciplines: [],
   plan: '',
@@ -20,6 +22,7 @@ const EMPTY = {
   emergencyName: '',
   emergencyPhone: '',
   source: '',
+  comments: '',
   consent: false,
 };
 
@@ -34,8 +37,10 @@ function buildMessage(form, tEs) {
     '',
     `*${tEs('signup.name.label')}:* ${form.name.trim()}`,
     `*${tEs('signup.age.label')}:* ${form.age}`,
+    form.email.trim() ? `*${tEs('signup.email.label')}:* ${form.email.trim()}` : null,
+    form.phone.trim() ? `*${tEs('signup.phone.label')}:* ${form.phone.trim()}` : null,
     `*${tEs('signup.level.label')}:* ${opt('level', form.level)}`,
-  ];
+  ].filter((line) => line !== null); // drop optional fields left empty
 
   if (form.disciplines.length) {
     lines.push(`*${tEs('signup.message.disciplines')}:* ${form.disciplines.map((d) => opt('disciplines', d)).join(', ')}`);
@@ -58,6 +63,9 @@ function buildMessage(form, tEs) {
   }
   if (form.source) {
     lines.push(`*${tEs('signup.message.source')}:* ${opt('source', form.source)}`);
+  }
+  if (form.comments.trim()) {
+    lines.push(`*${tEs('signup.comments.label')}:* ${form.comments.trim()}`);
   }
   return lines.join('\n');
 }
@@ -107,6 +115,17 @@ function SignupForm({ whatsappUrl }) {
         <label className="ae-field ae-field-age">
           <span>{t('signup.age.label')} *</span>
           <input type="number" required min="10" max="99" inputMode="numeric" value={form.age} onChange={set('age')} />
+        </label>
+      </div>
+
+      <div className="ae-form-row">
+        <label className="ae-field">
+          <span>{t('signup.email.label')}</span>
+          <input type="email" autoComplete="email" value={form.email} onChange={set('email')} />
+        </label>
+        <label className="ae-field">
+          <span>{t('signup.phone.label')}</span>
+          <input type="tel" autoComplete="tel" value={form.phone} onChange={set('phone')} />
         </label>
       </div>
 
@@ -202,6 +221,16 @@ function SignupForm({ whatsappUrl }) {
             <option key={key} value={key}>{t(`signup.source.options.${key}`)}</option>
           ))}
         </select>
+      </label>
+
+      <label className="ae-field">
+        <span>{t('signup.comments.label')}</span>
+        <textarea
+          rows="3"
+          placeholder={t('signup.comments.placeholder')}
+          value={form.comments}
+          onChange={set('comments')}
+        />
       </label>
 
       <label className="ae-consent">

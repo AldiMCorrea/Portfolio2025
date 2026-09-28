@@ -137,6 +137,16 @@
     },
     "consent": "I confirm this information is true and that I am physically fit to take part.",
     "submit": "Send via WhatsApp",
-    "note": "WhatsApp opens with your sign-up ready to send (in Spanish)."
+    "note": "WhatsApp opens with your sign-up ready to send (in Spanish).",
+    "email": {
+      "label": "Email"
+    },
+    "phone": {
+      "label": "Phone"
+    },
+    "comments": {
+      "label": "Comments",
+      "placeholder": "Anything you'd like to tell me: goals, questions, availability…"
+    }
   }
 }

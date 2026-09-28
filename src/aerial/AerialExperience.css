@@ -635,6 +635,7 @@ html { scroll-behavior: smooth; }
 }
 
 .ae-form input[type="text"],
+.ae-form input[type="email"],
 .ae-form input[type="number"],
 .ae-form input[type="tel"],
 .ae-form select,
