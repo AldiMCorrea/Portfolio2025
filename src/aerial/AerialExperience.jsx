@@ -188,14 +188,26 @@ function AerialExperience() {
           <p className="ae-eyebrow">About</p>
           <h2>Danza en el aire</h2>
           <p>
-            Aerial Experience es un espacio para descubrir la danza aérea desde cero o seguir
-            creciendo en tu práctica. Cada clase combina técnica, acondicionamiento físico y
-            expresión artística, en grupos reducidos y con acompañamiento personalizado.
+            Este proyecto nace hace unos meses soñando junto con amigos el probar nuevas
+            experiencias en aéreos.
+          </p>
+          <p>En la posibilidad de poder volar y jugar con alturas...</p>
+          <p>En crear un espacio de creatividad y incorporar nuevos elementos que nos apasionan.</p>
+          <p>
+            Junto con mucho esfuerzo, planificación y motivación de mis amigas que siempre están
+            ahí imaginando nuevas posibilidades nace AERIAL EXPERIENCE.
           </p>
           <p>
-            No necesitás experiencia previa: solo ganas de moverte, animarte a volar y disfrutar
-            del proceso. Cada cuerpo tiene su tiempo, y acá lo respetamos.
+            Para que puedan sentirse libres de expresarse. Queremos que AERIAL EXPERIENCE sea un
+            refugio para la libre expresión, donde cada persona pueda descubrir su propia forma de
+            volar y sentirse completamente libre.
           </p>
+          <p>
+            Agradezco de corazón a todos los que nos han apoyado en este emocionante viaje y los
+            invito a unirse a nosotros en Octubre, para disfrutar juntos de esta experiencia que
+            hemos construido con amor.
+          </p>
+          <p className="ae-about-closing">¡Los espero para volar alto y explorar nuevos elementos!</p>
         </section>
 
         <section className="ae-section" id="disciplinas">
