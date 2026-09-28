@@ -104,13 +104,11 @@ const DISCIPLINES = [
     key: 'straps',
     title: 'Aerial Straps',
     Icon: StrapsIcon,
-    videos: ['videos/straps.mp4'],
   },
   {
     key: 'trapeze',
     title: 'Dance Trapeze',
     Icon: TrapezeIcon,
-    videos: ['videos/trapeze.mp4', 'videos/trapeze2.mp4'],
   },
   {
     key: 'hammock',
@@ -119,30 +117,15 @@ const DISCIPLINES = [
   },
 ];
 
+// Short clips served from public/aerialexperience/videos/.
+const VIDEOS = [
+  { src: 'videos/straps.mp4', label: 'Aerial Straps' },
+  { src: 'videos/trapeze.mp4', label: 'Dance Trapeze' },
+  { src: 'videos/trapeze2.mp4', label: 'Dance Trapeze' },
+];
+
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-// Clips live in public/aerialexperience/videos/. A single clip loops; several
-// play one after another.
-function CardVideo({ videos, label, reducedMotion }) {
-  const [index, setIndex] = useState(0);
-  const several = videos.length > 1;
-
-  return (
-    <video
-      className="ae-card-video"
-      src={videos[index]}
-      aria-label={label}
-      muted
-      playsInline
-      preload="metadata"
-      loop={!several}
-      autoPlay={!reducedMotion}
-      controls={reducedMotion}
-      onEnded={several ? () => setIndex((i) => (i + 1) % videos.length) : undefined}
-    />
-  );
-}
 
 function Controls({ theme, onToggleTheme }) {
   const { t, i18n } = useTranslation();
@@ -245,12 +228,32 @@ function AerialExperience() {
           <div className="ae-cards">
             {DISCIPLINES.map((d) => (
               <article className="ae-card" key={d.key} id={d.key}>
-                {d.videos
-                  ? <CardVideo videos={d.videos} label={d.title} reducedMotion={reducedMotion} />
-                  : <div className="ae-card-icon"><d.Icon /></div>}
+                <div className="ae-card-icon"><d.Icon /></div>
                 <h3>{d.title}</h3>
                 <p>{t(`disciplines.${d.key}`)}</p>
               </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="ae-section" id="videos">
+          <p className="ae-eyebrow">{t('videos.eyebrow')}</p>
+          <h2>{t('videos.title')}</h2>
+          <div className="ae-videos">
+            {VIDEOS.map((v) => (
+              <figure className="ae-video" key={v.src}>
+                <video
+                  src={v.src}
+                  aria-label={v.label}
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  autoPlay={!reducedMotion}
+                  controls={reducedMotion}
+                />
+                <figcaption>{v.label}</figcaption>
+              </figure>
             ))}
           </div>
         </section>
