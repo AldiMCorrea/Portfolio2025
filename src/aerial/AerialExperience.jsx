@@ -34,112 +34,29 @@ const getInitialTheme = () => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
-// ---- Drapery background -------------------------------------------------
-// Side curtain in a 400x1000 box: full width at the top, gathered by a
-// tie-back at (TIE_X, TIE_Y), then flaring out towards the floor.
-const TIE_X = 150;
-const TIE_Y = 590;
-const FOLDS = 9;
+// ---- Satin background ---------------------------------------------------
+// Out-of-focus satin: wide blurred diagonal bands of light (hi) and shadow (lo).
+const SATIN_BANDS = [
+  { tone: 'hi', top: -8, height: 34, opacity: 0.95 },
+  { tone: 'lo', top: 18, height: 22, opacity: 0.8 },
+  { tone: 'hi', top: 38, height: 30, opacity: 0.8 },
+  { tone: 'lo', top: 62, height: 26, opacity: 0.9 },
+  { tone: 'hi', top: 82, height: 34, opacity: 0.7 },
+];
 
-const curtainOutline =
-  `M0 0 H400 C370 230 220 470 ${TIE_X} ${TIE_Y} ` +
-  `C200 700 300 860 340 1000 H0 Z`;
-
-// Fold lines follow the curtain shape: converge at the tie-back, fan out below.
-const curtainFolds = Array.from({ length: FOLDS }, (_, i) => {
-  const t = (i + 1) / (FOLDS + 1);
-  const top = 400 * t;
-  const tie = TIE_X * t;
-  const floor = 340 * t;
-  return `M${top} 0 C${top - 10} 260 ${tie + 20} 470 ${tie} ${TIE_Y} C${tie + 15} 720 ${floor - 5} 860 ${floor} 1000`;
-});
-
-function Curtain({ side }) {
-  const id = `curtain-${side}`;
+function Satin() {
   return (
-    <svg className={`ae-curtain ae-curtain-${side}`} viewBox="0 0 400 1000" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        {/* Repeating vertical folds: light crest, soft shadow valley. */}
-        <linearGradient id={`${id}-folds`} x1="0" x2="0.11" y1="0" y2="0" spreadMethod="repeat">
-          <stop offset="0%" style={{ stopColor: 'var(--ae-silk-hi)' }} />
-          <stop offset="45%" style={{ stopColor: 'var(--ae-silk-mid)' }} />
-          <stop offset="70%" style={{ stopColor: 'var(--ae-silk-low)' }} />
-          <stop offset="100%" style={{ stopColor: 'var(--ae-silk-hi)' }} />
-        </linearGradient>
-        {/* Shade towards the inner edge and the floor, for depth. */}
-        <linearGradient id={`${id}-shade`} x1="0" x2="1" y1="0" y2="0.3">
-          <stop offset="0%" style={{ stopColor: 'var(--ae-silk-hi)' }} stopOpacity="0" />
-          <stop offset="75%" style={{ stopColor: 'var(--ae-silk-low)' }} stopOpacity="0.15" />
-          <stop offset="100%" style={{ stopColor: 'var(--ae-silk-shade)' }} stopOpacity="0.45" />
-        </linearGradient>
-      </defs>
-      <path d={curtainOutline} fill={`url(#${id}-folds)`} />
-      <path d={curtainOutline} fill={`url(#${id}-shade)`} />
-      <g className="ae-fold-lines">
-        {curtainFolds.map((d, i) => <path key={i} d={d} />)}
-      </g>
-      {/* Tie-back ribbon */}
-      <path className="ae-tieback" d={`M-10 ${TIE_Y - 18} C60 ${TIE_Y - 30} 120 ${TIE_Y - 22} ${TIE_X + 14} ${TIE_Y - 4} L${TIE_X + 14} ${TIE_Y + 10} C120 ${TIE_Y - 4} 60 ${TIE_Y - 12} -10 ${TIE_Y} Z`} />
-    </svg>
-  );
-}
-
-// Swagged valance across the top: a row of sagging fabric scallops.
-function Valance() {
-  const swags = [0, 1, 2, 3];
-  const w = 1000 / swags.length;
-  return (
-    <svg className="ae-valance" viewBox="0 0 1000 160" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <linearGradient id="valance-fill" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" style={{ stopColor: 'var(--ae-silk-hi)' }} />
-          <stop offset="55%" style={{ stopColor: 'var(--ae-silk-mid)' }} />
-          <stop offset="85%" style={{ stopColor: 'var(--ae-silk-low)' }} />
-          <stop offset="100%" style={{ stopColor: 'var(--ae-bg)' }} />
-        </linearGradient>
-      </defs>
-      <rect className="ae-valance-rod" width="1000" height="14" />
-      {swags.map((i) => {
-        const x0 = i * w - 20;
-        const x1 = (i + 1) * w + 20;
-        const mid = (x0 + x1) / 2;
-        return (
-          <g key={i}>
-            <path d={`M${x0} 0 H${x1} C${x1 - 30} 70 ${mid + 80} 130 ${mid} 132 C${mid - 80} 130 ${x0 + 30} 70 ${x0} 0 Z`} fill="url(#valance-fill)" />
-            <path className="ae-valance-fold" d={`M${x0 + 40} 10 Q${mid} 110 ${x1 - 40} 10`} />
-            <path className="ae-valance-fold" d={`M${x0 + 70} 8 Q${mid} 80 ${x1 - 70} 8`} />
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
-
-// A wide translucent silk sweeping diagonally across the whole viewport.
-function Sweep() {
-  return (
-    <svg className="ae-sweep" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <linearGradient id="sweep-fill" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%" style={{ stopColor: 'var(--ae-silk-hi)' }} stopOpacity="0.95" />
-          <stop offset="40%" style={{ stopColor: 'var(--ae-silk-mid)' }} stopOpacity="0.7" />
-          <stop offset="60%" style={{ stopColor: 'var(--ae-silk-hi)' }} stopOpacity="0.85" />
-          <stop offset="100%" style={{ stopColor: 'var(--ae-silk-low)' }} stopOpacity="0.6" />
-        </linearGradient>
-      </defs>
-      <path d="M1000 60 C780 180 620 420 480 560 C340 700 180 800 0 880 L0 1000 C220 900 400 800 540 660 C700 500 820 300 1000 210 Z" fill="url(#sweep-fill)" />
-      <path className="ae-sweep-fold" d="M1000 130 C800 250 640 460 510 610 C370 760 200 850 0 940" />
-    </svg>
-  );
-}
-
-function Drapery() {
-  return (
-    <div className="ae-drapes" aria-hidden="true">
-      <Sweep />
-      <Curtain side="left" />
-      <Curtain side="right" />
-      <Valance />
+    <div className="ae-satin" aria-hidden="true">
+      <div className="ae-satin-bands">
+        {SATIN_BANDS.map((band, i) => (
+          <span
+            key={i}
+            className={`ae-satin-${band.tone}`}
+            style={{ top: `${band.top}%`, height: `${band.height}%`, opacity: band.opacity }}
+          />
+        ))}
+      </div>
+      <span className="ae-satin-veil" />
     </div>
   );
 }
@@ -252,7 +169,7 @@ function AerialExperience() {
 
   return (
     <div className="ae">
-      <Drapery />
+      <Satin />
       <Controls theme={theme} onToggleTheme={toggleTheme} />
 
       <header className="ae-hero">
