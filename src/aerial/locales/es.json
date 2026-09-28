@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Aerial Experience | Clases de Aerial Dance",
+    "description": "Aerial Experience — clases de aerial dance: aerial straps, dance trapeze y aerial hammock. Inscripciones por WhatsApp."
+  },
+  "controls": {
+    "language": "Idioma",
+    "toDark": "Cambiar a modo oscuro",
+    "toLight": "Cambiar a modo claro"
+  },
+  "hero": {
+    "tagline": "Clases de aerial dance · Volá, fluí, sentí",
+    "cta": "Quiero inscribirme"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Danza en el aire",
+    "paragraphs": [
+      "Este proyecto nace hace unos meses soñando junto con amigos el probar nuevas experiencias en aéreos.",
+      "En la posibilidad de poder volar y jugar con alturas...",
+      "En crear un espacio de creatividad y incorporar nuevos elementos que nos apasionan.",
+      "Junto con mucho esfuerzo, planificación y motivación de mis amigas que siempre están ahí imaginando nuevas posibilidades nace AERIAL EXPERIENCE.",
+      "Para que puedan sentirse libres de expresarse. Queremos que AERIAL EXPERIENCE sea un refugio para la libre expresión, donde cada persona pueda descubrir su propia forma de volar y sentirse completamente libre.",
+      "Agradezco de corazón a todos los que nos han apoyado en este emocionante viaje y los invito a unirse a nosotros en Octubre, para disfrutar juntos de esta experiencia que hemos construido con amor."
+    ],
+    "closing": "¡Los espero para volar alto y explorar nuevos elementos!"
+  },
+  "disciplines": {
+    "eyebrow": "Disciplinas",
+    "title": "Elegí tu aparato",
+    "straps": "Dos correas suspendidas que ponen a prueba la fuerza, el control y la precisión. Trabajamos tracciones, rotaciones y figuras dinámicas, construyendo una base sólida de hombros y core paso a paso.",
+    "trapeze": "El trapecio de danza une el vuelo con el movimiento coreográfico. Balanceos, giros y transiciones fluidas sobre la barra y las cuerdas, donde la técnica se vuelve expresión.",
+    "hammock": "Una tela en forma de hamaca que te sostiene y te invita a explorar. Ideal para comenzar: inversiones, envolturas y caídas suaves, combinando fuerza, flexibilidad y mucha confianza."
+  },
+  "contact": {
+    "eyebrow": "Inscripciones",
+    "title": "¿Te sumás a volar?",
+    "text": "Escribime por WhatsApp para consultar horarios, cupos y reservar tu clase.",
+    "whatsappMessage": "¡Hola Aldi! Quiero inscribirme a las clases de Aerial Dance 🤍"
+  }
+}

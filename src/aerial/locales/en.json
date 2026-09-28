@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Aerial Experience | Aerial Dance Classes",
+    "description": "Aerial Experience — aerial dance classes: aerial straps, dance trapeze and aerial hammock. Sign up via WhatsApp."
+  },
+  "controls": {
+    "language": "Language",
+    "toDark": "Switch to dark mode",
+    "toLight": "Switch to light mode"
+  },
+  "hero": {
+    "tagline": "Aerial dance classes · Fly, flow, feel",
+    "cta": "Sign me up"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Dance in the air",
+    "paragraphs": [
+      "This project was born a few months ago, dreaming together with friends about trying new aerial experiences.",
+      "About the chance to fly and play with heights...",
+      "About creating a space for creativity and bringing in new apparatus we are passionate about.",
+      "With a lot of effort, planning and the motivation of my friends, who are always there imagining new possibilities, AERIAL EXPERIENCE was born.",
+      "So that you can feel free to express yourselves. We want AERIAL EXPERIENCE to be a refuge for free expression, where each person can discover their own way of flying and feel completely free.",
+      "I am deeply grateful to everyone who has supported us on this exciting journey, and I invite you to join us in October to enjoy together this experience we have built with love."
+    ],
+    "closing": "I can't wait to fly high and explore new apparatus with you!"
+  },
+  "disciplines": {
+    "eyebrow": "Disciplines",
+    "title": "Choose your apparatus",
+    "straps": "Two suspended straps that challenge your strength, control and precision. We work on pulls, rotations and dynamic figures, building a solid shoulder and core foundation step by step.",
+    "trapeze": "Dance trapeze brings flight and choreographic movement together. Swings, spins and flowing transitions on the bar and ropes, where technique becomes expression.",
+    "hammock": "A fabric hammock that holds you and invites you to explore. Ideal for beginners: inversions, wraps and gentle drops, combining strength, flexibility and plenty of confidence."
+  },
+  "contact": {
+    "eyebrow": "Sign up",
+    "title": "Ready to fly with us?",
+    "text": "Message me on WhatsApp to ask about schedules, availability and to book your class.",
+    "whatsappMessage": "Hi Aldi! I'd like to sign up for the Aerial Dance classes 🤍"
+  }
+}

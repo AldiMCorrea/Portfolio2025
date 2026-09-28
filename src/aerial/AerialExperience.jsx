@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import './AerialExperience.css';
-import logo from './aerial-logo-black.png';
+import logoBlack from './aerial-logo-black.png';
+import logoWhite from './aerial-logo-white.png';
+import { LANG_STORAGE_KEY } from './i18n';
 
 const WHATSAPP_NUMBER = '5493517892061';
-const WHATSAPP_MESSAGE = '¡Hola Aldi! Quiero inscribirme a las clases de Aerial Dance 🤍';
-const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+const whatsappUrl = (message) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+const THEME_STORAGE_KEY = 'ae-theme';
+const LANGUAGES = ['es', 'en'];
+
+const save = (key, value) => {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Storage can be unavailable (private mode); the choice just won't persist.
+  }
+};
+
+const getInitialTheme = () => {
+  try {
+    const saved = localStorage.getItem(THEME_STORAGE_KEY);
+    if (saved === 'light' || saved === 'dark') return saved;
+  } catch {
+    // fall through to the OS preference
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
 
 // ---- Drapery background -------------------------------------------------
 // Side curtain in a 400x1000 box: full width at the top, gathered by a
@@ -33,16 +58,16 @@ function Curtain({ side }) {
       <defs>
         {/* Repeating vertical folds: light crest, soft shadow valley. */}
         <linearGradient id={`${id}-folds`} x1="0" x2="0.11" y1="0" y2="0" spreadMethod="repeat">
-          <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="45%" stopColor="#f3efea" />
-          <stop offset="70%" stopColor="#e4ddd5" />
-          <stop offset="100%" stopColor="#ffffff" />
+          <stop offset="0%" style={{ stopColor: 'var(--ae-silk-hi)' }} />
+          <stop offset="45%" style={{ stopColor: 'var(--ae-silk-mid)' }} />
+          <stop offset="70%" style={{ stopColor: 'var(--ae-silk-low)' }} />
+          <stop offset="100%" style={{ stopColor: 'var(--ae-silk-hi)' }} />
         </linearGradient>
         {/* Shade towards the inner edge and the floor, for depth. */}
         <linearGradient id={`${id}-shade`} x1="0" x2="1" y1="0" y2="0.3">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
-          <stop offset="75%" stopColor="#d8cfc5" stopOpacity="0.15" />
-          <stop offset="100%" stopColor="#c9bdb0" stopOpacity="0.45" />
+          <stop offset="0%" style={{ stopColor: 'var(--ae-silk-hi)' }} stopOpacity="0" />
+          <stop offset="75%" style={{ stopColor: 'var(--ae-silk-low)' }} stopOpacity="0.15" />
+          <stop offset="100%" style={{ stopColor: 'var(--ae-silk-shade)' }} stopOpacity="0.45" />
         </linearGradient>
       </defs>
       <path d={curtainOutline} fill={`url(#${id}-folds)`} />
@@ -64,13 +89,13 @@ function Valance() {
     <svg className="ae-valance" viewBox="0 0 1000 160" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <linearGradient id="valance-fill" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="55%" stopColor="#f4f0eb" />
-          <stop offset="85%" stopColor="#e6dfd7" />
-          <stop offset="100%" stopColor="#fbfaf8" />
+          <stop offset="0%" style={{ stopColor: 'var(--ae-silk-hi)' }} />
+          <stop offset="55%" style={{ stopColor: 'var(--ae-silk-mid)' }} />
+          <stop offset="85%" style={{ stopColor: 'var(--ae-silk-low)' }} />
+          <stop offset="100%" style={{ stopColor: 'var(--ae-bg)' }} />
         </linearGradient>
       </defs>
-      <rect width="1000" height="14" fill="#efe9e2" />
+      <rect className="ae-valance-rod" width="1000" height="14" />
       {swags.map((i) => {
         const x0 = i * w - 20;
         const x1 = (i + 1) * w + 20;
@@ -93,10 +118,10 @@ function Sweep() {
     <svg className="ae-sweep" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <linearGradient id="sweep-fill" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
-          <stop offset="40%" stopColor="#f1ebe4" stopOpacity="0.7" />
-          <stop offset="60%" stopColor="#ffffff" stopOpacity="0.85" />
-          <stop offset="100%" stopColor="#e8e0d7" stopOpacity="0.6" />
+          <stop offset="0%" style={{ stopColor: 'var(--ae-silk-hi)' }} stopOpacity="0.95" />
+          <stop offset="40%" style={{ stopColor: 'var(--ae-silk-mid)' }} stopOpacity="0.7" />
+          <stop offset="60%" style={{ stopColor: 'var(--ae-silk-hi)' }} stopOpacity="0.85" />
+          <stop offset="100%" style={{ stopColor: 'var(--ae-silk-low)' }} stopOpacity="0.6" />
         </linearGradient>
       </defs>
       <path d="M1000 60 C780 180 620 420 480 560 C340 700 180 800 0 880 L0 1000 C220 900 400 800 540 660 C700 500 820 300 1000 210 Z" fill="url(#sweep-fill)" />
@@ -152,83 +177,120 @@ const DISCIPLINES = [
     key: 'straps',
     title: 'Aerial Straps',
     Icon: StrapsIcon,
-    text: 'Dos correas suspendidas que ponen a prueba la fuerza, el control y la precisión. Trabajamos tracciones, rotaciones y figuras dinámicas, construyendo una base sólida de hombros y core paso a paso.',
   },
   {
     key: 'trapeze',
     title: 'Dance Trapeze',
     Icon: TrapezeIcon,
-    text: 'El trapecio de danza une el vuelo con el movimiento coreográfico. Balanceos, giros y transiciones fluidas sobre la barra y las cuerdas, donde la técnica se vuelve expresión.',
   },
   {
     key: 'hammock',
     title: 'Aerial Hammock',
     Icon: HammockIcon,
-    text: 'Una tela en forma de hamaca que te sostiene y te invita a explorar. Ideal para comenzar: inversiones, envolturas y caídas suaves, combinando fuerza, flexibilidad y mucha confianza.',
   },
 ];
 
+function Controls({ theme, onToggleTheme }) {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (code) => {
+    i18n.changeLanguage(code);
+    save(LANG_STORAGE_KEY, code);
+  };
+
+  return (
+    <div className="ae-controls">
+      <div className="ae-lang" role="group" aria-label={t('controls.language')}>
+        {LANGUAGES.map((code) => (
+          <button
+            key={code}
+            type="button"
+            className={i18n.resolvedLanguage === code ? 'is-active' : ''}
+            aria-pressed={i18n.resolvedLanguage === code}
+            onClick={() => changeLanguage(code)}
+          >
+            {code.toUpperCase()}
+          </button>
+        ))}
+      </div>
+      <button
+        type="button"
+        className="ae-theme"
+        onClick={onToggleTheme}
+        aria-label={theme === 'dark' ? t('controls.toLight') : t('controls.toDark')}
+      >
+        {theme === 'dark' ? <FaSun /> : <FaMoon />}
+      </button>
+    </div>
+  );
+}
+
 function AerialExperience() {
+  const { t, i18n } = useTranslation();
+  const [theme, setTheme] = useState(getInitialTheme);
+  const wppLink = whatsappUrl(t('contact.whatsappMessage'));
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  // Keep <html lang>, the tab title and the meta description in the chosen language.
+  useEffect(() => {
+    document.documentElement.lang = i18n.resolvedLanguage;
+    document.title = t('meta.title');
+    document.querySelector('meta[name="description"]')?.setAttribute('content', t('meta.description'));
+  }, [i18n.resolvedLanguage, t]);
+
+  const toggleTheme = () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    save(THEME_STORAGE_KEY, next);
+  };
+
   return (
     <div className="ae">
       <Drapery />
+      <Controls theme={theme} onToggleTheme={toggleTheme} />
 
       <header className="ae-hero">
         <h1 className="ae-title">
-          <img className="ae-logo" src={logo} alt="Aerial Experience" />
+          <img className="ae-logo" src={theme === 'dark' ? logoWhite : logoBlack} alt="Aerial Experience" />
         </h1>
-        <p className="ae-tagline">Clases de aerial dance · Volá, fluí, sentí</p>
-        <a className="ae-btn" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-          Quiero inscribirme
+        <p className="ae-tagline">{t('hero.tagline')}</p>
+        <a className="ae-btn" href={wppLink} target="_blank" rel="noopener noreferrer">
+          {t('hero.cta')}
         </a>
       </header>
 
       <main>
         <section className="ae-section ae-about" id="about">
-          <p className="ae-eyebrow">About</p>
-          <h2>Danza en el aire</h2>
-          <p>
-            Este proyecto nace hace unos meses soñando junto con amigos el probar nuevas
-            experiencias en aéreos.
-          </p>
-          <p>En la posibilidad de poder volar y jugar con alturas...</p>
-          <p>En crear un espacio de creatividad y incorporar nuevos elementos que nos apasionan.</p>
-          <p>
-            Junto con mucho esfuerzo, planificación y motivación de mis amigas que siempre están
-            ahí imaginando nuevas posibilidades nace AERIAL EXPERIENCE.
-          </p>
-          <p>
-            Para que puedan sentirse libres de expresarse. Queremos que AERIAL EXPERIENCE sea un
-            refugio para la libre expresión, donde cada persona pueda descubrir su propia forma de
-            volar y sentirse completamente libre.
-          </p>
-          <p>
-            Agradezco de corazón a todos los que nos han apoyado en este emocionante viaje y los
-            invito a unirse a nosotros en Octubre, para disfrutar juntos de esta experiencia que
-            hemos construido con amor.
-          </p>
-          <p className="ae-about-closing">¡Los espero para volar alto y explorar nuevos elementos!</p>
+          <p className="ae-eyebrow">{t('about.eyebrow')}</p>
+          <h2>{t('about.title')}</h2>
+          {t('about.paragraphs', { returnObjects: true }).map((text, i) => (
+            <p key={i}>{text}</p>
+          ))}
+          <p className="ae-about-closing">{t('about.closing')}</p>
         </section>
 
         <section className="ae-section" id="disciplinas">
-          <p className="ae-eyebrow">Disciplinas</p>
-          <h2>Elegí tu aparato</h2>
+          <p className="ae-eyebrow">{t('disciplines.eyebrow')}</p>
+          <h2>{t('disciplines.title')}</h2>
           <div className="ae-cards">
             {DISCIPLINES.map((d) => (
               <article className="ae-card" key={d.key} id={d.key}>
                 <div className="ae-card-icon"><d.Icon /></div>
                 <h3>{d.title}</h3>
-                <p>{d.text}</p>
+                <p>{t(`disciplines.${d.key}`)}</p>
               </article>
             ))}
           </div>
         </section>
 
         <section className="ae-section ae-contact" id="contacto">
-          <p className="ae-eyebrow">Inscripciones</p>
-          <h2>¿Te sumás a volar?</h2>
-          <p>Escribime por WhatsApp para consultar horarios, cupos y reservar tu clase.</p>
-          <a className="ae-btn ae-btn-wpp" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+          <p className="ae-eyebrow">{t('contact.eyebrow')}</p>
+          <h2>{t('contact.title')}</h2>
+          <p>{t('contact.text')}</p>
+          <a className="ae-btn ae-btn-wpp" href={wppLink} target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.96-3.48-.23-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.43 9.45-9.43a9.4 9.4 0 0 1 9.43 9.44c0 5.2-4.24 9.44-9.44 9.44zm8.03-17.47A11.3 11.3 0 0 0 12.05.7C5.8.7.7 5.8.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.3 11.3 0 0 0 5.72 1.46h.01c6.25 0 11.35-5.1 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z" />
             </svg>

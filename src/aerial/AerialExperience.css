@@ -1,15 +1,85 @@
-/* Aerial Experience — white silks. Always light: the page is about white fabric. */
+/* Aerial Experience — white silks on a light room or a dark stage. */
 :root {
   color-scheme: light;
   --ae-bg: #fbfaf8;
+  --ae-bg-top: #f4f1ed;
+  --ae-bg-bottom: #f6f3ef;
+  --ae-spotlight: #ffffff;
   --ae-ink: #2b2723;
   --ae-muted: #6f675f;
   --ae-accent: #9c8b7c;
   --ae-accent-strong: #7d6e61;
   --ae-glass: rgba(255, 255, 255, 0.72);
   --ae-border: rgba(156, 139, 124, 0.22);
+  --ae-shadow: rgba(60, 45, 30, 0.14);
+  --ae-btn-bg: #2b2723;
+  --ae-btn-ink: #ffffff;
+
+  --ae-silk-hi: #ffffff;
+  --ae-silk-mid: #f3efea;
+  --ae-silk-low: #e4ddd5;
+  --ae-silk-shade: #c9bdb0;
+  --ae-fold-line: rgba(190, 176, 162, 0.55);
+  --ae-rod: #efe9e2;
+  --ae-sweep-opacity: 1;
+
   --ae-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --ae-sans: 'Questrial', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ae-bg: #0f0d0c;
+    --ae-bg-top: #1d1a17;
+    --ae-bg-bottom: #0b0a09;
+    --ae-spotlight: rgba(255, 244, 228, 0.1);
+    --ae-ink: #f2eee9;
+    --ae-muted: #b5ada4;
+    --ae-accent: #b9a99a;
+    --ae-accent-strong: #d8cabb;
+    --ae-glass: rgba(30, 27, 24, 0.72);
+    --ae-border: rgba(216, 202, 187, 0.16);
+    --ae-shadow: rgba(0, 0, 0, 0.5);
+    --ae-btn-bg: #f2eee9;
+    --ae-btn-ink: #1a1714;
+
+    /* White silks under stage light */
+    --ae-silk-hi: #e9e3db;
+    --ae-silk-mid: #c9c0b5;
+    --ae-silk-low: #948a7f;
+    --ae-silk-shade: #1c1815;
+    --ae-fold-line: rgba(40, 34, 29, 0.45);
+    --ae-rod: #3a332d;
+    --ae-sweep-opacity: 0.22;
+  --ae-sweep-opacity: 0.22;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ae-bg: #0f0d0c;
+  --ae-bg-top: #1d1a17;
+  --ae-bg-bottom: #0b0a09;
+  --ae-spotlight: rgba(255, 244, 228, 0.1);
+  --ae-ink: #f2eee9;
+  --ae-muted: #b5ada4;
+  --ae-accent: #b9a99a;
+  --ae-accent-strong: #d8cabb;
+  --ae-glass: rgba(30, 27, 24, 0.72);
+  --ae-border: rgba(216, 202, 187, 0.16);
+  --ae-shadow: rgba(0, 0, 0, 0.5);
+  --ae-btn-bg: #f2eee9;
+  --ae-btn-ink: #1a1714;
+
+  /* White silks under stage light */
+  --ae-silk-hi: #e9e3db;
+  --ae-silk-mid: #c9c0b5;
+  --ae-silk-low: #948a7f;
+  --ae-silk-shade: #1c1815;
+  --ae-fold-line: rgba(40, 34, 29, 0.45);
+  --ae-rod: #3a332d;
+  --ae-sweep-opacity: 0.22;
 }
 
 * { box-sizing: border-box; }
@@ -28,8 +98,8 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   background:
-    radial-gradient(ellipse at 50% 0%, #ffffff 0%, transparent 60%),
-    linear-gradient(180deg, #f4f1ed 0%, var(--ae-bg) 40%, #f6f3ef 100%);
+    radial-gradient(ellipse at 50% 0%, var(--ae-spotlight) 0%, transparent 60%),
+    linear-gradient(180deg, var(--ae-bg-top) 0%, var(--ae-bg) 40%, var(--ae-bg-bottom) 100%);
 }
 
 /* ---- Drapery background ---- */
@@ -48,7 +118,7 @@ body {
   height: 100vh;
   transform-origin: top center;
   animation: ae-breathe 11s ease-in-out infinite alternate;
-  filter: drop-shadow(0 18px 40px rgba(60, 45, 30, 0.16));
+  filter: drop-shadow(0 18px 40px var(--ae-shadow));
 }
 
 .ae-curtain-left { left: 0; }
@@ -61,9 +131,8 @@ body {
 
 .ae-fold-lines path {
   fill: none;
-  stroke: #cfc5ba;
-  stroke-opacity: 0.55;
-  stroke-width: 2;
+  stroke: var(--ae-fold-line);
+    stroke-width: 2;
   vector-effect: non-scaling-stroke;
 }
 
@@ -78,31 +147,30 @@ body {
   left: 0;
   width: 100%;
   height: clamp(70px, 14vh, 150px);
-  filter: drop-shadow(0 10px 20px rgba(60, 45, 30, 0.12));
+  filter: drop-shadow(0 10px 20px var(--ae-shadow));
 }
 
 .ae-valance-fold {
   fill: none;
-  stroke: #d6ccc1;
-  stroke-opacity: 0.6;
-  stroke-width: 1.5;
+  stroke: var(--ae-fold-line);
+    stroke-width: 1.5;
   vector-effect: non-scaling-stroke;
 }
 
 .ae-sweep {
   position: absolute;
+  opacity: var(--ae-sweep-opacity);
   inset: 0;
   width: 100%;
   height: 100%;
   animation: ae-wave 14s ease-in-out infinite alternate;
-  filter: drop-shadow(0 20px 40px rgba(60, 45, 30, 0.1));
+  filter: drop-shadow(0 20px 40px var(--ae-shadow));
 }
 
 .ae-sweep-fold {
   fill: none;
-  stroke: #d8cec3;
-  stroke-opacity: 0.5;
-  stroke-width: 2;
+  stroke: var(--ae-fold-line);
+    stroke-width: 2;
   vector-effect: non-scaling-stroke;
 }
 
@@ -118,12 +186,79 @@ body {
 
 @media (max-width: 700px) {
   .ae-curtain { width: 26vw; }
-  .ae-sweep { opacity: 0.6; }
+  .ae-sweep { opacity: calc(var(--ae-sweep-opacity) * 0.6); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .ae-curtain,
   .ae-sweep { animation: none; }
+}
+
+.ae-valance-rod { fill: var(--ae-rod); }
+
+/* ---- Language + theme controls ---- */
+.ae-controls {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + clamp(0.75rem, 2vw, 1.25rem));
+  right: clamp(0.75rem, 2vw, 1.25rem);
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ae-lang,
+.ae-theme {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background: var(--ae-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--ae-border);
+  border-radius: 999px;
+  box-shadow: 0 6px 20px var(--ae-shadow);
+}
+
+.ae-lang { padding: 3px; }
+
+.ae-lang button,
+.ae-theme {
+  font: inherit;
+  color: var(--ae-muted);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ae-lang button {
+  height: 100%;
+  padding: 0 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+}
+
+.ae-lang button:hover { color: var(--ae-ink); }
+
+.ae-lang button.is-active {
+  background: var(--ae-btn-bg);
+  color: var(--ae-btn-ink);
+}
+
+.ae-theme {
+  justify-content: center;
+  width: 40px;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.ae-theme:hover { color: var(--ae-ink); }
+
+.ae-lang button:focus-visible,
+.ae-theme:focus-visible {
+  outline: 2px solid var(--ae-accent);
+  outline-offset: 2px;
 }
 
 /* ---- Layout ---- */
@@ -175,18 +310,18 @@ body {
   gap: 0.6rem;
   padding: 0.9rem 2rem;
   border-radius: 999px;
-  background: var(--ae-ink);
-  color: #fff;
+  background: var(--ae-btn-bg);
+  color: var(--ae-btn-ink);
   text-decoration: none;
   letter-spacing: 0.08em;
   font-size: 0.95rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  box-shadow: 0 10px 30px rgba(43, 39, 35, 0.18);
+  box-shadow: 0 10px 30px var(--ae-shadow);
 }
 
 .ae-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(43, 39, 35, 0.24);
+  box-shadow: 0 16px 40px var(--ae-shadow);
 }
 
 .ae-btn:focus-visible {
@@ -249,13 +384,13 @@ body {
   border: 1px solid var(--ae-border);
   border-radius: 28px 28px 120px 120px / 28px 28px 40px 40px;
   padding: 2.5rem 1.75rem 3rem;
-  box-shadow: 0 10px 34px rgba(60, 45, 30, 0.07);
+  box-shadow: 0 10px 34px var(--ae-shadow);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .ae-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 48px rgba(60, 45, 30, 0.12);
+  box-shadow: 0 18px 48px var(--ae-shadow);
 }
 
 .ae-card-icon svg {
