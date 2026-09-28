@@ -4,6 +4,7 @@ import { FaMoon, FaSun, FaInstagram, FaWhatsapp, FaUsers, FaMapMarkerAlt } from 
 import './AerialExperience.css';
 import logoBlack from './aerial-logo-black.png';
 import logoWhite from './aerial-logo-white.png';
+import coachPhoto from './coach.png';
 import { LANG_STORAGE_KEY } from './i18n';
 
 const INSTAGRAM_HANDLE = 'aerialexperience_';
@@ -226,6 +227,18 @@ function AerialExperience() {
           <p className="ae-about-closing">{t('about.closing')}</p>
         </section>
 
+        <section className="ae-section ae-coach" id="sobre-mi">
+          <img className="ae-coach-photo" src={coachPhoto} alt={t('coach.photoAlt')} />
+          <div className="ae-coach-text">
+            <p className="ae-eyebrow">{t('coach.eyebrow')}</p>
+            <h2>{t('coach.title')}</h2>
+            <p className="ae-coach-role">Aerial Coach</p>
+            {t('coach.paragraphs', { returnObjects: true }).map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
+          </div>
+        </section>
+
         <section className="ae-section" id="disciplinas">
           <p className="ae-eyebrow">{t('disciplines.eyebrow')}</p>
           <h2>{t('disciplines.title')}</h2>
@@ -291,6 +304,7 @@ function AerialExperience() {
             <div className="ae-footer-title">{t('footer.links')}</div>
             <ul className="ae-footer-links">
               <li><a href="#about">About</a></li>
+              <li><a href="#sobre-mi">{t('coach.eyebrow')}</a></li>
               <li><a href="#disciplinas">{t('disciplines.eyebrow')}</a></li>
               <li><a href="#instagram">Instagram</a></li>
               <li><a href="#contacto">{t('contact.eyebrow')}</a></li>

@@ -25,6 +25,18 @@
     ],
     "closing": "I can't wait to fly high and explore new apparatus with you!"
   },
+  "coach": {
+    "eyebrow": "About me",
+    "title": "Hi, I'm Aldi",
+    "photoAlt": "Aldi, Aerial Coach at Aerial Experience",
+    "paragraphs": [
+      "I'm an Aerial Coach and aerial acrobatics instructor with more than 10 years of experience in aerial disciplines. My passion for movement led me to explore and teach different techniques, always looking for new ways to challenge the body, build skills and enjoy the process.",
+      "I teach Aerial Straps, Static Trapeze, Dance Trapeze, Aerial Silks, Aerial Hammock, Aerial Hoop and other aerial disciplines, adapting every session to each student's level, goals and needs.",
+      "My approach combines strength, flexibility, technique and body awareness, but it also sees training as a tool to build confidence, push past limits and connect with yourself.",
+      "I believe in enthusiastic, innovative and personalised teaching, where everyone can progress at their own pace, discover their potential and enjoy movement.",
+      "My goal is for every student not only to develop new aerial skills, but also to feel a physical and emotional change, building strength, safety, confidence and a deeper connection with their body."
+    ]
+  },
   "disciplines": {
     "eyebrow": "Disciplines",
     "title": "Choose your apparatus",

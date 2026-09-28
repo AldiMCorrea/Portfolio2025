@@ -16,14 +16,26 @@
     "eyebrow": "About",
     "title": "Danza en el aire",
     "paragraphs": [
-      "Este proyecto nace hace unos meses soñando junto con amigos el probar nuevas experiencias en aéreos.",
+      "Este proyecto nace hace unos años soñando junto con amigos el probar nuevas experiencias en aéreos.",
       "En la posibilidad de poder volar y jugar con alturas...",
       "En crear un espacio de creatividad y incorporar nuevos elementos que nos apasionan.",
-      "Junto con mucho esfuerzo, planificación y motivación de mis amigas que siempre están ahí imaginando nuevas posibilidades nace AERIAL EXPERIENCE.",
+      "Junto con mucho esfuerzo, planificación y motivación de mis amigas que siempre están ahí imaginando nuevas posibilidades nace AERIAL EXPERIENCE y despues de 2 años lanzamos la segunda edicion.",
       "Para que puedan sentirse libres de expresarse. Queremos que AERIAL EXPERIENCE sea un refugio para la libre expresión, donde cada persona pueda descubrir su propia forma de volar y sentirse completamente libre.",
       "Agradezco de corazón a todos los que nos han apoyado en este emocionante viaje y los invito a unirse a nosotros en Octubre, para disfrutar juntos de esta experiencia que hemos construido con amor."
     ],
     "closing": "¡Los espero para volar alto y explorar nuevos elementos!"
+  },
+  "coach": {
+    "eyebrow": "Sobre mí",
+    "title": "Hola, soy Aldi",
+    "photoAlt": "Aldi, Aerial Coach de Aerial Experience",
+    "paragraphs": [
+      "Soy Aerial Coach e instructora de acrobacia aérea, con más de 10 años de experiencia en disciplinas aéreas. Mi pasión por el movimiento me llevó a explorar y enseñar diferentes técnicas, buscando siempre nuevas formas de desafiar el cuerpo, desarrollar habilidades y disfrutar del proceso.",
+      "Enseño Aerial Straps, Trapecio Fijo, Dance Trapeze, Telas, Aerial Hammock, Aerial Hoop y otras disciplinas aéreas, adaptando cada entrenamiento al nivel, objetivos y necesidades de cada alumno.",
+      "Mi enfoque combina fuerza, flexibilidad, técnica y conciencia corporal, pero también entiende el entrenamiento como una herramienta para fortalecer la confianza, superar límites y conectar con uno mismo.",
+      "Creo en una enseñanza entusiasta, innovadora y personalizada, donde cada persona pueda progresar a su propio ritmo, descubrir su potencial y disfrutar del movimiento.",
+      "Mi objetivo es que cada alumno no solo desarrolle nuevas habilidades aéreas, sino que también experimente una mejora física y emocional, construyendo fuerza, seguridad, confianza y una mayor conexión con su cuerpo."
+    ]
   },
   "disciplines": {
     "eyebrow": "Disciplinas",
