@@ -56,9 +56,10 @@
   "contact": {
     "eyebrow": "Sign up",
     "title": "Ready to fly with us?",
-    "text": "Message me on WhatsApp to ask about schedules, availability and to book your class.",
+    "text": "Fill in the form and WhatsApp opens with your details ready to send.",
     "whatsappMessage": "Hi Aldi! I'd like to sign up for the Aerial Dance classes 🤍",
-    "group": "Already signed up? Join the classes' WhatsApp group"
+    "group": "Already signed up? Join the classes' WhatsApp group",
+    "questions": "Questions? Message me on WhatsApp"
   },
   "footer": {
     "desc": "Aerial dance classes in Nueva Córdoba: aerial straps, dance trapeze and aerial hammock. A space to fly and express yourself freely.",
@@ -68,5 +69,74 @@
     "location": "Find us",
     "mapTitle": "Map: Brasil 155, Nueva Córdoba",
     "rights": "All rights reserved."
+  },
+  "signup": {
+    "name": {
+      "label": "Full name"
+    },
+    "age": {
+      "label": "Age"
+    },
+    "level": {
+      "label": "Aerial experience",
+      "options": {
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advanced": "Advanced"
+      }
+    },
+    "disciplines": {
+      "label": "What are you interested in?",
+      "options": {
+        "straps": "Aerial Straps",
+        "trapeze": "Dance Trapeze",
+        "hammock": "Aerial Hammock"
+      }
+    },
+    "plan": {
+      "label": "Plan",
+      "options": {
+        "single": "Single class",
+        "monthly": "Monthly pack (4 classes)",
+        "docta": "DOCTA GYM members pack"
+      }
+    },
+    "health": {
+      "label": "Health information",
+      "hint": "Tick everything that applies. It helps us keep you safe in class.",
+      "options": {
+        "injuries": "Injuries",
+        "asthma": "Asthma",
+        "heart": "Heart or blood pressure issues",
+        "back": "Back / hernias",
+        "surgery": "Recent surgery",
+        "pregnancy": "Pregnancy",
+        "vertigo": "Vertigo or dizziness",
+        "other": "Other"
+      },
+      "none": "None",
+      "error": "Tick at least one option, or \"None\"."
+    },
+    "healthDetails": {
+      "label": "Health details",
+      "placeholder": "Which injury or condition, since when, any medication…"
+    },
+    "emergency": {
+      "label": "Emergency contact",
+      "namePlaceholder": "Name",
+      "phonePlaceholder": "Phone"
+    },
+    "source": {
+      "label": "How did you hear about us?",
+      "options": {
+        "instagram": "Instagram",
+        "friend": "From a friend",
+        "docta": "DOCTA GYM",
+        "other": "Other"
+      }
+    },
+    "consent": "I confirm this information is true and that I am physically fit to take part.",
+    "submit": "Send via WhatsApp",
+    "note": "WhatsApp opens with your sign-up ready to send (in Spanish)."
   }
 }

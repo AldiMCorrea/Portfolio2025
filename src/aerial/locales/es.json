@@ -56,9 +56,10 @@
   "contact": {
     "eyebrow": "Inscripciones",
     "title": "¿Te sumás a volar?",
-    "text": "Escribime por WhatsApp para consultar horarios, cupos y reservar tu clase.",
+    "text": "Completá el formulario y se abre WhatsApp con tus datos listos para enviar.",
     "whatsappMessage": "¡Hola Aldi! Quiero inscribirme a las clases de Aerial Dance 🤍",
-    "group": "¿Ya estás inscripta/o? Sumate al grupo de WhatsApp de las clases"
+    "group": "¿Ya estás inscripta/o? Sumate al grupo de WhatsApp de las clases",
+    "questions": "¿Tenés dudas? Escribime por WhatsApp"
   },
   "footer": {
     "desc": "Clases de aerial dance en Nueva Córdoba: aerial straps, dance trapeze y aerial hammock. Un espacio para volar y expresarte con libertad.",
@@ -68,5 +69,80 @@
     "location": "Dónde estamos",
     "mapTitle": "Mapa: Brasil 155, Nueva Córdoba",
     "rights": "Todos los derechos reservados."
+  },
+  "signup": {
+    "message": {
+      "greeting": "¡Hola Aldi! Quiero inscribirme a Aerial Experience 🤍",
+      "notSpecified": "Sin especificar",
+      "disciplines": "Disciplinas",
+      "source": "Nos conoció por"
+    },
+    "name": {
+      "label": "Nombre y apellido"
+    },
+    "age": {
+      "label": "Edad"
+    },
+    "level": {
+      "label": "Experiencia en aéreos",
+      "options": {
+        "beginner": "Principiante",
+        "intermediate": "Intermedio",
+        "advanced": "Avanzado"
+      }
+    },
+    "disciplines": {
+      "label": "¿Qué te interesa?",
+      "options": {
+        "straps": "Aerial Straps",
+        "trapeze": "Dance Trapeze",
+        "hammock": "Aerial Hammock"
+      }
+    },
+    "plan": {
+      "label": "Modalidad",
+      "options": {
+        "single": "Clase individual",
+        "monthly": "Pack mensual (4 clases)",
+        "docta": "Pack socios DOCTA GYM"
+      }
+    },
+    "health": {
+      "label": "Información de salud",
+      "hint": "Marcá todo lo que corresponda. Es para cuidarte durante la clase.",
+      "options": {
+        "injuries": "Lesiones",
+        "asthma": "Asma",
+        "heart": "Problemas cardíacos o de presión",
+        "back": "Columna / hernias",
+        "surgery": "Cirugías recientes",
+        "pregnancy": "Embarazo",
+        "vertigo": "Vértigo o mareos",
+        "other": "Otra"
+      },
+      "none": "Ninguna",
+      "error": "Marcá al menos una opción, o \"Ninguna\"."
+    },
+    "healthDetails": {
+      "label": "Detalles de salud",
+      "placeholder": "Qué lesión o condición, desde cuándo, si tomás medicación…"
+    },
+    "emergency": {
+      "label": "Contacto de emergencia",
+      "namePlaceholder": "Nombre",
+      "phonePlaceholder": "Teléfono"
+    },
+    "source": {
+      "label": "¿Cómo nos conociste?",
+      "options": {
+        "instagram": "Instagram",
+        "friend": "Por un amigo/a",
+        "docta": "DOCTA GYM",
+        "other": "Otro"
+      }
+    },
+    "consent": "Declaro que la información es verdadera y que estoy en condiciones físicas de realizar la actividad.",
+    "submit": "Enviar por WhatsApp",
+    "note": "Se abre WhatsApp con tu inscripción lista para enviar."
   }
 }
