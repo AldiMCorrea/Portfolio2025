@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaMoon, FaSun, FaInstagram } from 'react-icons/fa';
+import { FaMoon, FaSun, FaInstagram, FaWhatsapp, FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
 import './AerialExperience.css';
 import logoBlack from './aerial-logo-black.png';
 import logoWhite from './aerial-logo-white.png';
@@ -12,6 +12,12 @@ const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 const WHATSAPP_NUMBER = '5493517892061';
 const whatsappUrl = (message) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+const WHATSAPP_GROUP_URL = 'https://chat.whatsapp.com/HAQjnj4hVdiAiHxRNlQw2N';
+
+const ADDRESS = 'Brasil 155, Nueva Córdoba, Córdoba, Argentina';
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+const MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`;
 
 const THEME_STORAGE_KEY = 'ae-theme';
 const LANGUAGES = ['es', 'en'];
@@ -235,11 +241,80 @@ function AerialExperience() {
             </svg>
             +54 9 351 789-2061
           </a>
+          <p className="ae-contact-group">
+            <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer">
+              <FaUsers aria-hidden="true" />
+              {t('contact.group')}
+            </a>
+          </p>
         </section>
       </main>
 
       <footer className="ae-footer">
-        <a href="/">aldicorrea.com</a>
+        <div className="ae-footer-grid">
+          <div className="ae-footer-brand">
+            <img className="ae-footer-logo" src={theme === 'dark' ? logoWhite : logoBlack} alt="Aerial Experience" />
+            <p className="ae-footer-text">{t('footer.desc')}</p>
+          </div>
+
+          <nav aria-label={t('footer.links')}>
+            <div className="ae-footer-title">{t('footer.links')}</div>
+            <ul className="ae-footer-links">
+              <li><a href="#about">About</a></li>
+              <li><a href="#disciplinas">{t('disciplines.eyebrow')}</a></li>
+              <li><a href="#instagram">Instagram</a></li>
+              <li><a href="#contacto">{t('contact.eyebrow')}</a></li>
+            </ul>
+          </nav>
+
+          <div>
+            <div className="ae-footer-title">{t('footer.contact')}</div>
+            <ul className="ae-footer-links">
+              <li>
+                <a href={wppLink} target="_blank" rel="noopener noreferrer">
+                  <FaWhatsapp aria-hidden="true" /> +54 9 351 789-2061
+                </a>
+              </li>
+              <li>
+                <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer">
+                  <FaUsers aria-hidden="true" /> {t('footer.group')}
+                </a>
+              </li>
+              <li>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+                  <FaInstagram aria-hidden="true" /> @{INSTAGRAM_HANDLE}
+                </a>
+              </li>
+              <li>
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+                  <FaMapMarkerAlt aria-hidden="true" /> Brasil 155, Nueva Córdoba
+                </a>
+              </li>
+            </ul>
+            <div className="ae-footer-social">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+              <a href={wppLink} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
+            </div>
+          </div>
+
+          <div>
+            <div className="ae-footer-title">{t('footer.location')}</div>
+            <div className="ae-footer-map">
+              <iframe
+                title={t('footer.mapTitle')}
+                src={MAPS_EMBED_URL}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="ae-footer-divider" />
+        <p className="ae-footer-copyright">
+          © {new Date().getFullYear()} Aerial Experience. {t('footer.rights')} · <a href="/">aldicorrea.com</a>
+        </p>
       </footer>
     </div>
   );

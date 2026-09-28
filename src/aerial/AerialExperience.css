@@ -483,16 +483,144 @@ body {
   fill: currentColor;
 }
 
+.ae-contact p.ae-contact-group {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.ae-contact-group a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ae-accent-strong);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ae-contact-group a:hover { color: var(--ae-ink); }
+
+/* ---- Footer (glass, same structure as the Shine Nails site) ---- */
 .ae-footer {
-  text-align: center;
-  padding: 2rem 1.25rem 3rem;
+  background: var(--ae-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--ae-border);
+  padding: 3rem 1.25rem 2rem;
   font-size: 0.85rem;
 }
+
+.ae-footer-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1.2fr 1.6fr;
+  gap: 2rem;
+}
+
+.ae-footer-logo {
+  height: 48px;
+  width: auto;
+  margin-bottom: 0.9rem;
+}
+
+.ae-footer-text {
+  margin: 0;
+  color: var(--ae-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.ae-footer-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ae-ink);
+  margin-bottom: 1rem;
+}
+
+.ae-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ae-footer-links li { margin-bottom: 0.55rem; }
 
 .ae-footer a {
   color: var(--ae-muted);
   text-decoration: none;
-  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
 }
 
-.ae-footer a:hover { color: var(--ae-ink); }
+.ae-footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.ae-footer a:hover { color: var(--ae-accent-strong); }
+
+.ae-footer-social {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.ae-footer-social a {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ae-border);
+  border-radius: 50%;
+  color: var(--ae-ink);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.ae-footer-social a:hover {
+  background: var(--ae-accent);
+  border-color: var(--ae-accent);
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.ae-footer-map {
+  padding: 4px;
+  border: 1px solid var(--ae-border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ae-footer-map iframe {
+  display: block;
+  width: 100%;
+  height: 200px;
+  border: 0;
+  border-radius: 16px;
+}
+
+.ae-footer-divider {
+  max-width: 1080px;
+  margin: 2rem auto 1.25rem;
+  border-top: 1px solid var(--ae-border);
+}
+
+.ae-footer-copyright {
+  margin: 0;
+  text-align: center;
+  color: var(--ae-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .ae-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .ae-footer-grid { grid-template-columns: 1fr; }
+  .ae-footer-logo { height: 40px; }
+  .ae-footer-map iframe { height: 180px; }
+}

@@ -41,6 +41,16 @@
     "eyebrow": "Sign up",
     "title": "Ready to fly with us?",
     "text": "Message me on WhatsApp to ask about schedules, availability and to book your class.",
-    "whatsappMessage": "Hi Aldi! I'd like to sign up for the Aerial Dance classes 🤍"
+    "whatsappMessage": "Hi Aldi! I'd like to sign up for the Aerial Dance classes 🤍",
+    "group": "Already signed up? Join the classes' WhatsApp group"
+  },
+  "footer": {
+    "desc": "Aerial dance classes in Nueva Córdoba: aerial straps, dance trapeze and aerial hammock. A space to fly and express yourself freely.",
+    "links": "Links",
+    "contact": "Contact",
+    "group": "Classes group",
+    "location": "Find us",
+    "mapTitle": "Map: Brasil 155, Nueva Córdoba",
+    "rights": "All rights reserved."
   }
 }

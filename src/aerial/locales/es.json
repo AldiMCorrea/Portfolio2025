@@ -41,6 +41,16 @@
     "eyebrow": "Inscripciones",
     "title": "¿Te sumás a volar?",
     "text": "Escribime por WhatsApp para consultar horarios, cupos y reservar tu clase.",
-    "whatsappMessage": "¡Hola Aldi! Quiero inscribirme a las clases de Aerial Dance 🤍"
+    "whatsappMessage": "¡Hola Aldi! Quiero inscribirme a las clases de Aerial Dance 🤍",
+    "group": "¿Ya estás inscripta/o? Sumate al grupo de WhatsApp de las clases"
+  },
+  "footer": {
+    "desc": "Clases de aerial dance en Nueva Córdoba: aerial straps, dance trapeze y aerial hammock. Un espacio para volar y expresarte con libertad.",
+    "links": "Links",
+    "contact": "Contacto",
+    "group": "Grupo de las clases",
+    "location": "Dónde estamos",
+    "mapTitle": "Mapa: Brasil 155, Nueva Córdoba",
+    "rights": "Todos los derechos reservados."
   }
 }
