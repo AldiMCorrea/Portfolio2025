@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Romi · Beauty Studio</title>
+  <meta name="description" content="Nails, estética y make up en Salta. Reservá tu turno online por WhatsApp. Ameghino 540, Salta Capital.">
+  <meta name="theme-color" content="#140609">
+  <link rel="canonical" href="https://www.aldicorrea.com/romibeautystudio/">
+  <!-- Vista previa al compartir (WhatsApp, Instagram, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Romi Beauty Studio">
+  <meta property="og:title" content="Romi · Beauty Studio">
+  <meta property="og:description" content="Nails, estética y make up en Salta. Reservá tu turno online por WhatsApp. Ameghino 540, Salta Capital.">
+  <meta property="og:url" content="https://www.aldicorrea.com/romibeautystudio/">
+  <meta property="og:image" content="https://www.aldicorrea.com/romibeautystudio/Asserts/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Romi Beauty Studio · Beauty is in the details">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="Asserts/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="header__logo" aria-label="Romi — inicio">
+        <img src="Asserts/logo-romi-blanco.png" alt="Romi" class="logo logo--light">
+        <img src="Asserts/logo-romi-bordo.png" alt="Romi" class="logo logo--dark">
+      </a>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#turnos" class="btn btn--small">Reservar turno</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="inicio">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <div class="hero__copy">
+          <p class="eyebrow eyebrow--light">Beauty Studio · Salta</p>
+          <h1 class="hero__title" lang="en">Beauty<br><em>is in the details</em></h1>
+          <p class="hero__text">Nails, estética y make up en un mismo lugar. Un espacio pensado para que te relajes, te cuides y salgas sintiéndote increíble.</p>
+          <div class="hero__actions">
+            <a href="#turnos" class="btn btn--light">Reservá tu turno</a>
+            <a href="#servicios" class="btn btn--ghost">Ver servicios</a>
+          </div>
+        </div>
+        <!-- TODO: reemplazar Asserts/hero.jpg por una foto propia de Romi -->
+        <div class="hero__media">
+          <div class="hero__arch">
+            <img src="Asserts/hero.jpg" alt="Maquillaje luminoso con rubor rosado y piel glow" fetchpriority="high">
+          </div>
+          <a href="#turnos" class="hero__seal" aria-label="Reservá tu turno">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="sealCircle" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"/></defs>
+              <text><textPath href="#sealCircle">RESERVÁ TU TURNO · ROMI BEAUTY STUDIO ·</textPath></text>
+            </svg>
+            <span class="hero__seal-arrow">↓</span>
+          </a>
+        </div>
+      </div>
+      <a href="#nosotros" class="hero__scroll" aria-label="Bajar">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ========== MARQUEE ========== -->
+    <!-- Onda con texto en bucle continuo siguiendo el trazo del logo -->
+    <div class="script-wave" id="scriptWave" aria-label="Nails, nail art, lashes, brows, skin care y make up" role="img">
+      <svg viewBox="0 55 1440 145" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <path id="scriptPath" d="M-2880 126 C-2620 81 -2360 81 -2080 116 S-1620 151 -1440 126 C-1180 81 -920 81 -640 116 S-180 101 0 131 C180 161 360 151 640 116 C920 81 1180 81 1440 126 S1960 166 2240 131 S2700 81 2880 126"/>
+        </defs>
+        <path class="script-wave__ground" d="M0 200 H1440 V140 C1180 95 920 95 640 130 S180 175 0 145 Z"/>
+        <text class="script-wave__text">
+          <textPath href="#scriptPath" id="scriptTextPath" data-unit="NAILS  ·  NAIL ART  ·  LASHES  ·  BROWS  ·  SKIN CARE  ·  MAKE UP  ·  ">NAILS  ·  NAIL ART  ·  LASHES  ·  BROWS  ·  SKIN CARE  ·  MAKE UP  ·  NAILS  ·  NAIL ART  ·  LASHES  ·  BROWS  ·  SKIN CARE  ·  MAKE UP  ·  NAILS  ·  NAIL ART  ·  LASHES  ·  BROWS  ·  SKIN CARE  ·  MAKE UP  ·  NAILS  ·  NAIL ART  ·  LASHES  ·  BROWS  ·  SKIN CARE  ·  MAKE UP  ·  NAILS  ·  NAIL ART  ·  LASHES  ·  BROWS  ·  SKIN CARE  ·  MAKE UP  ·  NAILS  ·  NAIL ART  ·  LASHES  ·  BROWS  ·  SKIN CARE  ·  MAKE UP  ·  </textPath>
+        </text>
+      </svg>
+    </div>
+
+    <!-- ========== NOSOTROS ========== -->
+    <section class="section about" id="nosotros">
+      <div class="container about__grid">
+        <div class="about__media reveal">
+          <!-- Foto: Barney Goodman en Unsplash (Unsplash License). TODO: reemplazar por una foto del salón de Romi -->
+          <div class="photo photo--tall"><img src="Asserts/salon.jpg" alt="Interior de un salón de belleza con espejos en arco" loading="lazy"></div>
+          <div class="photo photo--small"><img src="Asserts/servicios/makeup-ojos.jpg" alt="Detalle de maquillaje de ojos" loading="lazy"></div>
+        </div>
+        <div class="about__text reveal">
+          <p class="eyebrow">Sobre Romi</p>
+          <h2 class="title">Belleza integral,<br><em>con mirada propia</em></h2>
+          <p>En Romi creemos que cuidarte es mucho más que un turno. Reunimos nails, estética y maquillaje para ofrecerte una experiencia completa: un equipo de profesionales en constante capacitación, productos de primera línea y un ambiente cálido donde cada detalle está pensado para vos.</p>
+          <p>Escuchamos lo que buscás y lo transformamos en un resultado que te represente.</p>
+          <ul class="stats">
+            <li><strong data-count="8">0</strong><span>años de experiencia</span></li>
+            <li><strong data-count="2500">0</strong><span>clientas felices</span></li>
+            <li><strong data-count="20">0</strong><span>servicios</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICIOS ========== -->
+    <section class="section services wave" id="servicios">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow eyebrow--light">Lo que hacemos</p>
+          <h2 class="title title--light">Nuestros <em>servicios</em></h2>
+        </header>
+
+        <div class="tabs reveal" role="tablist">
+          <button class="tab is-active" role="tab" data-tab="nails" aria-selected="true">Nails</button>
+          <button class="tab" role="tab" data-tab="estetica" aria-selected="false">Estética</button>
+          <button class="tab" role="tab" data-tab="makeup" aria-selected="false">Make Up</button>
+        </div>
+
+        <!-- TODO: precios tomados de Shine como referencia; ajustar a los de Romi -->
+        <div class="menu is-active" id="tab-nails" role="tabpanel">
+          <div class="svc-cat">
+            <h3 class="svc-cat__title">Uñas · Manos</h3>
+            <div class="svc-grid">
+              <article class="svc-card" data-service="unas-manos-manicura-sin-esmaltado" data-name="Manicura sin esmaltado (Manos)" data-price="30000">
+                <div class="svc-card__img"><img src="Asserts/servicios/manicura.jpg" alt="Manicura sin esmaltado" loading="lazy" style="object-position:center 30%"></div>
+                <div class="svc-card__body"><h4>Manicura sin esmaltado</h4><p>Limpieza, corte y moldeado de uñas de manos sin esmaltado.</p><span class="svc-card__price">$30.000</span><button class="btn btn--small svc-card__add" data-add="unas-manos-manicura-sin-esmaltado">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="unas-manos-esmaltado-semipermanente" data-name="Esmaltado semipermanente (Manos)" data-price="35000">
+                <div class="svc-card__img"><img src="Asserts/servicios/semi-manos.jpg" alt="Esmaltado semipermanente" loading="lazy"></div>
+                <div class="svc-card__body"><h4>Esmaltado semipermanente</h4><p>Esmaltado semipermanente de larga duración con acabado espejo.</p><span class="svc-card__price">$35.000</span><button class="btn btn--small svc-card__add" data-add="unas-manos-esmaltado-semipermanente">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="unas-manos-capping" data-name="Capping (Manos)" data-price="39000">
+                <div class="svc-card__img"><img src="Asserts/servicios/capping.jpg" alt="Capping" loading="lazy" style="object-position:center 30%"></div>
+                <div class="svc-card__body"><h4>Capping</h4><p>Cobertura de gel para fortalecer y proteger la uña natural.</p><span class="svc-card__price">$39.000</span><button class="btn btn--small svc-card__add" data-add="unas-manos-capping">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="unas-manos-extensiones-softgel" data-name="Extensiones SoftGel (Manos)" data-price="41000">
+                <div class="svc-card__img"><img src="Asserts/servicios/softgel.jpg" alt="Extensiones SoftGel" loading="lazy" style="object-position:center 30%"></div>
+                <div class="svc-card__body"><h4>Extensiones SoftGel</h4><p>Extensiones de uñas SoftGel con acabado natural y duradero.</p><span class="svc-card__price">$41.000</span><button class="btn btn--small svc-card__add" data-add="unas-manos-extensiones-softgel">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="unas-manos-extensiones-softgel-xl" data-name="Extensiones SoftGel XL (Manos)" data-price="43000">
+                <div class="svc-card__img"><img src="Asserts/servicios/softgel-xl.jpg" alt="Extensiones SoftGel XL" loading="lazy" style="object-position:center 25%"></div>
+                <div class="svc-card__body"><h4>Extensiones SoftGel XL</h4><p>Extensiones SoftGel extra largas para un look audaz.</p><span class="svc-card__price">$43.000</span><button class="btn btn--small svc-card__add" data-add="unas-manos-extensiones-softgel-xl">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="unas-manos-esculpidas-esculturales" data-name="Esculpidas esculturales (Manos)" data-price="45000">
+                <div class="svc-card__img"><img src="Asserts/servicios/esculpidas.jpg" alt="Esculpidas esculturales" loading="lazy" style="object-position:center 35%"></div>
+                <div class="svc-card__body"><h4>Esculpidas esculturales</h4><p>Uñas esculpidas a medida con técnica escultural profesional.</p><span class="svc-card__price">$45.000</span><button class="btn btn--small svc-card__add" data-add="unas-manos-esculpidas-esculturales">Agregar</button></div>
+              </article>
+            </div>
+          </div>
+          <div class="svc-cat">
+            <h3 class="svc-cat__title">Uñas · Pies</h3>
+            <div class="svc-grid">
+              <article class="svc-card" data-service="unas-pies-pedicura-sin-esmaltado" data-name="Pedicura sin esmaltado (Pies)" data-price="30000">
+                <div class="svc-card__img"><img src="Asserts/servicios/pedicura.jpg" alt="Pedicura sin esmaltado" loading="lazy"></div>
+                <div class="svc-card__body"><h4>Pedicura sin esmaltado</h4><p>Limpieza, corte y moldeado de uñas de pies sin esmaltado.</p><span class="svc-card__price">$30.000</span><button class="btn btn--small svc-card__add" data-add="unas-pies-pedicura-sin-esmaltado">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="unas-pies-esmaltado-semipermanente" data-name="Esmaltado semipermanente (Pies)" data-price="35000">
+                <div class="svc-card__img"><img src="Asserts/servicios/semi-pies.jpg" alt="Esmaltado semipermanente" loading="lazy" style="object-position:center 25%"></div>
+                <div class="svc-card__body"><h4>Esmaltado semipermanente</h4><p>Esmaltado semipermanente en pies con acabado duradero.</p><span class="svc-card__price">$35.000</span><button class="btn btn--small svc-card__add" data-add="unas-pies-esmaltado-semipermanente">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="unas-pies-adicional-podoestetica" data-name="Adicional podoestética (Pies)" data-price="23000">
+                <div class="svc-card__img"><img src="Asserts/servicios/podoestetica.jpg" alt="Adicional podoestética" loading="lazy" style="object-position:center 45%"></div>
+                <div class="svc-card__body"><h4>Adicional podoestética</h4><p>Tratamiento podoestético adicional para el cuidado de los pies.</p><span class="svc-card__price">$23.000</span><button class="btn btn--small svc-card__add" data-add="unas-pies-adicional-podoestetica">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="unas-pies-reconstruccion-de-unas-c-u" data-name="Reconstrucción de uñas (c/u) (Pies)" data-price="3000">
+                <div class="svc-card__img"><img src="Asserts/servicios/reconstruccion.jpg" alt="Reconstrucción de uñas (c/u)" loading="lazy"></div>
+                <div class="svc-card__body"><h4>Reconstrucción de uñas (c/u)</h4><p>Reconstrucción individual de uña dañada o rota.</p><span class="svc-card__price">$3.000</span><button class="btn btn--small svc-card__add" data-add="unas-pies-reconstruccion-de-unas-c-u">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="unas-pies-refuerzo-de-unas-c-u" data-name="Refuerzo de uñas (c/u) (Pies)" data-price="2500">
+                <div class="svc-card__img"><img src="Asserts/servicios/refuerzo.jpg" alt="Refuerzo de uñas (c/u)" loading="lazy"></div>
+                <div class="svc-card__body"><h4>Refuerzo de uñas (c/u)</h4><p>Refuerzo individual para uñas débiles o quebradizas.</p><span class="svc-card__price">$2.500</span><button class="btn btn--small svc-card__add" data-add="unas-pies-refuerzo-de-unas-c-u">Agregar</button></div>
+              </article>
+            </div>
+          </div>
+          <div class="svc-cat">
+            <h3 class="svc-cat__title">Nail art · Decoración</h3>
+            <div class="svc-pills">
+              <div class="svc-pill" data-service="nail-art-decoracion-simple-francesitas" data-name="Simple / francesitas (Nail art)" data-price="2000"><span>Simple / francesitas</span><strong>$2.000</strong><button class="svc-pill__add" data-add="nail-art-decoracion-simple-francesitas" data-added-label="✓" aria-label="Agregar Simple / francesitas (Nail art)">+</button></div>
+              <div class="svc-pill" data-service="nail-art-decoracion-intermedio-difuminados" data-name="Intermedio / difuminados (Nail art)" data-price="2000"><span>Intermedio / difuminados</span><strong>$2.000</strong><button class="svc-pill__add" data-add="nail-art-decoracion-intermedio-difuminados" data-added-label="✓" aria-label="Agregar Intermedio / difuminados (Nail art)">+</button></div>
+              <div class="svc-pill" data-service="nail-art-decoracion-complejo-delineados" data-name="Complejo / delineados (Nail art)" data-price="3000"><span>Complejo / delineados</span><strong>$3.000</strong><button class="svc-pill__add" data-add="nail-art-decoracion-complejo-delineados" data-added-label="✓" aria-label="Agregar Complejo / delineados (Nail art)">+</button></div>
+              <div class="svc-pill" data-service="nail-art-decoracion-cromado" data-name="Cromado (Nail art)" data-price="2000"><span>Cromado</span><strong>$2.000</strong><button class="svc-pill__add" data-add="nail-art-decoracion-cromado" data-added-label="✓" aria-label="Agregar Cromado (Nail art)">+</button></div>
+              <div class="svc-pill" data-service="nail-art-decoracion-ojo-de-gato" data-name="Ojo de gato (Nail art)" data-price="2000"><span>Ojo de gato</span><strong>$2.000</strong><button class="svc-pill__add" data-add="nail-art-decoracion-ojo-de-gato" data-added-label="✓" aria-label="Agregar Ojo de gato (Nail art)">+</button></div>
+              <div class="svc-pill" data-service="nail-art-decoracion-aura" data-name="Aura (Nail art)" data-price="2500"><span>Aura</span><strong>$2.500</strong><button class="svc-pill__add" data-add="nail-art-decoracion-aura" data-added-label="✓" aria-label="Agregar Aura (Nail art)">+</button></div>
+              <div class="svc-pill" data-service="nail-art-decoracion-3d" data-name="3D (Nail art)" data-price="2000"><span>3D</span><strong>$2.000</strong><button class="svc-pill__add" data-add="nail-art-decoracion-3d" data-added-label="✓" aria-label="Agregar 3D (Nail art)">+</button></div>
+              <div class="svc-pill" data-service="nail-art-decoracion-strass-deco" data-name="Strass / deco (Nail art)" data-price="500"><span>Strass / deco</span><strong>$500</strong><button class="svc-pill__add" data-add="nail-art-decoracion-strass-deco" data-added-label="✓" aria-label="Agregar Strass / deco (Nail art)">+</button></div>
+              <div class="svc-pill" data-service="nail-art-decoracion-apliques" data-name="Apliques (Nail art)" data-price="1000"><span>Apliques</span><strong>$1.000</strong><button class="svc-pill__add" data-add="nail-art-decoracion-apliques" data-added-label="✓" aria-label="Agregar Apliques (Nail art)">+</button></div>
+            </div>
+          </div>
+          <div class="svc-cat">
+            <h3 class="svc-cat__title">Remoción, arreglos o cambio de servicio</h3>
+            <div class="svc-pills">
+              <div class="svc-pill" data-service="remocion-arreglos-o-cambio-de-servicio-esmaltado-semipermanente" data-name="Esmaltado semipermanente (Remoción)" data-price="15000"><span>Esmaltado semipermanente</span><strong>$15.000</strong><button class="svc-pill__add" data-add="remocion-arreglos-o-cambio-de-servicio-esmaltado-semipermanente" data-added-label="✓" aria-label="Agregar Esmaltado semipermanente (Remoción)">+</button></div>
+              <div class="svc-pill" data-service="remocion-arreglos-o-cambio-de-servicio-capping" data-name="Capping (Remoción)" data-price="17000"><span>Capping</span><strong>$17.000</strong><button class="svc-pill__add" data-add="remocion-arreglos-o-cambio-de-servicio-capping" data-added-label="✓" aria-label="Agregar Capping (Remoción)">+</button></div>
+              <div class="svc-pill" data-service="remocion-arreglos-o-cambio-de-servicio-soft-gel" data-name="Soft Gel (Remoción)" data-price="20000"><span>Soft Gel</span><strong>$20.000</strong><button class="svc-pill__add" data-add="remocion-arreglos-o-cambio-de-servicio-soft-gel" data-added-label="✓" aria-label="Agregar Soft Gel (Remoción)">+</button></div>
+              <div class="svc-pill" data-service="remocion-arreglos-o-cambio-de-servicio-esculpidas" data-name="Esculpidas (Remoción)" data-price="21000"><span>Esculpidas</span><strong>$21.000</strong><button class="svc-pill__add" data-add="remocion-arreglos-o-cambio-de-servicio-esculpidas" data-added-label="✓" aria-label="Agregar Esculpidas (Remoción)">+</button></div>
+              <div class="svc-pill" data-service="remocion-arreglos-o-cambio-de-servicio-por-cambio-de-servicio" data-name="Por cambio de servicio (Remoción)" data-price="3000"><span>Por cambio de servicio</span><strong>$3.000</strong><button class="svc-pill__add" data-add="remocion-arreglos-o-cambio-de-servicio-por-cambio-de-servicio" data-added-label="✓" aria-label="Agregar Por cambio de servicio (Remoción)">+</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu" id="tab-estetica" role="tabpanel">
+          <div class="svc-cat">
+            <h3 class="svc-cat__title">Tratamientos faciales</h3>
+            <div class="svc-grid">
+              <article class="svc-card" data-service="tratamientos-faciales-limpieza-de-cutis" data-name="Limpieza de cutis" data-price="34000">
+                <div class="svc-card__img"><img src="Asserts/servicios/limpieza-cutis.jpg" alt="Limpieza de cutis" loading="lazy"></div>
+                <div class="svc-card__body"><h4>Limpieza de cutis</h4><p>Limpieza facial profunda para purificar, exfoliar y revitalizar tu piel.</p><span class="svc-card__price">$34.000</span><button class="btn btn--small svc-card__add" data-add="tratamientos-faciales-limpieza-de-cutis">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="tratamientos-faciales-hidrafacial" data-name="HidraFacial" data-price="31000">
+                <div class="svc-card__img"><img src="Asserts/servicios/hidrafacial.jpg" alt="HidraFacial" loading="lazy" style="object-position:center 45%"></div>
+                <div class="svc-card__body"><h4>HidraFacial</h4><p>Tratamiento de hidratación intensiva para un cutis radiante y luminoso.</p><span class="svc-card__price">$31.000</span><button class="btn btn--small svc-card__add" data-add="tratamientos-faciales-hidrafacial">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="tratamientos-faciales-masaje-facial-con-gua-sha" data-name="Masaje facial con Gua Sha" data-price="37000">
+                <div class="svc-card__img"><img src="Asserts/servicios/guasha.jpg" alt="Masaje facial con Gua Sha" loading="lazy" style="object-position:center 60%"></div>
+                <div class="svc-card__body"><h4>Masaje facial con Gua Sha</h4><p>Masaje relajante con técnica Gua Sha para tonificar y rejuvenecer.</p><span class="svc-card__price">$37.000</span><button class="btn btn--small svc-card__add" data-add="tratamientos-faciales-masaje-facial-con-gua-sha">Agregar</button></div>
+              </article>
+              <article class="svc-card svc-card--premium" data-service="tratamientos-faciales-limpieza-facial-premium" data-name="Limpieza facial premium" data-price="58000">
+                <div class="svc-card__img"><img src="Asserts/servicios/limpieza-premium.jpg" alt="Limpieza facial premium" loading="lazy" style="object-position:center 55%"></div>
+                <div class="svc-card__body"><span class="svc-card__badge">Tratamiento completo</span><h4>Limpieza facial premium</h4><p>Limpieza de cutis + HidraFacial + masaje facial con Gua Sha.</p><span class="svc-card__price">$58.000</span><button class="btn btn--small svc-card__add" data-add="tratamientos-faciales-limpieza-facial-premium">Agregar</button></div>
+              </article>
+            </div>
+          </div>
+          <div class="svc-cat">
+            <h3 class="svc-cat__title">Cejas &amp; pestañas</h3>
+            <div class="svc-grid">
+              <article class="svc-card" data-service="cejas-pestanas-lifting-coreano-nutritivo-de-pestanas" data-name="Lifting coreano nutritivo de pestañas" data-price="35000">
+                <div class="svc-card__img"><img src="Asserts/servicios/lifting.jpg" alt="Lifting coreano nutritivo de pestañas" loading="lazy"></div>
+                <div class="svc-card__body"><h4>Lifting coreano nutritivo de pestañas</h4><p>Lifting y tinte nutritivo de pestañas para una mirada abierta y definida.</p><span class="svc-card__price">$35.000</span><button class="btn btn--small svc-card__add" data-add="cejas-pestanas-lifting-coreano-nutritivo-de-pestanas">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="cejas-pestanas-perfilado-de-cejas" data-name="Perfilado de cejas" data-price="20000">
+                <div class="svc-card__img"><img src="Asserts/servicios/perfilado.jpg" alt="Perfilado de cejas" loading="lazy" style="object-position:center 40%"></div>
+                <div class="svc-card__body"><h4>Perfilado de cejas</h4><p>Perfilado preciso con cera o hilo para el arco perfecto.</p><span class="svc-card__price">$20.000</span><button class="btn btn--small svc-card__add" data-add="cejas-pestanas-perfilado-de-cejas">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="cejas-pestanas-diseno-perfilado-y-tinte" data-name="Diseño, perfilado y tinte" data-price="30000">
+                <div class="svc-card__img"><img src="Asserts/servicios/perfilado-tinte.jpg" alt="Diseño, perfilado y tinte" loading="lazy" style="object-position:center 30%"></div>
+                <div class="svc-card__body"><h4>Diseño, perfilado y tinte</h4><p>Diseño personalizado de cejas con perfilado y tinte profesional.</p><span class="svc-card__price">$30.000</span><button class="btn btn--small svc-card__add" data-add="cejas-pestanas-diseno-perfilado-y-tinte">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="cejas-pestanas-laminado-nutritivo-de-cejas" data-name="Laminado nutritivo de cejas" data-price="23000">
+                <div class="svc-card__img"><img src="Asserts/servicios/laminado.jpg" alt="Laminado nutritivo de cejas" loading="lazy" style="object-position:center 33%"></div>
+                <div class="svc-card__body"><h4>Laminado nutritivo de cejas</h4><p>Laminado nutritivo para levantar y fijar las cejas por semanas.</p><span class="svc-card__price">$23.000</span><button class="btn btn--small svc-card__add" data-add="cejas-pestanas-laminado-nutritivo-de-cejas">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="cejas-pestanas-perfilado-laminado" data-name="Perfilado + laminado" data-price="35000">
+                <div class="svc-card__img"><img src="Asserts/servicios/perfilado-laminado.jpg" alt="Perfilado + laminado" loading="lazy" style="object-position:center 40%"></div>
+                <div class="svc-card__body"><h4>Perfilado + laminado</h4><p>Combo perfilado de cejas con laminado nutritivo.</p><span class="svc-card__price">$35.000</span><button class="btn btn--small svc-card__add" data-add="cejas-pestanas-perfilado-laminado">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="cejas-pestanas-tinte-henna" data-name="Tinte / henna" data-price="7000">
+                <div class="svc-card__img"><img src="Asserts/servicios/perfilado-tinte.jpg" alt="Tinte / henna" loading="lazy" style="object-position:center 30%"></div>
+                <div class="svc-card__body"><h4>Tinte / henna</h4><p>Tinte o henna semipermanente para cejas más llenas y definidas.</p><span class="svc-card__price">$7.000</span><button class="btn btn--small svc-card__add" data-add="cejas-pestanas-tinte-henna">Agregar</button></div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- TODO: completar precios de make up -->
+        <div class="menu" id="tab-makeup" role="tabpanel">
+          <div class="svc-cat">
+            <h3 class="svc-cat__title">Maquillaje</h3>
+            <div class="svc-grid">
+              <article class="svc-card" data-service="maquillaje-maquillaje-social" data-name="Maquillaje social" data-price="">
+                <div class="svc-card__img"><img src="Asserts/servicios/makeup-social.jpg" alt="Maquillaje social" loading="lazy" style="object-position:center 25%"></div>
+                <div class="svc-card__body"><h4>Maquillaje social</h4><p>Para eventos de día o de noche, con piel de larga duración.</p><span class="svc-card__price">Consultar</span><button class="btn btn--small svc-card__add" data-add="maquillaje-maquillaje-social">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="maquillaje-maquillaje-de-novia" data-name="Maquillaje de novia" data-price="">
+                <div class="svc-card__img"><img src="Asserts/servicios/makeup-novia.jpg" alt="Maquillaje de novia" loading="lazy" style="object-position:center 20%"></div>
+                <div class="svc-card__body"><h4>Maquillaje de novia</h4><p>Prueba previa + maquillaje del día de la boda.</p><span class="svc-card__price">Consultar</span><button class="btn btn--small svc-card__add" data-add="maquillaje-maquillaje-de-novia">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="maquillaje-maquillaje-para-15-anos" data-name="Maquillaje para 15 años" data-price="">
+                <div class="svc-card__img"><img src="Asserts/servicios/makeup-15.jpg" alt="Maquillaje para 15 años" loading="lazy" style="object-position:center 20%"></div>
+                <div class="svc-card__body"><h4>Maquillaje para 15 años</h4><p>Look a medida para tu noche especial.</p><span class="svc-card__price">Consultar</span><button class="btn btn--small svc-card__add" data-add="maquillaje-maquillaje-para-15-anos">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="maquillaje-editorial-book-de-fotos" data-name="Editorial &amp; book de fotos" data-price="">
+                <div class="svc-card__img"><img src="Asserts/servicios/makeup-editorial.jpg" alt="Editorial y book de fotos" loading="lazy" style="object-position:center 40%"></div>
+                <div class="svc-card__body"><h4>Editorial &amp; book de fotos</h4><p>Maquillaje para producciones, sesiones y pasarela.</p><span class="svc-card__price">Consultar</span><button class="btn btn--small svc-card__add" data-add="maquillaje-editorial-book-de-fotos">Agregar</button></div>
+              </article>
+              <article class="svc-card" data-service="maquillaje-clase-de-automaquillaje" data-name="Clase de automaquillaje" data-price="">
+                <div class="svc-card__img"><img src="Asserts/servicios/makeup-clase.jpg" alt="Clase de automaquillaje" loading="lazy" style="object-position:center 35%"></div>
+                <div class="svc-card__body"><h4>Clase de automaquillaje</h4><p>Clase personalizada para aprender a maquillarte.</p><span class="svc-card__price">Consultar</span><button class="btn btn--small svc-card__add" data-add="maquillaje-clase-de-automaquillaje">Agregar</button></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DIA DE LA MADRE ========== -->
+    <!-- TODO: precio de maquillaje social estimado ($45.000) para calcular las promos con Make Up -->
+    <section class="section promos" id="promos">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Día de la Madre · Domingo 18/10</p>
+          <h2 class="title">Promos para <em>mamá</em></h2>
+          <p class="promos__sub">Válidas hasta el 31 de octubre. También se pueden regalar como gift card.</p>
+        </header>
+        <div class="promos__grid">
+          <article class="promo-card reveal">
+            
+            <div class="promo-card__tags"><span class="promo-card__tag">Nails</span></div>
+            <h3>Manos de Mamá &amp; Yo</h3>
+            <p class="promo-card__lead">Para dos: mamá y vos, en el mismo turno.</p>
+            <ul class="checklist"><li>Esmaltado semipermanente en manos × 2</li><li>Nail art simple de regalo para las dos</li></ul>
+            <p class="promo-card__price">$58.900</p>
+            <a class="btn btn--light btn--block" href="https://wa.me/5493874820015?text=%C2%A1Hola%20Romi%21%20Quiero%20reservar%20la%20promo%20D%C3%ADa%20de%20la%20Madre%20%22Manos%20de%20Mam%C3%A1%20%26%20Yo%22." target="_blank" rel="noopener">Reservar</a>
+          </article>
+          <article class="promo-card reveal">
+            
+            <div class="promo-card__tags"><span class="promo-card__tag">Estética</span></div>
+            <h3>Ritual Glow</h3>
+            <p class="promo-card__lead">Piel luminosa y mirada abierta en una sola visita.</p>
+            <ul class="checklist"><li>Limpieza facial premium (cutis + HidraFacial + Gua Sha)</li><li>Lifting coreano nutritivo de pestañas</li></ul>
+            <p class="promo-card__price">$74.900</p>
+            <a class="btn btn--light btn--block" href="https://wa.me/5493874820015?text=%C2%A1Hola%20Romi%21%20Quiero%20reservar%20la%20promo%20D%C3%ADa%20de%20la%20Madre%20%22Ritual%20Glow%22." target="_blank" rel="noopener">Reservar</a>
+          </article>
+          <article class="promo-card reveal">
+            
+            <div class="promo-card__tags"><span class="promo-card__tag">Make Up</span></div>
+            <h3>Lista para el Festejo</h3>
+            <p class="promo-card__lead">Para que llegue radiante al almuerzo del domingo.</p>
+            <ul class="checklist"><li>Maquillaje social de larga duración</li><li>Esmaltado semipermanente en manos</li></ul>
+            <p class="promo-card__price">$64.900</p>
+            <a class="btn btn--light btn--block" href="https://wa.me/5493874820015?text=%C2%A1Hola%20Romi%21%20Quiero%20reservar%20la%20promo%20D%C3%ADa%20de%20la%20Madre%20%22Lista%20para%20el%20Festejo%22." target="_blank" rel="noopener">Reservar</a>
+          </article>
+          <article class="promo-card promo-card--featured reveal">
+            <span class="promo-card__badge">La más completa</span>
+            <div class="promo-card__tags"><span class="promo-card__tag">Nails</span><span class="promo-card__tag">Estética</span><span class="promo-card__tag">Make Up</span></div>
+            <h3>Mamá Reina</h3>
+            <p class="promo-card__lead">La experiencia completa para consentirla.</p>
+            <ul class="checklist"><li>Capping en manos + semipermanente en pies</li><li>Lifting coreano nutritivo de pestañas</li><li>Maquillaje social</li></ul>
+            <p class="promo-card__price">$119.900</p>
+            <a class="btn btn--gold btn--block" href="https://wa.me/5493874820015?text=%C2%A1Hola%20Romi%21%20Quiero%20reservar%20la%20promo%20D%C3%ADa%20de%20la%20Madre%20%22Mam%C3%A1%20Reina%22." target="_blank" rel="noopener">Reservar</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GALERIA ========== -->
+    <section class="section gallery" id="galeria">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow eyebrow--light">Nuestros trabajos</p>
+          <h2 class="title title--light">Galería</h2>
+          <p class="gallery__subtitle">Mirá nuestros últimos trabajos</p>
+        </header>
+        <div class="carousel reveal" id="carousel">
+          <div class="carousel__viewport">
+            <div class="carousel__track">
+            <div class="gal-card"><video muted loop playsinline preload="none" src="Asserts/galeria/galeria-1.mp4"></video></div>
+            <div class="gal-card"><video muted loop playsinline preload="none" src="Asserts/galeria/galeria-2.mp4"></video></div>
+            <div class="gal-card"><video muted loop playsinline preload="none" src="Asserts/galeria/galeria-3.mp4"></video></div>
+            <div class="gal-card"><video muted loop playsinline preload="none" src="Asserts/galeria/galeria-4.mp4"></video></div>
+            <div class="gal-card"><video muted loop playsinline preload="none" src="Asserts/galeria/galeria-5.mp4"></video></div>
+            <div class="gal-card"><video muted loop playsinline preload="none" src="Asserts/galeria/galeria-6.mp4"></video></div>
+            </div>
+          </div>
+          <button class="carousel__ctrl carousel__ctrl--prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="carousel__ctrl carousel__ctrl--next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+          <div class="carousel__dots"></div>
+        </div>
+        <p class="center reveal">
+          <a href="https://www.instagram.com/romicorreamakeup/" target="_blank" rel="noopener" class="link-arrow link-arrow--light">Seguinos en Instagram <span>→</span></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== TIENDA & CURSOS ========== -->
+    <section class="section explore" id="tienda-cursos">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">Más de Romi</p>
+          <h2 class="title">Tienda &amp; <em>cursos</em></h2>
+        </header>
+        <div class="explore__grid">
+          <a href="tienda.html" class="explore-card reveal">
+            <div class="explore-card__img"><img src="Asserts/tienda/guashacuarzorosa.jpg" alt="Insumos de estética" loading="lazy"></div>
+            <div class="explore-card__body">
+              <p class="explore-card__kicker">Tienda online</p>
+              <h3>Tienda de insumos</h3>
+              <p>Skincare profesional, combos exclusivos e insumos de estética para tu rutina.</p>
+              <span class="link-arrow">Ver productos <span>→</span></span>
+            </div>
+          </a>
+          <a href="cursos.html" class="explore-card reveal">
+            <div class="explore-card__img"><img src="Asserts/cursos/banner-cursos.jpg" alt="Cursos de capacitación" loading="lazy" style="object-position:center 40%"></div>
+            <div class="explore-card__body">
+              <p class="explore-card__kicker">Capacitaciones</p>
+              <h3>Cursos</h3>
+              <p>Capacitación profesional para iniciar tu carrera, de nivel inicial a avanzado.</p>
+              <span class="link-arrow">Ver cursos <span>→</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TURNOS ========== -->
+    <section class="section booking wave" id="turnos">
+      <div class="container booking__grid">
+        <div class="booking__text reveal">
+          <p class="eyebrow eyebrow--light">Turnos</p>
+          <h2 class="title title--light">Reservá <em>tu momento</em></h2>
+          <p>Completá tus datos y te llevamos directo a WhatsApp con el mensaje listo. Te confirmamos disponibilidad a la brevedad.</p>
+          <img src="Asserts/logo-romi-blanco.png" alt="" class="booking__logo" aria-hidden="true">
+        </div>
+        <form class="form reveal" id="bookingForm" novalidate>
+          <label>Nombre
+            <input type="text" name="nombre" required autocomplete="name" placeholder="Tu nombre">
+          </label>
+          <label>Servicio
+            <select name="servicio" required>
+              <option value="" disabled selected>Elegí un servicio</option>
+              <optgroup label="Día de la Madre">
+                <option>Promo Manos de Mamá &amp; Yo</option>
+                <option>Promo Ritual Glow</option>
+                <option>Promo Lista para el Festejo</option>
+                <option>Promo Mamá Reina</option>
+              </optgroup>
+              <optgroup label="Nails">
+                <option>Manicura</option>
+                <option>Esmaltado semipermanente</option>
+                <option>Capping</option>
+                <option>Extensiones SoftGel</option>
+                <option>Esculpidas</option>
+                <option>Pedicura</option>
+              </optgroup>
+              <optgroup label="Estética">
+                <option>Limpieza de cutis</option>
+                <option>HidraFacial</option>
+                <option>Limpieza facial premium</option>
+                <option>Lifting de pestañas</option>
+                <option>Cejas (perfilado / laminado / tinte)</option>
+              </optgroup>
+              <optgroup label="Make Up">
+                <option>Maquillaje social</option>
+                <option>Maquillaje de novia</option>
+                <option>Maquillaje para 15 años</option>
+                <option>Editorial / book</option>
+                <option>Clase de automaquillaje</option>
+              </optgroup>
+            </select>
+          </label>
+          <div class="form__row">
+            <label>Día preferido
+              <input type="date" name="fecha">
+            </label>
+            <label>Horario
+              <select name="horario">
+                <option>Mañana</option>
+                <option>Tarde</option>
+                <option>Indistinto</option>
+              </select>
+            </label>
+          </div>
+          <label>Comentarios
+            <textarea name="mensaje" rows="3" placeholder="Contanos lo que buscás (opcional)"></textarea>
+          </label>
+          <button type="submit" class="btn btn--light btn--block">Enviar por WhatsApp</button>
+          <p class="form__error" id="formError" role="alert"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========== CONTACTO ========== -->
+    <section class="section contact" id="contacto">
+      <div class="container contact__grid">
+        <div class="contact__info reveal">
+          <p class="eyebrow">Contacto</p>
+          <h2 class="title">Visitanos</h2>
+          <!-- TODO: completar horarios reales -->
+          <dl class="info">
+            <div><span class="info__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><dt>Dirección</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Ameghino%20540%2C%20Salta%2C%20Argentina" target="_blank" rel="noopener">Ameghino 540</a><br>Salta Capital, Argentina</dd></div></div>
+            <div><span class="info__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><div><dt>Horarios</dt><dd>Lunes a viernes 9 a 20 h<br>Sábados 9 a 14 h</dd></div></div>
+            <div><span class="info__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 19.5l1.1-3.6A8 8 0 1 1 8.4 18.6z"/><path d="M9.2 8.6c.2-.4.5-.5.8-.5h.4l.9 2.1-.6.8c.5 1 1.3 1.8 2.3 2.3l.8-.6 2.1.9v.4c0 .3-.1.6-.5.8-.6.4-1.5.5-2.4.1a8.4 8.4 0 0 1-4-4c-.4-.9-.3-1.8.2-2.5z"/></svg></span><div><dt>WhatsApp</dt><dd><a href="https://wa.me/5493874820015" target="_blank" rel="noopener">+54 9 387 482-0015</a></dd></div></div>
+            <div><span class="info__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6" class="dot"/></svg></span><div><dt>Instagram</dt><dd><a href="https://www.instagram.com/romicorreamakeup/" target="_blank" rel="noopener">@romicorreamakeup</a></dd></div></div>
+          </dl>
+        </div>
+        <div class="contact__map reveal">
+          <iframe title="Mapa de ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Ameghino%20540%2C%20Salta%2C%20Argentina&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <img src="Asserts/logo-romi-blanco.png" alt="Romi" class="footer__logo">
+      <nav class="footer__nav" aria-label="Pie">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="#turnos">Turnos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <p class="footer__copy">© <span id="year"></span> Romi Beauty Studio · Salta, Argentina</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/5493874820015" class="wa-float" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6 0-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 5 2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.4z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    // Carrito de servicios: catálogo tomado de las tarjetas
+    createCart({
+      key: "romi-servicios",
+      catalog: Object.fromEntries([...document.querySelectorAll("[data-service]")].map((el) => [
+        el.dataset.service,
+        { name: el.dataset.name, price: el.dataset.price ? +el.dataset.price : null },
+      ])),
+      title: "Tus servicios",
+      icon: "list",
+      sendLabel: "Reservar por WhatsApp",
+      fields: [
+        { id: "nombre", label: "Tu nombre", type: "text", placeholder: "Para la reserva" },
+        { id: "fecha", label: "Día preferido", type: "date" },
+        { id: "horario", label: "Horario", type: "select", options: ["Mañana", "Tarde", "Indistinto"] },
+      ],
+      intro: (v) => {
+        const dia = v.fecha
+          ? new Date(v.fecha + "T12:00").toLocaleDateString("es-AR", { weekday: "long", day: "numeric", month: "long" })
+          : "a coordinar";
+        return `¡Hola Romi!${v.nombre ? ` Soy ${v.nombre}.` : ""} Quiero reservar estos servicios (día: ${dia}, horario: ${v.horario.toLowerCase()}):`;
+      },
+    });
+  </script>
+</body>
+</html>
