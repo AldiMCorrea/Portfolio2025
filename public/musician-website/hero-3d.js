@@ -245,12 +245,26 @@ function buildPiano(mat, logoTex) {
   add(piano, new THREE.BoxGeometry(1.28, 0.03, 0.05), mat.lacquerInner, { pos: [0, 0.885, -0.22] });
   add(piano, new THREE.BoxGeometry(1.28, 0.008, 0.04), mat.felt, { pos: [0, 0.868, -0.22] });
 
-  // lid on its hinge (bass side), with the prop stick
+  // lid on its hinge (bass side), with the prop stick. Like a real grand, the front
+  // flap is hinged and folded back onto the lid, which leaves the music desk clear.
+  const FLAP = 0.3, LID_T = 0.016;
   const lidPivot = new THREE.Group();
   lidPivot.position.set(-HW, 0.963, 0);
   lidPivot.rotation.z = 0.5;
   piano.add(lidPivot);
-  add(lidPivot, slab(new THREE.Shape(outer), 0.016, 0.004), mat.lacquer, { pos: [HW, 0, 0] });
+  const lidBody = new THREE.Group();
+  lidBody.position.x = HW;
+  lidPivot.add(lidBody);
+  const back = outer.filter((p) => p.y >= FLAP);   // contiguous run from the bentside round to the bass side
+  const mainLid = new THREE.Shape([new V2(HW, FLAP), ...back, new V2(-HW, FLAP)]);
+  add(lidBody, slab(mainLid, LID_T, 0.004), mat.lacquer);
+  const flapPivot = new THREE.Group();
+  flapPivot.position.set(0, LID_T + 0.001, -FLAP);
+  flapPivot.rotation.x = Math.PI;                    // folded back on top of the lid
+  lidBody.add(flapPivot);
+  const flap = new THREE.Shape([new V2(-HW, 0), new V2(HW, 0), new V2(HW, FLAP - 0.004), new V2(-HW, FLAP - 0.004)]);
+  add(flapPivot, slab(flap, LID_T, 0.004), mat.lacquer, { pos: [0, -LID_T, FLAP] });
+  rod(lidBody, new V3(-HW + 0.06, LID_T + 0.001, -FLAP), new V3(HW - 0.06, LID_T + 0.001, -FLAP), 0.0045, mat.brass, 12);
   const a = 0.5, d = 1.12;
   rod(piano, new V3(0.5, 0.963, -0.62), new V3(-HW + d * Math.cos(a), 0.963 + d * Math.sin(a) - 0.01, -0.62), 0.011, mat.lacquer);
 
