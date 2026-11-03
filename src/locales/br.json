@@ -9,7 +9,7 @@
   },
   "about": {
     "title": "Sobre Mim",
-    "content": "Desenvolvedora de Firmware com mais de 5 anos construindo software embarcado de missão crítica para dispositivos médicos regulados. Escrevo drivers de baixo nível em C/C++, lógica de controle em tempo real e participo do bring-up de placas em plataformas ARM (Cortex-A/M) com QNX RTOS e Linux embarcado, seguindo os padrões IEC 62304. Também trabalho com microcontroladores ESP32/ESP8266 para produtos IoT. Me importo com firmware que não falha: C++ limpo, testes rigorosos e depuração disciplinada."
+    "content": "Desenvolvedora de Firmware com mais de 5 anos construindo software embarcado de missão crítica para dispositivos médicos regulados. Escrevo firmware de baixo nível em C/C++, lógica de controle em tempo real e participo do bring-up de placas em plataformas ARM (Cortex-A/M) com QNX RTOS e Linux embarcado, seguindo os padrões IEC 62304. Também trabalho com microcontroladores ESP32/ESP8266 para produtos IoT. Me importo com firmware que não falha: C++ limpo, testes rigorosos e depuração disciplinada."
   },
   "education": {
     "title": "Educação",
@@ -26,7 +26,7 @@
     "job1_desc": [
       "Desenvolvi e mantive firmware de missão crítica (compatível com IEC 62304) em C/C++ para um ventilador pulmonar médico, gerenciando tarefas de alta confiabilidade no RTOS QNX.",
       "Implementei a lógica de controle em tempo real (leitura de sensores, controle de atuadores) e o sistema de alarme crítico usando Máquinas de Estados Finitos (FSM) em C++ para vários modos de ventilação.",
-      "Projetei, implementei e mantive drivers de baixo nível em C para a plataforma Toradex i.MX 6 Quad Core (ARM Cortex-A9), fazendo a interface com periféricos (I2C, SPI, ADC) e participando do processo de inicialização da placa.",
+      "Projetei, implementei e mantive código de baixo nível em C para a plataforma Toradex i.MX 6 Quad Core (ARM Cortex-A9), fazendo a interface com periféricos (I2C, SPI, ADC) e participando do processo de inicialização da placa.",
       "Integrei a HMI baseada em Qt/QML com o backend de controle em C++, estabelecendo a API de comunicação para visualização de dados em tempo real e propagação de alarmes.",
       "Desenvolvi e mantive um robusto conjunto de testes unitários (por exemplo, GoogleTest/CppUnit) para módulos C++, garantindo a qualidade do código, a confiabilidade e facilitando o desenvolvimento livre de regressões.",
       "Automatizei o pipeline de internacionalização (i18n) do software desenvolvendo scripts em Python que consumiam APIs de tradução baseadas em IA para as strings da interface do usuário.",
@@ -52,7 +52,7 @@
     "skills": [
       "C/C++ embarcado para plataformas ARM Cortex-A/M",
       "RTOS (QNX) e firmware bare-metal",
-      "Desenvolvimento de drivers de baixo nível (I2C, SPI, UART/RS-232, ADC) e bring-up de placas",
+      "Programação de baixo nível em C com periféricos (I2C, SPI, UART/RS-232, ADC) e bring-up de placas",
       "Sistemas de controle em tempo real e Máquinas de Estados Finitos",
       "C++ Moderno (C++11/14/17) e STL",
       "Padrões de Projeto e Princípios SOLID",
@@ -151,7 +151,7 @@
     "eyebrow": "Disponível para vagas de firmware",
     "title": "Desenvolvedora de Firmware",
     "subtitle": "Olá, sou Aldana Correa",
-    "description": "Desenvolvedora de firmware com mais de 5 anos construindo sistemas embarcados críticos e em tempo real — de drivers em C de baixo nível e tarefas de RTOS em dispositivos médicos, a firmware ESP32/ESP8266 para produtos IoT. Transformo hardware em software confiável.",
+    "description": "Desenvolvedora de firmware com mais de 5 anos construindo sistemas embarcados críticos e em tempo real — de firmware em C de baixo nível e tarefas de RTOS em dispositivos médicos, a firmware ESP32/ESP8266 para produtos IoT. Transformo hardware em software confiável.",
     "downloadResume": "Baixar Currículo",
     "contactMe": "Contate-me",
     "askMeAnything": "Pergunte-me qualquer coisa",

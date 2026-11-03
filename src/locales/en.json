@@ -9,7 +9,7 @@
   },
   "about": {
     "title": "About Me",
-    "content": "Firmware Developer with 5+ years building mission-critical embedded software for safety-regulated medical devices. I write low-level C/C++ drivers, real-time control logic, and board bring-up on ARM platforms (Cortex-A/M) running QNX RTOS and embedded Linux, following IEC 62304 standards. Comfortable across the whole stack — from I2C/SPI/UART peripherals to the Qt/QML HMI on top — and just as at home on ESP32/ESP8266 microcontrollers for IoT products. I care about firmware that doesn't fail: clean C++, thorough unit testing, and disciplined debugging."
+    "content": "Firmware Developer with 5+ years building mission-critical embedded software for safety-regulated medical devices. I write low-level C/C++ firmware and real-time control logic, and take part in board bring-up on ARM platforms (Cortex-A/M) running QNX RTOS and embedded Linux, following IEC 62304 standards. Comfortable across the whole stack — from I2C/SPI/UART peripherals to the Qt/QML HMI on top — and just as at home on ESP32/ESP8266 microcontrollers for IoT products. I care about firmware that doesn't fail: clean C++, thorough unit testing, and disciplined debugging."
   },
   "education": {
     "title": "Education",
@@ -26,7 +26,7 @@
     "job1_desc": [
       "Developed and maintained mission-critical firmware (IEC 62304 compliant) in C/C++ for a medical pulmonary ventilator, managing high-reliability tasks on the QNX RTOS.",
       "Implemented real-time control logic (sensor reading, actuator control) and the critical alarm system using C++ Finite State Machines (FSMs) for various ventilation modes.",
-      "Designed, implemented, and maintained low-level C drivers for the Toradex i.MX 6 Quad Core (ARM Cortex-A9) platform, interfacing with peripherals (I2C, SPI, ADC) and participating in the board bring-up process.",
+      "Designed, implemented, and maintained low-level C code for the Toradex i.MX 6 Quad Core (ARM Cortex-A9) platform, interfacing with peripherals (I2C, SPI, ADC) and participating in the board bring-up process.",
       "Integrated the Qt/QML-based HMI with the C++ control backend, establishing the communication API for real-time data visualization and alarm propagation.",
       "Developed and maintained a robust unit testing suite (e.g., GoogleTest/CppUnit) for C++ modules, ensuring code quality, reliability, and facilitating regression-free development.",
       "Automated the software internationalization (i18n) pipeline by developing Python scripts that consumed AI-based translation APIs for UI strings.",
@@ -52,7 +52,7 @@
     "skills": [
       "Embedded C/C++ for ARM Cortex-A/M platforms",
       "RTOS (QNX) and bare-metal firmware",
-      "Low-level driver development (I2C, SPI, UART/RS-232, ADC) & board bring-up",
+      "Low-level C programming with peripherals (I2C, SPI, UART/RS-232, ADC) & board bring-up",
       "Real-time control systems and Finite State Machines",
       "Modern C++ (C++11/14/17) and STL",
       "Design Patterns and SOLID Principles",
@@ -151,7 +151,7 @@
     "eyebrow": "Open to firmware roles",
     "title": "Firmware Developer",
     "subtitle": "Hi, I'm Aldana Correa",
-    "description": "Firmware developer with 5+ years building safety-critical, real-time embedded systems — from low-level C drivers and RTOS tasks on medical devices to ESP32/ESP8266 firmware for IoT products. I turn hardware into reliable software.",
+    "description": "Firmware developer with 5+ years building safety-critical, real-time embedded systems — from low-level C firmware and RTOS tasks on medical devices to ESP32/ESP8266 firmware for IoT products. I turn hardware into reliable software.",
     "downloadResume": "Download Resume",
     "contactMe": "Contact Me",
     "askMeAnything": "Ask me anything",
