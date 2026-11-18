@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Capricho · Mi negocio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+<script>
+  try { var t = localStorage.getItem('capricho-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<style>
+  :root{
+    --bg:#f7f1e8; --bg2:#efe5d6; --surface:#fffdf9; --line:#e3d4be; --line2:#eee3d2;
+    --text:#2b1d14; --muted:#75614f; --accent:#b4532a; --accent-ink:#fff; --wheat:#c8922f;
+    --pos:#2f7a46; --neg:#b3362b; --pos-bg:#e5f2e8; --neg-bg:#f8e3e0; --info-bg:#f3e9da;
+    --shadow:0 10px 30px rgba(58,36,23,.08);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17110d; --bg2:#1f1712; --surface:#231a14; --line:#3a2c22; --line2:#2e231b;
+      --text:#f5ebdf; --muted:#b8a593; --accent:#e07b4c; --accent-ink:#1a100a; --wheat:#e6b85c;
+      --pos:#6cc489; --neg:#f08072; --pos-bg:#1c2e22; --neg-bg:#3a1f1b; --info-bg:#2a2019;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17110d; --bg2:#1f1712; --surface:#231a14; --line:#3a2c22; --line2:#2e231b;
+    --text:#f5ebdf; --muted:#b8a593; --accent:#e07b4c; --accent-ink:#1a100a; --wheat:#e6b85c;
+    --pos:#6cc489; --neg:#f08072; --pos-bg:#1c2e22; --neg-bg:#3a1f1b; --info-bg:#2a2019;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.5}
+  a{color:inherit}
+  button,input,select{font:inherit;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+  .num{font-variant-numeric:tabular-nums}
+
+  .draft{background:var(--accent);color:var(--accent-ink);font-size:13px;text-align:center;padding:7px 16px}
+  header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+  .brand{display:flex;align-items:baseline;gap:10px}
+  .brand b{font-family:Fraunces,serif;font-style:italic;font-size:26px}
+  .brand span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .hdr-actions{display:flex;gap:10px;align-items:center}
+  .back{font-size:14px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--text)}
+  .toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--bg);display:grid;place-items:center;cursor:pointer}
+  .toggle .moon{display:none}
+  :root[data-theme="dark"] .toggle .sun{display:none}
+  :root[data-theme="dark"] .toggle .moon{display:block}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .toggle .sun{display:none}
+    :root:not([data-theme="light"]) .toggle .moon{display:block}
+  }
+
+  .notice{background:var(--info-bg);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:18px 0 0;font-size:13.5px;color:var(--muted);display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+  .notice b{color:var(--text)}
+
+  /* Day bar */
+  .daybar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:22px 0 16px}
+  .daypick{display:flex;align-items:center;gap:8px}
+  .daypick h1{font-family:Fraunces,serif;font-size:26px;font-weight:600;margin-right:6px;text-transform:capitalize}
+  .icon-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center}
+  .icon-btn:hover{border-color:var(--accent)}
+  input[type=date]{height:38px;border:1px solid var(--line);border-radius:10px;padding:0 10px;background:var(--surface)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border-radius:10px;border:1px solid transparent;background:var(--accent);color:var(--accent-ink);font-weight:600;cursor:pointer;white-space:nowrap}
+  .btn:hover{filter:brightness(1.06)}
+  .btn.ghost{background:var(--surface);color:var(--text);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--accent)}
+  .btn.xl{height:46px;padding:0 22px}
+  .btn svg{width:16px;height:16px}
+  .exports{display:flex;gap:8px;flex-wrap:wrap}
+
+  /* KPIs */
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+  @media(max-width:1100px){.kpis{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  .kpi{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+  .kpi small{display:block;color:var(--muted);font-size:12.5px;font-weight:500}
+  .kpi b{display:block;font-size:22px;font-weight:700;margin-top:4px}
+  .kpi em{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:2px}
+  .kpi.main{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--surface))}
+  .kpi.main b{font-size:24px}
+  .pos{color:var(--pos)} .neg{color:var(--neg)}
+
+  /* Tabs */
+  .tabs{display:flex;gap:6px;margin:24px 0 0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line)}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{border:0;background:none;padding:12px 16px;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;display:flex;gap:8px;align-items:center}
+  .tab .count{font-size:11px;background:var(--bg2);border-radius:999px;padding:1px 8px;color:var(--muted)}
+  .tab[aria-selected=true]{color:var(--text);border-bottom-color:var(--accent)}
+  .panel{display:none;padding:20px 0 40px}
+  .panel.on{display:block}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+  .card + .card{margin-top:16px}
+  .card h2{font-family:Fraunces,serif;font-weight:600;font-size:20px;margin-bottom:4px}
+  .card .sub{color:var(--muted);font-size:13.5px;margin-bottom:14px}
+  .cols{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:16px;align-items:start}
+  @media(max-width:900px){.cols{grid-template-columns:1fr}}
+  .cols > *{min-width:0}
+  @media(max-width:600px){
+    .back{display:none}
+    .daypick{flex-wrap:wrap}
+    .daypick h1{width:100%}
+    .daypick input[type=date]{flex:1;min-width:0}
+    .exports{width:100%}
+    .exports .btn{flex:1}
+    .kpi{padding:12px}
+    .kpi b{font-size:19px}
+    .kpi.main b{font-size:20px}
+    .notice{font-size:13px}
+    .card{padding:14px}
+  }
+
+  /* Forms */
+  form{display:grid;gap:12px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  label{display:grid;gap:5px;font-size:12.5px;font-weight:600;color:var(--muted)}
+  input:not([type=date]),select{height:44px;border:1px solid var(--line);border-radius:10px;padding:0 12px;background:var(--bg);font-size:15px;width:100%}
+  input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .total-line{display:flex;justify-content:space-between;align-items:center;background:var(--bg2);border-radius:10px;padding:10px 14px;font-weight:600}
+  .total-line b{font-size:20px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .chip{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer}
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+  .hidden{display:none!important}
+  .hint{font-size:12px;color:var(--muted);font-weight:400}
+
+  /* Tables */
+  .tbl-wrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:10px;border-bottom:1px solid var(--line2);vertical-align:middle}
+  td.r,th.r{text-align:right}
+  tfoot td{font-weight:700;border-top:2px solid var(--line);border-bottom:0}
+  .tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--bg2)}
+  .tag.fiado{background:var(--neg-bg);color:var(--neg)}
+  .tag.ok{background:var(--pos-bg);color:var(--pos)}
+  .del{border:0;background:none;color:var(--muted);cursor:pointer;width:30px;height:30px;border-radius:8px}
+  .del:hover{background:var(--neg-bg);color:var(--neg)}
+  .empty{color:var(--muted);text-align:center;padding:26px 10px;font-size:14px}
+
+  /* Month bars */
+  .bars{display:flex;align-items:center;gap:4px;height:160px;padding:8px 0;border-bottom:1px solid var(--line);margin-bottom:12px;position:relative}
+  .bars::after{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px dashed var(--line)}
+  .bar{flex:1;height:100%;display:flex;flex-direction:column;justify-content:center;position:relative;cursor:default}
+  .bar i{display:block;width:100%;border-radius:4px;min-height:2px}
+  .bar.up i{background:var(--pos);align-self:flex-end;margin-top:auto;margin-bottom:50%}
+  .bar.down i{background:var(--neg);margin-top:50%;margin-bottom:auto}
+  .bar:hover i{filter:brightness(1.15)}
+  .bar span{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--muted)}
+
+  .catalog input{height:38px}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:12px 18px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:all .25s;z-index:50;max-width:calc(100% - 32px)}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+  .mix{display:grid;gap:6px;margin-top:10px;font-size:13.5px}
+  .mix div{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line2);padding:4px 0}
+</style>
+</head>
+<body>
+
+<div class="draft">Boceto de propuesta · Panel de gestión para Capricho · Diseño y desarrollo: Aldana Correa</div>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><b>Capricho</b><span>Mi negocio</span></div>
+    <div class="hdr-actions">
+      <a class="back" href="index.html">← Ver la web</a>
+      <button class="toggle" id="toggle" aria-label="Cambiar modo claro/oscuro">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="notice">
+    <span><b>Versión de demostración.</b> Tiene datos de ejemplo y lo que cargues se guarda solo en este navegador. En la versión final: usuario y contraseña, y todo guardado de forma segura en la nube.</span>
+    <span style="display:flex;gap:8px">
+      <button class="btn ghost" id="seedBtn" type="button">Datos de ejemplo</button>
+      <button class="btn ghost" id="wipeBtn" type="button">Empezar de cero</button>
+    </span>
+  </div>
+
+  <div class="daybar">
+    <div class="daypick">
+      <h1 id="dayTitle">Hoy</h1>
+      <button class="icon-btn" id="prevDay" aria-label="Día anterior">‹</button>
+      <input type="date" id="dayInput" aria-label="Elegir día">
+      <button class="icon-btn" id="nextDay" aria-label="Día siguiente">›</button>
+      <button class="btn ghost" id="todayBtn" type="button">Hoy</button>
+    </div>
+    <div class="exports">
+      <button class="btn" id="xlsDay" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg>Excel del día</button>
+      <button class="btn ghost" id="xlsMonth" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg>Excel del mes</button>
+    </div>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="ventas" aria-selected="true">Ventas <span class="count" id="c-ventas">0</span></button>
+    <button class="tab" role="tab" data-tab="compras" aria-selected="false">Compras <span class="count" id="c-compras">0</span></button>
+    <button class="tab" role="tab" data-tab="pagos" aria-selected="false">Pagos a proveedores <span class="count" id="c-pagos">0</span></button>
+    <button class="tab" role="tab" data-tab="fiados" aria-selected="false">Fiados <span class="count" id="c-fiados">0</span></button>
+    <button class="tab" role="tab" data-tab="mes" aria-selected="false">Resumen del mes</button>
+    <button class="tab" role="tab" data-tab="productos" aria-selected="false">Productos y precios</button>
+  </div>
+
+  <!-- VENTAS -->
+  <section class="panel on" id="p-ventas" role="tabpanel">
+    <div class="cols">
+      <div class="card">
+        <h2>Cargar venta</h2>
+        <p class="sub">Tocá un producto para completar el precio.</p>
+        <div class="chips" id="saleChips"></div>
+        <form id="saleForm" autocomplete="off">
+          <label>Producto<input name="product" list="dlProducts" required placeholder="Ej: Medialunas"></label>
+          <div class="row">
+            <label>Cantidad<input name="qty" type="number" step="0.25" min="0.25" value="1" required inputmode="decimal"></label>
+            <label>Unidad<select name="unit"><option>unidad</option><option>kg</option><option>docena</option><option>porción</option></select></label>
+          </div>
+          <div class="row">
+            <label>Precio por unidad<input name="price" type="number" step="1" min="0" required inputmode="numeric" placeholder="$"></label>
+            <label>Medio de pago<select name="method"><option>Efectivo</option><option>Transferencia</option><option>Débito</option><option>Crédito</option><option>Fiado</option></select></label>
+          </div>
+          <label class="hidden" id="saleClientWrap">Cliente (fiado)<input name="client" list="dlClients" placeholder="Ej: Doña Marta"><span class="hint">Se suma a lo que debe este cliente en la pestaña Fiados.</span></label>
+          <div class="total-line"><span>Total</span><b class="num" id="saleTotal">$ 0</b></div>
+          <button class="btn xl" type="submit">Agregar venta</button>
+        </form>
+      </div>
+      <div class="card">
+        <h2>Ventas del día</h2>
+        <p class="sub" id="salesSub"></p>
+        <div class="tbl-wrap"><table><thead><tr><th>Hora</th><th>Producto</th><th class="r">Cant.</th><th class="r">Precio</th><th class="r">Total</th><th>Pago</th><th></th></tr></thead><tbody id="salesBody"></tbody><tfoot id="salesFoot"></tfoot></table></div>
+        <div class="mix" id="salesMix"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPRAS -->
+  <section class="panel" id="p-compras" role="tabpanel">
+    <div class="cols">
+      <div class="card">
+        <h2>Cargar compra</h2>
+        <p class="sub">Harina, levadura, manteca, packaging… todo lo que compran para producir.</p>
+        <form id="buyForm" autocomplete="off">
+          <label>Qué compraron<input name="item" list="dlItems" required placeholder="Ej: Harina 000 (bolsa 25 kg)"></label>
+          <label>Proveedor<input name="supplier" list="dlSuppliers" required placeholder="Ej: Molinos del Centro"></label>
+          <div class="row">
+            <label>Cantidad<input name="qty" type="number" step="0.5" min="0" value="1" inputmode="decimal"></label>
+            <label>Costo total<input name="total" type="number" step="1" min="0" required inputmode="numeric" placeholder="$"></label>
+          </div>
+          <div class="row">
+            <label>¿Cómo se pagó?<select name="paid"><option value="yes">Pagado en el momento</option><option value="no">A cuenta (se le debe)</option></select></label>
+            <label id="buyMethodWrap">Medio de pago<select name="method"><option>Efectivo</option><option>Transferencia</option><option>Débito</option><option>Crédito</option></select></label>
+          </div>
+          <button class="btn xl" type="submit">Agregar compra</button>
+        </form>
+      </div>
+      <div class="card">
+        <h2>Compras del día</h2>
+        <p class="sub" id="buysSub"></p>
+        <div class="tbl-wrap"><table><thead><tr><th>Qué</th><th>Proveedor</th><th class="r">Cant.</th><th class="r">Costo</th><th>Pago</th><th></th></tr></thead><tbody id="buysBody"></tbody><tfoot id="buysFoot"></tfoot></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGOS A PROVEEDORES -->
+  <section class="panel" id="p-pagos" role="tabpanel">
+    <div class="cols">
+      <div class="card">
+        <h2>Registrar pago a proveedor</h2>
+        <p class="sub">Para saldar compras que quedaron a cuenta.</p>
+        <form id="payForm" autocomplete="off">
+          <label>Proveedor<input name="supplier" list="dlSuppliers" required placeholder="Ej: Distribuidora La Serrana"><span class="hint" id="payHint"></span></label>
+          <div class="row">
+            <label>Monto<input name="amount" type="number" step="1" min="1" required inputmode="numeric" placeholder="$"></label>
+            <label>Medio<select name="method"><option>Efectivo</option><option>Transferencia</option><option>Cheque</option></select></label>
+          </div>
+          <label>Nota (opcional)<input name="note" placeholder="Ej: factura 0001-2345"></label>
+          <button class="btn xl" type="submit">Registrar pago</button>
+        </form>
+      </div>
+      <div>
+        <div class="card">
+          <h2>Pagos del día</h2>
+          <div class="tbl-wrap"><table><thead><tr><th>Proveedor</th><th class="r">Monto</th><th>Medio</th><th>Nota</th><th></th></tr></thead><tbody id="paysBody"></tbody></table></div>
+        </div>
+        <div class="card">
+          <h2>Cuánto se le debe a cada proveedor</h2>
+          <p class="sub">Compras a cuenta menos pagos, hasta el día elegido.</p>
+          <div class="tbl-wrap"><table><thead><tr><th>Proveedor</th><th class="r">Compras a cuenta</th><th class="r">Pagado</th><th class="r">Saldo</th></tr></thead><tbody id="supBody"></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIADOS -->
+  <section class="panel" id="p-fiados" role="tabpanel">
+    <div class="cols">
+      <div class="card">
+        <h2>Registrar cobro de fiado</h2>
+        <p class="sub">Los fiados nuevos se cargan como venta con pago «Fiado».</p>
+        <form id="colForm" autocomplete="off">
+          <label>Cliente<input name="client" list="dlDebtors" required placeholder="Ej: Kiosco Rubén"><span class="hint" id="colHint"></span></label>
+          <div class="row">
+            <label>Monto<input name="amount" type="number" step="1" min="1" required inputmode="numeric" placeholder="$"></label>
+            <label>Medio<select name="method"><option>Efectivo</option><option>Transferencia</option></select></label>
+          </div>
+          <button class="btn xl" type="submit">Registrar cobro</button>
+        </form>
+      </div>
+      <div>
+        <div class="card">
+          <h2>Quién debe cuánto</h2>
+          <p class="sub">Hasta el día elegido.</p>
+          <div class="tbl-wrap"><table><thead><tr><th>Cliente</th><th class="r">Fiado</th><th class="r">Pagó</th><th class="r">Debe</th><th>Último fiado</th></tr></thead><tbody id="debtBody"></tbody><tfoot id="debtFoot"></tfoot></table></div>
+        </div>
+        <div class="card">
+          <h2>Movimientos de fiado del día</h2>
+          <div class="tbl-wrap"><table><thead><tr><th>Cliente</th><th>Detalle</th><th class="r">Monto</th><th></th></tr></thead><tbody id="fmovBody"></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MES -->
+  <section class="panel" id="p-mes" role="tabpanel">
+    <div class="card">
+      <h2 id="monthTitle">Resumen del mes</h2>
+      <p class="sub">Ganancia por día (verde: ganaron · rojo: gastaron más de lo que vendieron). Pasá el mouse por una barra para ver el día.</p>
+      <div class="bars" id="bars"></div>
+      <div style="height:14px"></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Día</th><th class="r">Ventas</th><th class="r">Compras</th><th class="r">Ganancia</th><th class="r">Pagos prov.</th><th class="r">Cobros fiado</th><th class="r">Caja</th></tr></thead><tbody id="monthBody"></tbody><tfoot id="monthFoot"></tfoot></table></div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section class="panel" id="p-productos" role="tabpanel">
+    <div class="card">
+      <h2>Productos y precios</h2>
+      <p class="sub">Los precios de acá se completan solos al cargar una venta. Cambiar un precio no modifica ventas ya cargadas.</p>
+      <div class="tbl-wrap catalog"><table><thead><tr><th>Producto</th><th>Unidad</th><th class="r">Precio</th><th></th></tr></thead><tbody id="catBody"></tbody></table></div>
+      <div style="margin-top:12px"><button class="btn ghost" id="addProduct" type="button">+ Agregar producto</button></div>
+    </div>
+  </section>
+</main>
+
+<datalist id="dlProducts"></datalist>
+<datalist id="dlClients"></datalist>
+<datalist id="dlDebtors"></datalist>
+<datalist id="dlSuppliers"></datalist>
+<datalist id="dlItems"></datalist>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  /* ---------- helpers ---------- */
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const money = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 });
+  const fmt = (n) => money.format(Math.round(n || 0));
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const parse = (s) => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+  const addDays = (s, n) => { const d = parse(s); d.setDate(d.getDate() + n); return iso(d); };
+  const today = iso(new Date());
+  const uid = () => Math.random().toString(36).slice(2, 10);
+  const sum = (arr, f) => arr.reduce((a, x) => a + (f ? f(x) : x), 0);
+  const norm = (s) => String(s || '').trim();
+  const key = (s) => norm(s).toLowerCase();
+  const dayName = (s) => parse(s).toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long' });
+  const nowTime = () => new Date().toTimeString().slice(0, 5);
+
+  let toastTimer;
+  function toast(msg) {
+    const t = $('#toast'); t.textContent = msg; t.classList.add('on');
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('on'), 2200);
+  }
+
+  /* ---------- storage (demo: this browser only) ---------- */
+  const KEY = 'capricho-panel-demo-v1';
+  let memory = null;
+  function load() {
+    try { const raw = localStorage.getItem(KEY); if (raw) return JSON.parse(raw); } catch (e) {}
+    return memory;
+  }
+  function save() {
+    memory = db;
+    try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) {}
+  }
+
+  const DEFAULT_PRODUCTS = [
+    ['Pan francés', 'kg', 3500], ['Medialunas', 'docena', 9000], ['Facturas surtidas', 'docena', 10000],
+    ['Pan de campo', 'unidad', 4500], ['Bizcochos de grasa', 'kg', 6000], ['Prepizza', 'unidad', 2500],
+    ['Sándwich de miga', 'docena', 15000], ['Alfajor de maicena', 'unidad', 1500], ['Torta (por encargo)', 'unidad', 28000],
+    ['Café con leche + 2 medialunas', 'unidad', 4200],
+  ].map(([name, unit, price]) => ({ id: uid(), name, unit, price }));
+
+  function emptyDb() {
+    return { products: DEFAULT_PRODUCTS.map((p) => ({ ...p })), sales: [], buys: [], pays: [], cols: [] };
+  }
+
+  /* demo data for the last 12 days, deterministic so it looks the same every time */
+  function seedDb() {
+    const d = emptyDb();
+    let s = 7;
+    const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+    const pick = (a) => a[Math.floor(rnd() * a.length)];
+    const methods = ['Efectivo', 'Efectivo', 'Efectivo', 'Transferencia', 'Transferencia', 'Débito', 'Fiado'];
+    const clients = ['Doña Marta', 'Kiosco Rubén', 'Carlos (vecino)', 'Escuela Nº 12'];
+    const supplies = [
+      ['Harina 000 (bolsa 25 kg)', 'Molinos del Centro', 32000], ['Levadura (500 g)', 'Distribuidora La Serrana', 4800],
+      ['Manteca (5 kg)', 'Lácteos Don Pedro', 41000], ['Grasa vacuna (10 kg)', 'Distribuidora La Serrana', 26000],
+      ['Azúcar (10 kg)', 'Distribuidora La Serrana', 13500], ['Huevos (maple x30)', 'Granja El Ceibo', 7500],
+      ['Dulce de membrillo (5 kg)', 'Distribuidora La Serrana', 15500], ['Bolsas de papel (x500)', 'Envases Córdoba', 18000],
+    ];
+    for (let i = 11; i >= 0; i--) {
+      const date = addDays(today, -i);
+      if (parse(date).getDay() === 5 && i > 0) {/* keep fridays too */}
+      const nSales = 14 + Math.floor(rnd() * 10);
+      for (let k = 0; k < nSales; k++) {
+        const p = pick(d.products.slice(0, 9));
+        const qty = p.unit === 'kg' ? [0.5, 1, 1, 1.5, 2][Math.floor(rnd() * 5)] : p.unit === 'docena' ? [0.5, 1, 1, 2][Math.floor(rnd() * 4)] : [1, 1, 2, 3][Math.floor(rnd() * 4)];
+        const method = pick(methods);
+        const h = 7 + Math.floor(rnd() * 14), m = Math.floor(rnd() * 60);
+        d.sales.push({ id: uid(), date, time: `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`, product: p.name, qty, unit: p.unit, price: p.price, total: Math.round(qty * p.price), method, client: method === 'Fiado' ? pick(clients) : '' });
+      }
+      const nBuys = rnd() < 0.35 ? 0 : 1 + Math.floor(rnd() * 3);
+      for (let k = 0; k < nBuys; k++) {
+        const [item, supplier, cost] = pick(supplies);
+        const qty = 1 + Math.floor(rnd() * 3);
+        const paid = rnd() < 0.6;
+        d.buys.push({ id: uid(), date, item, supplier, qty, total: cost * qty, paid, method: paid ? pick(['Efectivo', 'Transferencia']) : '' });
+      }
+      if (i % 4 === 1) d.pays.push({ id: uid(), date, supplier: 'Molinos del Centro', amount: 60000, method: 'Transferencia', note: 'Pago a cuenta' });
+      if (i % 5 === 2) d.pays.push({ id: uid(), date, supplier: 'Lácteos Don Pedro', amount: 40000, method: 'Efectivo', note: '' });
+      if (i % 3 === 0) d.cols.push({ id: uid(), date, client: pick(clients), amount: 5000 + Math.floor(rnd() * 4) * 2500, method: 'Efectivo' });
+    }
+    d.sales.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+    return d;
+  }
+
+  let db = load() || seedDb();
+  save();
+  let day = today;
+
+  /* ---------- calculations ---------- */
+  const on = (arr, date) => arr.filter((x) => x.date === date);
+  const until = (arr, date) => arr.filter((x) => x.date <= date);
+  function totals(date) {
+    const sales = on(db.sales, date), buys = on(db.buys, date), pays = on(db.pays, date), cols = on(db.cols, date);
+    const ventas = sum(sales, (x) => x.total);
+    const fiado = sum(sales.filter((x) => x.method === 'Fiado'), (x) => x.total);
+    const compras = sum(buys, (x) => x.total);
+    const comprasPagadas = sum(buys.filter((x) => x.paid), (x) => x.total);
+    const pagos = sum(pays, (x) => x.amount);
+    const cobros = sum(cols, (x) => x.amount);
+    return {
+      ventas, fiado, compras, comprasPagadas, pagos, cobros,
+      ganancia: ventas - compras,
+      caja: (ventas - fiado) + cobros - comprasPagadas - pagos,
+      nSales: sales.length, nBuys: buys.length, nPays: pays.length, nCols: cols.length,
+    };
+  }
+  function debtors(date) {
+    const map = new Map();
+    const get = (name) => { const k = key(name); if (!map.has(k)) map.set(k, { name: norm(name), fiado: 0, pago: 0, last: '' }); return map.get(k); };
+    until(db.sales, date).filter((x) => x.method === 'Fiado').forEach((x) => { const c = get(x.client || 'Sin nombre'); c.fiado += x.total; if (x.date > c.last) c.last = x.date; });
+    until(db.cols, date).forEach((x) => { get(x.client).pago += x.amount; });
+    return [...map.values()].map((c) => ({ ...c, saldo: c.fiado - c.pago })).sort((a, b) => b.saldo - a.saldo);
+  }
+  function suppliers(date) {
+    const map = new Map();
+    const get = (name) => { const k = key(name); if (!map.has(k)) map.set(k, { name: norm(name), cuenta: 0, pago: 0 }); return map.get(k); };
+    until(db.buys, date).filter((x) => !x.paid).forEach((x) => { get(x.supplier).cuenta += x.total; });
+    until(db.pays, date).forEach((x) => { get(x.supplier).pago += x.amount; });
+    return [...map.values()].map((s) => ({ ...s, saldo: s.cuenta - s.pago })).sort((a, b) => b.saldo - a.saldo);
+  }
+  function byMethod(date) {
+    const m = {};
+    on(db.sales, date).forEach((x) => { m[x.method] = (m[x.method] || 0) + x.total; });
+    return m;
+  }
+
+  /* ---------- rendering ---------- */
+  const signCls = (n) => (n > 0 ? 'pos' : n < 0 ? 'neg' : '');
+  function renderKpis() {
+    const t = totals(day);
+    const fiadoTotal = sum(debtors(day), (c) => Math.max(0, c.saldo));
+    const deuda = sum(suppliers(day), (s) => Math.max(0, s.saldo));
+    $('#kpis').innerHTML = `
+      <div class="kpi"><small>Vendieron</small><b class="num">${fmt(t.ventas)}</b><em>${t.nSales} ventas${t.fiado ? ` · ${fmt(t.fiado)} fiado` : ''}</em></div>
+      <div class="kpi"><small>Compraron</small><b class="num">${fmt(t.compras)}</b><em>${t.nBuys} compras de insumos</em></div>
+      <div class="kpi main"><small>Ganancia del día</small><b class="num ${signCls(t.ganancia)}">${fmt(t.ganancia)}</b><em>ventas − compras</em></div>
+      <div class="kpi"><small>Plata que quedó en caja</small><b class="num ${signCls(t.caja)}">${fmt(t.caja)}</b><em>lo que entró − lo que salió</em></div>
+      <div class="kpi"><small>Les deben (fiados)</small><b class="num">${fmt(fiadoTotal)}</b><em>total de clientes</em></div>
+      <div class="kpi"><small>Deben a proveedores</small><b class="num">${fmt(deuda)}</b><em>compras a cuenta</em></div>`;
+    $('#c-ventas').textContent = t.nSales;
+    $('#c-compras').textContent = t.nBuys;
+    $('#c-pagos').textContent = t.nPays;
+    $('#c-fiados').textContent = on(db.sales, day).filter((x) => x.method === 'Fiado').length + t.nCols;
+  }
+
+  const delBtn = (kind, id) => `<button class="del" data-del="${kind}" data-id="${id}" aria-label="Borrar" title="Borrar">✕</button>`;
+  const qtyTxt = (q, u) => `${String(q).replace('.', ',')} ${u === 'unidad' ? (q == 1 ? 'u.' : 'u.') : u === 'docena' ? 'doc.' : u}`;
+
+  function renderSales() {
+    const rows = on(db.sales, day).slice().sort((a, b) => (b.time || '').localeCompare(a.time || ''));
+    $('#salesBody').innerHTML = rows.length ? rows.map((x) => `<tr>
+        <td class="num">${esc(x.time || '')}</td><td>${esc(x.product)}${x.client ? `<br><span class="hint">${esc(x.client)}</span>` : ''}</td>
+        <td class="r num">${qtyTxt(x.qty, x.unit)}</td><td class="r num">${fmt(x.price)}</td><td class="r num"><b>${fmt(x.total)}</b></td>
+        <td><span class="tag ${x.method === 'Fiado' ? 'fiado' : ''}">${esc(x.method)}</span></td><td>${delBtn('sales', x.id)}</td></tr>`).join('')
+      : `<tr><td colspan="7" class="empty">Todavía no hay ventas cargadas este día.</td></tr>`;
+    const t = totals(day);
+    $('#salesFoot').innerHTML = rows.length ? `<tr><td colspan="4">Total del día</td><td class="r num">${fmt(t.ventas)}</td><td colspan="2"></td></tr>` : '';
+    $('#salesSub').textContent = dayName(day);
+    const m = byMethod(day);
+    $('#salesMix').innerHTML = Object.keys(m).length ? Object.entries(m).map(([k, v]) => `<div><span>${esc(k)}</span><b class="num">${fmt(v)}</b></div>`).join('') : '';
+  }
+  function renderBuys() {
+    const rows = on(db.buys, day);
+    $('#buysBody').innerHTML = rows.length ? rows.map((x) => `<tr><td>${esc(x.item)}</td><td>${esc(x.supplier)}</td><td class="r num">${esc(x.qty || '')}</td>
+        <td class="r num"><b>${fmt(x.total)}</b></td><td><span class="tag ${x.paid ? 'ok' : 'fiado'}">${x.paid ? esc(x.method || 'Pagado') : 'A cuenta'}</span></td><td>${delBtn('buys', x.id)}</td></tr>`).join('')
+      : `<tr><td colspan="6" class="empty">No hay compras cargadas este día.</td></tr>`;
+    const t = totals(day);
+    $('#buysFoot').innerHTML = rows.length ? `<tr><td colspan="3">Total</td><td class="r num">${fmt(t.compras)}</td><td colspan="2"></td></tr>` : '';
+    $('#buysSub').textContent = dayName(day);
+  }
+  function renderPays() {
+    const rows = on(db.pays, day);
+    $('#paysBody').innerHTML = rows.length ? rows.map((x) => `<tr><td>${esc(x.supplier)}</td><td class="r num"><b>${fmt(x.amount)}</b></td><td>${esc(x.method)}</td><td>${esc(x.note || '')}</td><td>${delBtn('pays', x.id)}</td></tr>`).join('')
+      : `<tr><td colspan="5" class="empty">No hay pagos a proveedores este día.</td></tr>`;
+    const sup = suppliers(day);
+    $('#supBody').innerHTML = sup.length ? sup.map((s) => `<tr><td>${esc(s.name)}</td><td class="r num">${fmt(s.cuenta)}</td><td class="r num">${fmt(s.pago)}</td><td class="r num"><b class="${s.saldo > 0 ? 'neg' : 'pos'}">${fmt(s.saldo)}</b></td></tr>`).join('')
+      : `<tr><td colspan="4" class="empty">No hay compras a cuenta.</td></tr>`;
+  }
+  function renderFiados() {
+    const deb = debtors(day);
+    const active = deb.filter((c) => c.saldo !== 0);
+    $('#debtBody').innerHTML = active.length ? active.map((c) => `<tr><td>${esc(c.name)}</td><td class="r num">${fmt(c.fiado)}</td><td class="r num">${fmt(c.pago)}</td>
+        <td class="r num"><b class="${c.saldo > 0 ? 'neg' : 'pos'}">${fmt(c.saldo)}</b></td><td>${c.last ? parse(c.last).toLocaleDateString('es-AR', { day: 'numeric', month: 'short' }) : '—'}</td></tr>`).join('')
+      : `<tr><td colspan="5" class="empty">Nadie debe nada. 🎉</td></tr>`;
+    $('#debtFoot').innerHTML = active.length ? `<tr><td colspan="3">Total que les deben</td><td class="r num">${fmt(sum(active, (c) => Math.max(0, c.saldo)))}</td><td></td></tr>` : '';
+    const movs = [
+      ...on(db.sales, day).filter((x) => x.method === 'Fiado').map((x) => ({ kind: 'sales', id: x.id, client: x.client, detail: `Fiado: ${x.product}`, amount: x.total })),
+      ...on(db.cols, day).map((x) => ({ kind: 'cols', id: x.id, client: x.client, detail: `Pagó (${x.method})`, amount: -x.amount })),
+    ];
+    $('#fmovBody').innerHTML = movs.length ? movs.map((m) => `<tr><td>${esc(m.client)}</td><td>${esc(m.detail)}</td><td class="r num"><b class="${m.amount > 0 ? 'neg' : 'pos'}">${m.amount > 0 ? '+' : '−'}${fmt(Math.abs(m.amount))}</b></td><td>${delBtn(m.kind, m.id)}</td></tr>`).join('')
+      : `<tr><td colspan="4" class="empty">Sin movimientos de fiado este día.</td></tr>`;
+    $('#dlDebtors').innerHTML = deb.filter((c) => c.saldo > 0).map((c) => `<option value="${esc(c.name)}">debe ${fmt(c.saldo)}</option>`).join('');
+  }
+  function monthDays(date) {
+    const d = parse(date), y = d.getFullYear(), m = d.getMonth();
+    const n = new Date(y, m + 1, 0).getDate();
+    return Array.from({ length: n }, (_, i) => iso(new Date(y, m, i + 1)));
+  }
+  function renderMonth() {
+    const days = monthDays(day);
+    const rows = days.map((d) => ({ d, ...totals(d) }));
+    const used = rows.filter((r) => r.nSales || r.nBuys || r.nPays || r.nCols);
+    const label = parse(day).toLocaleDateString('es-AR', { month: 'long', year: 'numeric' });
+    $('#monthTitle').textContent = `Resumen de ${label}`;
+    const max = Math.max(1, ...rows.map((r) => Math.abs(r.ganancia)));
+    $('#bars').innerHTML = rows.map((r) => {
+      const h = Math.round((Math.abs(r.ganancia) / max) * 50);
+      const dd = parse(r.d).getDate();
+      return `<div class="bar ${r.ganancia >= 0 ? 'up' : 'down'}" title="${dd}: ${fmt(r.ganancia)}"><i style="height:${h}%"></i>${dd % 5 === 1 ? `<span>${dd}</span>` : ''}</div>`;
+    }).join('');
+    $('#monthBody').innerHTML = used.length ? used.map((r) => `<tr><td>${parse(r.d).toLocaleDateString('es-AR', { weekday: 'short', day: 'numeric' })}</td>
+        <td class="r num">${fmt(r.ventas)}</td><td class="r num">${fmt(r.compras)}</td><td class="r num"><b class="${signCls(r.ganancia)}">${fmt(r.ganancia)}</b></td>
+        <td class="r num">${fmt(r.pagos)}</td><td class="r num">${fmt(r.cobros)}</td><td class="r num">${fmt(r.caja)}</td></tr>`).join('')
+      : `<tr><td colspan="7" class="empty">Sin movimientos este mes.</td></tr>`;
+    const T = (k) => sum(rows, (r) => r[k]);
+    $('#monthFoot').innerHTML = used.length ? `<tr><td>Total</td><td class="r num">${fmt(T('ventas'))}</td><td class="r num">${fmt(T('compras'))}</td><td class="r num ${signCls(T('ganancia'))}">${fmt(T('ganancia'))}</td><td class="r num">${fmt(T('pagos'))}</td><td class="r num">${fmt(T('cobros'))}</td><td class="r num">${fmt(T('caja'))}</td></tr>` : '';
+  }
+  function renderCatalog() {
+    $('#catBody').innerHTML = db.products.map((p) => `<tr data-pid="${p.id}">
+        <td><input data-f="name" value="${esc(p.name)}" aria-label="Nombre"></td>
+        <td><select data-f="unit" aria-label="Unidad">${['unidad', 'kg', 'docena', 'porción'].map((u) => `<option ${u === p.unit ? 'selected' : ''}>${u}</option>`).join('')}</select></td>
+        <td class="r"><input data-f="price" type="number" min="0" step="1" value="${p.price}" style="text-align:right;max-width:140px" aria-label="Precio"></td>
+        <td>${delBtn('products', p.id)}</td></tr>`).join('');
+    $('#saleChips').innerHTML = db.products.slice(0, 8).map((p) => `<button type="button" class="chip" data-pid="${p.id}">${esc(p.name)}</button>`).join('');
+    $('#dlProducts').innerHTML = db.products.map((p) => `<option value="${esc(p.name)}">${fmt(p.price)} / ${p.unit}</option>`).join('');
+  }
+  function renderLists() {
+    const uniq = (arr) => [...new Map(arr.filter(Boolean).map((v) => [key(v), norm(v)])).values()];
+    $('#dlClients').innerHTML = uniq([...db.sales.map((x) => x.client), ...db.cols.map((x) => x.client)]).map((v) => `<option value="${esc(v)}">`).join('');
+    $('#dlSuppliers').innerHTML = uniq([...db.buys.map((x) => x.supplier), ...db.pays.map((x) => x.supplier)]).map((v) => `<option value="${esc(v)}">`).join('');
+    $('#dlItems').innerHTML = uniq(db.buys.map((x) => x.item)).map((v) => `<option value="${esc(v)}">`).join('');
+  }
+  function render() {
+    $('#dayInput').value = day;
+    $('#dayTitle').textContent = day === today ? 'Hoy' : day === addDays(today, -1) ? 'Ayer' : parse(day).toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric' });
+    renderKpis(); renderSales(); renderBuys(); renderPays(); renderFiados(); renderMonth(); renderLists();
+  }
+
+  /* ---------- forms ---------- */
+  const saleForm = $('#saleForm');
+  function findProduct(name) { return db.products.find((p) => key(p.name) === key(name)); }
+  function updateSaleTotal() {
+    const f = saleForm.elements;
+    $('#saleTotal').textContent = fmt((+f.qty.value || 0) * (+f.price.value || 0));
+    $('#saleClientWrap').classList.toggle('hidden', f.method.value !== 'Fiado');
+    f.client.required = f.method.value === 'Fiado';
+  }
+  function fillProduct(p) {
+    const f = saleForm.elements;
+    f.product.value = p.name; f.unit.value = p.unit; f.price.value = p.price;
+    updateSaleTotal(); f.qty.focus(); f.qty.select();
+  }
+  saleForm.addEventListener('input', (e) => {
+    if (e.target.name === 'product') { const p = findProduct(e.target.value); if (p) { saleForm.elements.unit.value = p.unit; saleForm.elements.price.value = p.price; } }
+    updateSaleTotal();
+  });
+  saleForm.addEventListener('change', updateSaleTotal);
+  $('#saleChips').addEventListener('click', (e) => { const b = e.target.closest('[data-pid]'); if (b) fillProduct(db.products.find((p) => p.id === b.dataset.pid)); });
+  saleForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = saleForm.elements;
+    const qty = +f.qty.value, price = +f.price.value;
+    db.sales.push({ id: uid(), date: day, time: day === today ? nowTime() : '—', product: norm(f.product.value), qty, unit: f.unit.value, price, total: Math.round(qty * price), method: f.method.value, client: f.method.value === 'Fiado' ? norm(f.client.value) : '' });
+    if (!findProduct(f.product.value)) db.products.push({ id: uid(), name: norm(f.product.value), unit: f.unit.value, price });
+    save();
+    toast(`Venta cargada: ${fmt(qty * price)}`);
+    const keepMethod = f.method.value;
+    saleForm.reset(); f.method.value = keepMethod === 'Fiado' ? 'Efectivo' : keepMethod;
+    updateSaleTotal(); renderCatalog(); render(); f.product.focus();
+  });
+
+  const buyForm = $('#buyForm');
+  buyForm.elements.paid.addEventListener('change', () => $('#buyMethodWrap').classList.toggle('hidden', buyForm.elements.paid.value === 'no'));
+  buyForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = buyForm.elements, paid = f.paid.value === 'yes';
+    db.buys.push({ id: uid(), date: day, item: norm(f.item.value), supplier: norm(f.supplier.value), qty: +f.qty.value || '', total: +f.total.value, paid, method: paid ? f.method.value : '' });
+    save(); toast(paid ? 'Compra cargada' : 'Compra cargada a cuenta del proveedor');
+    buyForm.reset(); $('#buyMethodWrap').classList.remove('hidden'); render();
+  });
+
+  const payForm = $('#payForm');
+  payForm.elements.supplier.addEventListener('input', () => {
+    const s = suppliers(day).find((x) => key(x.name) === key(payForm.elements.supplier.value));
+    $('#payHint').textContent = s ? `Le deben ${fmt(s.saldo)}` : '';
+  });
+  payForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = payForm.elements;
+    db.pays.push({ id: uid(), date: day, supplier: norm(f.supplier.value), amount: +f.amount.value, method: f.method.value, note: norm(f.note.value) });
+    save(); toast('Pago registrado'); payForm.reset(); $('#payHint').textContent = ''; render();
+  });
+
+  const colForm = $('#colForm');
+  colForm.elements.client.addEventListener('input', () => {
+    const c = debtors(day).find((x) => key(x.name) === key(colForm.elements.client.value));
+    $('#colHint').textContent = c ? `Debe ${fmt(c.saldo)}` : '';
+    if (c && c.saldo > 0 && !colForm.elements.amount.value) colForm.elements.amount.value = c.saldo;
+  });
+  colForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = colForm.elements;
+    db.cols.push({ id: uid(), date: day, client: norm(f.client.value), amount: +f.amount.value, method: f.method.value });
+    save(); toast('Cobro registrado'); colForm.reset(); $('#colHint').textContent = ''; render();
+  });
+
+  /* delete rows (two taps to confirm, no browser dialogs) */
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-del]');
+    if (!b) return;
+    if (!b.dataset.armed) {
+      b.dataset.armed = '1'; b.textContent = '¿Borrar?'; b.style.width = 'auto';
+      setTimeout(() => { if (b.isConnected) { delete b.dataset.armed; b.textContent = '✕'; b.style.width = ''; } }, 2500);
+      return;
+    }
+    const kind = b.dataset.del;
+    db[kind] = db[kind].filter((x) => x.id !== b.dataset.id);
+    save(); toast('Borrado'); if (kind === 'products') renderCatalog(); render();
+  });
+
+  /* catalog edits */
+  $('#catBody').addEventListener('change', (e) => {
+    const tr = e.target.closest('[data-pid]'); if (!tr) return;
+    const p = db.products.find((x) => x.id === tr.dataset.pid); if (!p) return;
+    const f = e.target.dataset.f;
+    p[f] = f === 'price' ? Math.max(0, +e.target.value || 0) : norm(e.target.value);
+    save(); renderCatalog(); toast('Producto actualizado');
+  });
+  $('#addProduct').addEventListener('click', () => {
+    db.products.push({ id: uid(), name: 'Nuevo producto', unit: 'unidad', price: 0 });
+    save(); renderCatalog();
+    const last = $$('#catBody input[data-f=name]').pop(); last.focus(); last.select();
+  });
+
+  /* tabs */
+  $$('.tab').forEach((t) => t.addEventListener('click', () => {
+    $$('.tab').forEach((x) => x.setAttribute('aria-selected', String(x === t)));
+    $$('.panel').forEach((p) => p.classList.toggle('on', p.id === 'p-' + t.dataset.tab));
+    try { sessionStorage.setItem('capricho-tab', t.dataset.tab); } catch (e) {}
+  }));
+  try { const last = sessionStorage.getItem('capricho-tab'); if (last) $(`.tab[data-tab="${last}"]`)?.click(); } catch (e) {}
+
+  /* day navigation */
+  $('#dayInput').addEventListener('change', (e) => { if (e.target.value) { day = e.target.value; render(); } });
+  $('#prevDay').addEventListener('click', () => { day = addDays(day, -1); render(); });
+  $('#nextDay').addEventListener('click', () => { day = addDays(day, 1); render(); });
+  $('#todayBtn').addEventListener('click', () => { day = today; render(); });
+
+  /* demo controls */
+  function armed(btn, label, fn) {
+    if (!btn.dataset.armed) { btn.dataset.armed = '1'; const old = btn.textContent; btn.textContent = label; setTimeout(() => { delete btn.dataset.armed; btn.textContent = old; }, 3000); return; }
+    delete btn.dataset.armed; fn();
+  }
+  $('#seedBtn').addEventListener('click', (e) => armed(e.currentTarget, 'Tocá de nuevo para reemplazar', () => { db = seedDb(); save(); day = today; renderCatalog(); render(); toast('Datos de ejemplo cargados'); $('#seedBtn').textContent = 'Datos de ejemplo'; }));
+  $('#wipeBtn').addEventListener('click', (e) => armed(e.currentTarget, 'Tocá de nuevo para borrar todo', () => { db = emptyDb(); save(); renderCatalog(); render(); toast('Listo, empezás de cero'); $('#wipeBtn').textContent = 'Empezar de cero'; }));
+
+  /* ---------- Excel export (SheetJS) ---------- */
+  const COLW = (ws, widths) => { ws['!cols'] = widths.map((w) => ({ wch: w })); };
+  const MONEY_FMT = '"$" #,##0';
+  function sheet(rows, headers, moneyCols, widths) {
+    const ws = XLSX.utils.json_to_sheet(rows, { header: headers });
+    if (!rows.length) XLSX.utils.sheet_add_aoa(ws, [headers]);
+    const range = XLSX.utils.decode_range(ws['!ref']);
+    for (let R = 1; R <= range.e.r; R++) for (const c of moneyCols) {
+      const cell = ws[XLSX.utils.encode_cell({ r: R, c: headers.indexOf(c) })];
+      if (cell && typeof cell.v === 'number') cell.z = MONEY_FMT;
+    }
+    COLW(ws, widths || headers.map((h) => Math.max(12, h.length + 2)));
+    return ws;
+  }
+  const fdate = (s) => parse(s).toLocaleDateString('es-AR');
+  function buildBook(dates, title) {
+    const set = new Set(dates);
+    const inRange = (arr) => arr.filter((x) => set.has(x.date));
+    const end = dates[dates.length - 1];
+    const last = day < end ? day : end;   // balances as of the selected day, never a future date
+    const wb = XLSX.utils.book_new();
+
+    const resumen = dates.map((d) => { const t = totals(d); return {
+      'Fecha': fdate(d), 'Ventas': t.ventas, 'Vendido fiado': t.fiado, 'Compras': t.compras, 'Ganancia (ventas − compras)': t.ganancia,
+      'Pagos a proveedores': t.pagos, 'Cobros de fiados': t.cobros, 'Caja (entró − salió)': t.caja }; })
+      .filter((r, i) => { const t = totals(dates[i]); return dates.length === 1 || t.nSales || t.nBuys || t.nPays || t.nCols; });
+    if (resumen.length > 1) {
+      const T = (k) => sum(resumen, (r) => r[k]);
+      resumen.push({ 'Fecha': 'TOTAL', 'Ventas': T('Ventas'), 'Vendido fiado': T('Vendido fiado'), 'Compras': T('Compras'), 'Ganancia (ventas − compras)': T('Ganancia (ventas − compras)'), 'Pagos a proveedores': T('Pagos a proveedores'), 'Cobros de fiados': T('Cobros de fiados'), 'Caja (entró − salió)': T('Caja (entró − salió)') });
+    }
+    const rh = ['Fecha', 'Ventas', 'Vendido fiado', 'Compras', 'Ganancia (ventas − compras)', 'Pagos a proveedores', 'Cobros de fiados', 'Caja (entró − salió)'];
+    XLSX.utils.book_append_sheet(wb, sheet(resumen, rh, rh.slice(1), [14, 14, 14, 14, 26, 20, 18, 20]), 'Resumen');
+
+    const methods = {};
+    inRange(db.sales).forEach((x) => { methods[x.method] = (methods[x.method] || 0) + x.total; });
+    XLSX.utils.book_append_sheet(wb, sheet(Object.entries(methods).map(([k, v]) => ({ 'Medio de pago': k, 'Total vendido': v })), ['Medio de pago', 'Total vendido'], ['Total vendido'], [18, 16]), 'Por medio de pago');
+
+    const vh = ['Fecha', 'Hora', 'Producto', 'Cantidad', 'Unidad', 'Precio unitario', 'Total', 'Medio de pago', 'Cliente (fiado)'];
+    XLSX.utils.book_append_sheet(wb, sheet(inRange(db.sales).map((x) => ({ 'Fecha': fdate(x.date), 'Hora': x.time, 'Producto': x.product, 'Cantidad': x.qty, 'Unidad': x.unit, 'Precio unitario': x.price, 'Total': x.total, 'Medio de pago': x.method, 'Cliente (fiado)': x.client })), vh, ['Precio unitario', 'Total'], [12, 8, 28, 10, 10, 15, 13, 15, 18]), 'Ventas');
+
+    const ch = ['Fecha', 'Qué se compró', 'Proveedor', 'Cantidad', 'Costo total', 'Pago', 'Medio'];
+    XLSX.utils.book_append_sheet(wb, sheet(inRange(db.buys).map((x) => ({ 'Fecha': fdate(x.date), 'Qué se compró': x.item, 'Proveedor': x.supplier, 'Cantidad': x.qty, 'Costo total': x.total, 'Pago': x.paid ? 'Pagado' : 'A cuenta', 'Medio': x.method })), ch, ['Costo total'], [12, 28, 24, 10, 14, 11, 14]), 'Compras');
+
+    const ph = ['Fecha', 'Proveedor', 'Monto', 'Medio', 'Nota'];
+    XLSX.utils.book_append_sheet(wb, sheet(inRange(db.pays).map((x) => ({ 'Fecha': fdate(x.date), 'Proveedor': x.supplier, 'Monto': x.amount, 'Medio': x.method, 'Nota': x.note })), ph, ['Monto'], [12, 24, 13, 14, 24]), 'Pagos a proveedores');
+
+    const fh = ['Fecha', 'Cliente', 'Movimiento', 'Detalle', 'Monto'];
+    const fm = [
+      ...inRange(db.sales).filter((x) => x.method === 'Fiado').map((x) => ({ 'Fecha': fdate(x.date), 'Cliente': x.client, 'Movimiento': 'Fiado', 'Detalle': `${x.product} (${x.qty} ${x.unit})`, 'Monto': x.total, _d: x.date })),
+      ...inRange(db.cols).map((x) => ({ 'Fecha': fdate(x.date), 'Cliente': x.client, 'Movimiento': 'Pagó', 'Detalle': x.method, 'Monto': -x.amount, _d: x.date })),
+    ].sort((a, b) => a._d.localeCompare(b._d)).map(({ _d, ...r }) => r);
+    XLSX.utils.book_append_sheet(wb, sheet(fm, fh, ['Monto'], [12, 20, 12, 30, 13]), 'Fiados (movimientos)');
+
+    const dh = ['Cliente', 'Total fiado', 'Total pagado', 'Debe'];
+    XLSX.utils.book_append_sheet(wb, sheet(debtors(last).filter((c) => c.saldo !== 0).map((c) => ({ 'Cliente': c.name, 'Total fiado': c.fiado, 'Total pagado': c.pago, 'Debe': c.saldo })), dh, dh.slice(1), [22, 14, 14, 14]), `Quién debe al ${fdate(last).replace(/\//g, '-')}`.slice(0, 31));
+
+    const sh = ['Proveedor', 'Compras a cuenta', 'Pagado', 'Se le debe'];
+    XLSX.utils.book_append_sheet(wb, sheet(suppliers(last).filter((s) => s.saldo !== 0).map((s) => ({ 'Proveedor': s.name, 'Compras a cuenta': s.cuenta, 'Pagado': s.pago, 'Se le debe': s.saldo })), sh, sh.slice(1), [26, 18, 14, 14]), 'Deuda con proveedores');
+
+    XLSX.writeFile(wb, title);
+  }
+  function exportXls(kind) {
+    if (!window.XLSX) { toast('No se pudo cargar el generador de Excel. Revisá la conexión.'); return; }
+    if (kind === 'day') buildBook([day], `Capricho_${day}.xlsx`);
+    else buildBook(monthDays(day), `Capricho_${day.slice(0, 7)}.xlsx`);
+    toast('Excel descargado');
+  }
+  $('#xlsDay').addEventListener('click', () => exportXls('day'));
+  $('#xlsMonth').addEventListener('click', () => exportXls('month'));
+
+  /* theme */
+  $('#toggle').addEventListener('click', () => {
+    const root = document.documentElement;
+    const cur = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('capricho-theme', next); } catch (e) {}
+  });
+
+  renderCatalog(); updateSaleTotal(); render();
+})();
+</script>
+</body>
+</html>
